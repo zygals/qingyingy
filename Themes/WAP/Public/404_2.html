@@ -1,0 +1,36 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <title>{$Think.CONFIG.sitename}404页面</title>
+    <style>
+        html,body{padding:0;margin:0;}
+        body{background-color:#fff;}
+        .wrap{width:1044px; height:600px; margin:0 auto; position:relative; background:url("__PUBLIC__/images/404.jpg") no-repeat;}
+        #logolink { display: block; height: 50px; left: 30px; position: absolute; text-indent: -200em; top: 20px; width: 242px;}
+        .back{position:absolute;bottom: 150px; left: 57px;overflow:hidden;margin:0px;padding:0px;}
+        .back a{text-decoration:none;color:#1592e5;font-size: 16px;margin-right:18px;}
+        .back a:hover{text-decoration:underline;color:#1592e5;}
+        .nav { bottom: 0; left: 45px;width:55%; padding: 0; position: absolute;}
+        .nav li {  display: inline; float: left; font-size: 17px; font-weight: bold; overflow: hidden; padding: 0 9px; list-style: outside none none;line-height:24px;}
+        .nav li.home { border-left: medium none;}
+        .nav li a {color: #1592e5; padding: 0 3px; text-decoration:none; font-size: 17px;}
+        .nav li a:hover { background: #1592e5 none repeat scroll 0 0; border-radius: 4px; color: #fff;}
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <a id="logolink" href="/">{$Think.CONFIG.sitename}</a>
+    <p class="back">
+        <a href="/">>>返回网站首页</a>
+        <a href="javascript:history.go(-1);">>>返回上一页面</a>
+    </p>
+ <p style="display:none">
+{$Think.CONFIG.footer}
+</p>   
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<div class="m-bottom b-top-e5">
+		<div class="bottom-menu">
+			<a href="/" class="recommend <if condition="CONTROLLER_NAME eq 'Index'">active</if>">
+				<span></span>
+				<p>精选推荐</p>
+			</a>
+			<a href="{:U('/app/category')}" class="classify <if condition="CONTROLLER_NAME eq 'App'">active</if>">
+				<span></span>
+				<p>类别</p>
+			</a>
+
+			<a href="{:U('/search/')}" class="search <if condition="CONTROLLER_NAME eq 'Search'">active</if>">
+				<span></span>
+				<p>搜索</p>
+			</a>
+			<a href="{:U('/eva/')}" class="article <if condition="CONTROLLER_NAME eq 'Eva'">active</if>">
+				<span></span>
+				<p>测评</p>
+			</a>
+			<a href="{:U('app/apply')}" class="apply ">
+				<span></span>
+				<p>发布</p>
+			</a>
+		</div>
+	</div>

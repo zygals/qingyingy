@@ -1,0 +1,15 @@
+<div class="ucenter-left fl">
+	<div class="avater-ucenter">
+		<span>
+			<img onload="setImgWH(this)" src="{$user.head_big}"/>
+		</span>
+		<p class="ellipsis">{$user.name}</p>
+	</div>
+	<div class="link-ucenter">
+		<a href="{:U('/user/index/index')}" <if condition="ACTION_NAME eq 'index'">class="active"</if>>个人资料</a>
+		<a href="{:U('/user/index/message')}" <if condition="ACTION_NAME eq 'message'">class="active"</if>>消息中心</a>
+		<a href="{:U('/user/index/apply')}" <if condition="ACTION_NAME eq 'apply'">class="active"</if>>发布小程序</a>
+		<a href="{:U('/user/index/contact')}" <if condition="ACTION_NAME eq 'contact'">class="active"</if>>联系我们</a>
+		<a href="{:U('/user/index/logout')}" >退出小程序</a>
+	</div>
+</div>

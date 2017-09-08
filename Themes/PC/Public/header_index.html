@@ -1,0 +1,79 @@
+			<div class="top_fixed">
+				<div class="top containers clear">
+					<a href="/">
+						<!-- <img class="img1" src="__PUBLIC__/images/logo.png" /> -->
+						<img class="img2" src="__PUBLIC__/images/logo2.png" />
+					</a>
+                    <div class="fr">
+                        <if condition="$user">
+                            <a href="{:U('/user/index')}" class="avater fr" title="进入会员中心">
+							<span>
+								<img onload="setImgWH(this)" src="{$user.head}" style="width: 100%;">
+							</span>
+                            </a>
+                            <else/>
+                            <a class="fr login">登录</a>
+                        </if>
+                        <!--<div class="searchbox">
+                            <form id="search_form" action="{:U('app/lists')}" method="get">
+                                <input type="text" name="keyword" id="keyword" value="" placeholder="搜索微信小程序"
+                                />
+                                <a onclick="$('#search_form').submit();">
+                                    <label>
+                                    </label>
+                                </a>
+                            </form>
+                        </div>-->
+                    </div>
+					<div class="nav clear">
+						<a class="<if condition="CONTROLLER_NAME eq 'Index'">active</if>" href="/">首页</a>
+						<!--<a class="<if condition="CONTROLLER_NAME eq 'Charts'">active</if>" href="{:U('/charts')}">排行榜</a>-->
+						<a class="<if condition="CONTROLLER_NAME eq 'App'">active</if>" href="{:U('/app')}">轻应用商店</a>
+						<a class="<if condition="CONTROLLER_NAME eq 'Special'">active</if>" href="{:U('/special')}">专题</a>
+						<a class="<if condition="CONTROLLER_NAME eq 'News'">active</if>" href="{:U('/news')}">文章</a>
+						<a class="<if condition="CONTROLLER_NAME eq 'Eva'">active</if>" href="{:U('/eva')}">评测</a>
+                        <a class="<if condition="CONTROLLER_NAME eq 'apply'">active</if>" href="/user/index/apply/"><span>上传</span> <span class="f-ib "><img src="__PUBLIC__/images/upload_img.png"></span></a>
+					</div>
+
+				</div>
+			</div>
+			<!--登录弹窗的dom-->
+			<div class="loginbox">
+				<a href="/">
+					<img class="logo1" src="__PUBLIC__/images/logo2.png" />
+				</a>
+				<div class="hr">
+					<p>登录/注册</p>
+				</div>
+				<div class="login-way">
+					<a href="{:U('/User/index/login?type=qq&ref='.refersh_url())}">
+						<span class="qq"></span>
+						<p>QQ</p>
+					</a>
+					<a href="{:U('/User/index/login?type=sina&ref='.refersh_url())}">
+						<span class="wb"></span>
+						<p>微博</p>
+					</a>
+				</div>
+			</div>
+			<script type="text/javascript">
+           
+            $(function () {
+               
+                //登录弹窗
+                $(".login").click(function () {
+                    showLogin();
+                })
+            });
+
+            function showLogin() {
+                layer.open({
+                    type: 1,
+                    title: '',
+                    area: ['408px', 'auto'],
+                    closeBtn: 1,
+                    shadeClose: true, //开启遮罩关闭
+                    content: $('.loginbox')
+                });
+            }
+        </script>

@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="shortcut icon" href="__PUBLIC__/m/images/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon-precomposed" href="__PUBLIC__/m/images/favicon.ico"/>
+    <title>会员登录 - {$Think.CONFIG.sitename}</title>
+    <meta name="keywords" content="{$Think.CONFIG.keywords}" />
+    <meta name="description" content="{$Think.CONFIG.description}" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/reset.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/layout.css?1.0.47">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/swiper.min.css">
+	<script type="text/javascript" src="__PUBLIC__/m/js/adaptive-version.js"></script>
+</head>
+<body style="overflow:hidden;">
+
+<div class="login-top-bg"></div>
+<div class="login-line-text b-bottom-e5"><span>快捷登录</span></div>
+<div class="login-mode">
+	<a href="{:C('pc_url')}{:U('/User/index/login?type=qq&ref='.refersh_url())}" class="qq fl">
+		<span></span>
+		<p>QQ登录</p>
+	</a>
+	<a href="{:C('pc_url')}{:U('/User/index/login?type=sina&ref='.refersh_url())}" class="weibo fr">
+		<span></span>
+		<p>微博登录</p>
+	</a>
+</div>
+
+	
+	<script>
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+	</script>
+    </body>
+</html>

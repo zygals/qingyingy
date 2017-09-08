@@ -1,0 +1,91 @@
+.about-us{
+	box-shadow: 0px 0px 4px #cccccc;
+	text-align: center;
+	padding: 60px 116px;
+	box-sizing: border-box;
+}
+.about-us h2{
+	font-size: 18px;
+	color: #505050;
+}
+.about-us >p{
+	color: #808080;
+	line-height: 24px;
+	margin-top: 18px;
+	text-align: left;
+}
+.something div div{
+	display: inline-block;
+	width: 120px;
+	height: 120px;
+	background: #f4f4f4;
+	border-radius: 50%;
+	line-height: 120px;
+	
+}
+.right-ucenter .about-us >p {
+     
+    width: auto; 
+   
+}
+.something>div{
+	float: left;
+    width: 250px;
+    margin-right: 110px;
+}
+.something>div h3{
+	font-size: 16px;
+	color: #505050;
+	margin-bottom: 12px;
+	margin-top: 16px;
+}
+.something>div p{
+	color: #808080;
+	line-height: 25px;
+}
+.something>div:last-of-type{
+	margin-right: 0;
+}
+.something div span,
+.map-icon{
+	background: url(../images/liteOther.png);
+}
+.something div span{
+	display: inline-block;
+	vertical-align: middle;
+}
+.something div .pos{
+	background-position: 0 0;
+	width: 30px;
+	height: 39px;
+}
+.something div .tel{
+	background-position: -31px 0;
+	width: 50px;
+	height: 38px;
+}
+.something div .eml{
+	background-position: -81px 0;
+	width: 39px;
+	height: 29px;
+}
+.map-icon{
+	display: inline-block;
+	width: 12px;
+	height: 17px;
+	background-position: -120px 0;
+	vertical-align: middle;
+}
+.img-map{
+	margin-top: 10px;
+}
+.something{
+	margin-bottom: 40px;
+	margin-top: 50px;
+}
+.img-map img{
+	width: 100%;
+}
+.about-us .clear p{
+	color: #a7a7a7;
+}

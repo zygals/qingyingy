@@ -1,0 +1,56 @@
+	 	<style>
+			.links_links{border: 1px solid #f4f4f4; padding:12px;}
+        	.links_links ul li{ float:left; padding:1px 5px; margin:5px 0px; border-right:solid 1px #f4f4f4;}
+			.links_links a:hover{
+				color: #22bb62;
+			}
+
+        </style>
+        <div class="containers f-mt20">
+        	<php>
+				$links_s=M('links')->order('o asc')->select();
+			</php>
+        	<div class="links_links">
+            	<ul class="f-cb">
+                	<volist name="links_s" id="vo">
+                        <li><a href="{$vo.url}" target="_blank">{$vo.title}</a></li>
+                    </volist>
+                	
+                </ul>
+            </div>
+        	
+            
+        </div>
+        <!-- footer begin -->
+        <footer class="s-bg-f4f4f4 f-mt20 g-w-min1200">
+            <div class="m-list-nav">
+                <a href="{:U('/app')}">轻应用商店</a>
+                <a href="{:U('/news')}">文章</a>
+                <a href="{:U('/eva')}">测评</a>
+                <a href="/news/2.html">媒体报道</a>
+                <a href="/news/1.html">联系我们</a>
+            </div>
+            <div class="s-lh25 s-c-bbbbbb f-tac f-pt25 f-pb25">
+                {$Think.CONFIG.footer}
+            </div>
+			<div align="center">
+				<span style="display:inline-table; margin-right:10px;">
+					<a href="http://webscan.360.cn/index/checkwebsite/url/www.qingyy.net" target="_blank">
+<!-- <img border="0" src="http://img.webscan.360.cn/status/pai/hash/5ee33ae815b664277ef1f30ba11ab085" style="width:95px;"/> -->
+ <img border="0" src="/Public/images/safe360.png" style="width:95px;"/>
+
+</a>
+				</span>
+				<span style="display:inline-table;">
+<!--<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261757344'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261757344%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
+					<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261757344'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261757344%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script> 
+				</span>
+			</div>
+        </footer>
+        <!-- footer end -->
+		<div style="position:fixed;right:0;bottom:0;width:300px;height:250px;z-index:1000000;">
+			<span style="position:absolute;right:0;top:-30px;font-size:24px;cursor:pointer;" onclick="$(this).parent().remove()">×</span>
+			{:ad(2)}
+		</div>
+		
+

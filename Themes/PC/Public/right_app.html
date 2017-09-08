@@ -1,0 +1,110 @@
+		<div class="articleRight">
+            <div class="switch-right">
+			<div class="switch-tops clear"><a><span>发布</span></a><a><span>关注我们</span></a><span><span></span></span></div>
+			<div class="content r-release"><a class="applyBtn"><label class="rse"></label><p>发布小程序</p></a><span class="subBtn"><label class="ar"></label><p>文章投稿</p><div class="submit-pop"><span class="closePOP"></span><p>投稿邮箱：</p><p>{$Think.CONFIG.email}</p></div></span></div><div class="content r-attent"><span class="wxBtn"><label class="wx"></label><p>官方微信</p><div class="wx-pop"><span class="closePOP"></span><img src="/Public/images/code-weixin.png"/><p>扫一扫关注 小程序官方微信</p></div></span><a href="{$Think.CONFIG.weibo}" target="_blank"><label class="wb"></label><p>新浪微博</p></a></div><!--<div class="content r-code"><img class="fl" src=""/><div class="fl"><p>扫一扫</p><span>( 暂不支持下载 )</span></div></div>--></div><script type="text/javascript">
+    $(function () {
+        $(".switch-right .content").eq(0).show();
+        $(".switch-tops a").eq(0).addClass("active");
+        $(".switch-tops a").eq(2).find("span").addClass("active")
+        var n = 0;
+        var flag = true;
+        var flag2 = true;
+        $(".switch-tops a").click(function () {
+            n = $(this).index();
+            if (n == 0) {
+                $(".switch-tops a span").removeClass("active")
+                $(".switch-tops a").eq(2).find("span").addClass("active")
+            } else if (n == 2) {
+                $(".switch-tops a span").removeClass("active")
+                $(".switch-tops a").eq(1).find("span").addClass("active")
+            } else if (n == 1) {
+                $(".switch-tops a span").removeClass("active")
+            }
+            $(".switch-right .content").hide().eq(n).show();
+            $(".switch-tops a").removeClass("active").eq(n).addClass("active")
+        })
+
+        $(".closePOP").click(function (event) {
+            event.stopPropagation()
+            $(this).parent().hide()
+        })
+        $(".subBtn").click(function () {
+            if (flag) {
+                $(".submit-pop").show()
+            } else {
+                $(".submit-pop").hide()
+            }
+            flag = !flag
+        })
+        $(".wxBtn").click(function () {
+            if (flag2) {
+                $(".wx-pop").show()
+            } else {
+                $(".wx-pop").hide()
+            }
+            flag2 = !flag2
+        })
+    })
+</script>
+		<div class="right-content">
+			<h2><label></label>相关推荐</h2>
+            <div class="lite-new">
+				<php>
+				$keynames = explode(',',$info['tags']);
+				$keynames_2 = array();
+				foreach ($keynames as $key => $value) {
+					array_push($keynames_2,'%'.$value.'%');
+				} 
+				 
+				$map['tags'] =array('like',$keynames_2,'OR');
+				$map['sid'] =$info['sid'];
+				$newnews=M('app')->where($map)->order('n desc')->limit(5)->select();
+				 
+				</php>
+				<volist name="newnews" id="vo">
+                <a href="{:U('/app/'.$vo[aid])}" class="clear">
+					<div class="img-new">
+						<img onload="setImgWH(this)" src="{$vo.thumbnail}"/>
+					</div>
+					<div class="data-new">{$vo.title}</div>
+					<p>标签：{$vo.tags|mb_substr=0,9,'utf-8'}</p>
+				</a>
+				</volist>
+			</div>
+		</div>
+		<div class="right-content">
+            <h2><label></label>热门轻应用</h2>
+            <div class="lite-new">
+                <php>
+				$newapp=M('app')->cache('indextoplist',1800)->where("status=1")->order('n desc')->limit(5)->select();
+				</php>
+				<volist name="newapp" id="vo">
+				<a href="{:U('/app/'.$vo[aid])}" class="clear">
+					<div class="img-new">
+						<img onload="setImgWH(this)" src="{$vo.thumbnail}"/>
+					</div>
+					<div class="data-new">{$vo.title}</div>
+					<p>标签：{$vo.tags|mb_substr=0,9,'utf-8'}</p>
+				</a> 
+				</volist>
+			</div>
+		</div>
+		
+		<div class="right-content">
+            <h2><label></label>最新轻应用</h2>
+            <div class="lite-new">
+                <php>
+				$newapp=M('app')->cache('right_new_app',1800)->where("status=1")->order('aid desc')->limit(5)->select();
+				</php>
+				<volist name="newapp" id="vo">
+				<a href="{:U('/app/'.$vo[aid])}" class="clear">
+					<div class="img-new">
+						<img onload="setImgWH(this)" src="{$vo.thumbnail}"/>
+					</div>
+					<div class="data-new">{$vo.title}</div>
+					<p>标签：{$vo.tags|mb_substr=0,9,'utf-8'}</p>
+				</a> 
+				</volist>
+			</div>
+		</div>
+	</div>
