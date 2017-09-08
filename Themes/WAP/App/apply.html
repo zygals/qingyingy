@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="shortcut icon" href="__PUBLIC__/m/images/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon-precomposed" href="__PUBLIC__/m/images/favicon.ico"/>
+    <title>微信小程序发布 - {$Think.CONFIG.sitename}</title>
+    <meta name="keywords" content="{$Think.CONFIG.keywords}" />
+    <meta name="description" content="{$Think.CONFIG.description}" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/reset.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/layout.css?1.0.47">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/swiper.min.css">
+	<script type="text/javascript" src="__PUBLIC__/m/js/adaptive-version.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/m/js/jquery.min.js"></script>
+</head>
+<body>
+
+<style>
+    .webuploader-pick{width: 100%;height: 100%;}
+</style>
+<div class="page">
+    <form name="form1" method="post">
+        <div class="m-container bottom">
+		
+            <div class="release scroll-tag">
+                <div class="release-title b-bottom-e5 m-top" style="background:#fff;position:relative">发布小程序
+				
+				<a href="javascript:;" onclick="history.go(-1)" class="btn left">
+					<div class="user">
+						<span>
+							<i><img src="__PUBLIC__/m/images/back-black.png"></i>
+						</span>
+					</div>
+				</a>
+				<a href="javascript:;" class="btn right headDropMenu"></a>
+				
+				</div>
+				<div class="headDropMenuLayer">
+					<div class="headDropMenuContent clear">
+						<a href="/" title="小程序精品推荐"><span class="d_recommend"></span><p>精品推荐</p></a>
+						<a href="{:U('/app/category/')}" title="小程序分类"><span class="d_classify"></span><p>类别</p></a>
+						<a href="{:U('app/apply')}" title="小程序发布"><span class="d_ranking"></span><p>发布</p></a>
+						<a href="{:U('/eva/')}" title="小程序测评"><span class="d_article"></span><p>测评</p></a>
+						<a href="{:U('/special/')}" title="小程序专题"><span class="d_special"></span><p>专题</p></a>
+						<a href="{:U('/search/')}" title="小程序搜索"><span class="d_search"></span><p>搜索</p></a>
+					</div>
+				</div>
+                <div class="release-content">
+                    <div class="release-tag">
+                        <span>小程序 名称</span>
+                    </div>
+                    <div class="text">
+                        <input type="text" name="title" id="title" maxlength="15" placeholder="请输入小程序名称">
+                        <span>0/15</span>
+                    </div>
+
+                    <div class="release-tag">
+                        <span>小程序 作者</span>
+                    </div>
+                    <div class="text">
+                        <input type="text" name="author" id="author" maxlength="15" placeholder="请输入小程序作者">
+                        <span>0/15</span>
+                    </div>
+
+                    <div class="release-tag">
+                        <span>小程序 ICON/二维码</span>
+                        <small>建议尺寸：不小于 400×400px，且为正方形</small>
+                    </div>
+                    <div class="upload clear">
+                        <div id="filelist1" class="item">
+                            <span id="filePicker1" class="file-btn">
+                                <img id="img1" src="__PUBLIC__/m/images/plus-big-gray.jpg" alt="..." style="width: 100%">
+                            </span>
+                            <p>上传ICON</p>
+                        </div>
+                        <div id="filelist2" class="item">
+                            <span id="filePicker2" class="file-btn">
+                                <img id="img2" src="__PUBLIC__/m/images/plus-big-gray.jpg" alt="..." style="width: 100%">
+                            </span>
+                            <p>上传二维码</p>
+                        </div>
+                        <div id="filelist3" class="item">
+                            <span id="filePicker3" class="file-btn">
+                                <img id="img3" src="__PUBLIC__/m/images/plus-big-gray.jpg" alt="..." style="width: 100%">
+                            </span>
+                            <p>上传公众号二维码</p>
+                        </div>
+                    </div>
+
+                    <div class="release-tag"><span>小程序 介绍</span></div>
+                    <div class="text">
+                        <textarea name="content" id="content" class="textarea" maxlength="300" placeholder="请输入小程序介绍"></textarea>
+                        <span style="top: auto; bottom: 0;">0/300</span>
+                    </div>
+
+                    <div class="release-tag" style="margin-top: .1rem;"><span>小程序 分类</span></div>
+                    <div class="text">
+                        <!-- 选择分类 -->
+                        <input type="text" id="release-classify" value="" name="" readonly placeholder="选择分类">
+                        <i style=" position: absolute; top: .3rem; right: .1rem; border-left: .12rem solid transparent; border-right: .12rem solid transparent; border-top: .18rem solid #bbb;"></i>
+                    </div>
+
+                    <div class="release-tag" style="margin-top: .1rem;"><span>小程序 标签</span></div>
+                    <div class="text">
+                        <input type="text" name="tags" id="tags" placeholder="输入小程序标签，多个用英文逗号隔开">
+                    </div>
+
+                    <div class="release-tag"><span>小程序 截图</span><small>建议尺寸：750x1334px（最多不超过五张)</small></div>
+                    <div class="cutimg-upload clear">
+                        <div class="item" id="filelist4">
+                            <span id="filePicker4" class="file-btn">
+                                <img id="img4" src="__PUBLIC__/m/images/plus-big-gray.jpg" alt="...">
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="release-tag" style="margin-top: .1rem;"><span>联系QQ</span></div>
+                    <div class="text">
+                        <input type="text" name="qq" id="qq" placeholder="输入联系QQ">
+                    </div>
+                    
+                    <p class="release-contact">联系QQ：{$Think.CONFIG.wap_qq}，加快审核进度，获得独家曝光机会</p>
+                </div>
+            </div>
+        </div>
+        <div class="m-bottom">
+            <input type="hidden" name="icon" id="icon" value="">
+            <input type="hidden" name="qrcode" id="qrcode" value="">
+            <input type="hidden" name="open_qrcode" id="open_qrcode" value="">
+            <input type="hidden" name="pid" id="pid" value="">
+            <input type="hidden" name="cid" id="cid" value="">
+            <input type="hidden" name="attr_imgs" id="attr_imgs" value="">
+            <a id="save" class="release-btn">发布</a>
+        </div>
+    </form>
+</div>
+	<script type="text/javascript" src="__PUBLIC__/m/js/touch-0.2.14.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/m/js/clipboard.min.js?1.0.14"></script>
+	<script type="text/javascript" src="__PUBLIC__/m/js/common.min.js?1.0.24"></script>
+	<script type="text/javascript" src="__PUBLIC__/m/js/swiper.min.js"></script>
+<script type="text/javascript">
+    //处理图片的宽高
+    function setImgWH(obj) {
+        $(obj).removeAttr('style');
+        if (obj.width < obj.height) {
+            $(obj).css('height', '100%');
+        } else {
+            $(obj).css('width', '100%');
+        }
+    }
+</script>
+<script type="text/javascript">
+    var UPLOAD_URL = "{:U('/Public/uploadfile')}";
+    var SWF_URL = '__PUBLIC__/js/Uploader.swf';
+</script>
+<script type="text/javascript" src="__PUBLIC__/m/js/webuploader.js"></script>
+<script type="text/javascript" src="__PUBLIC__/m/js/public.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/layer/skin/default/layer.css">
+<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+<script type="text/javascript" src="__PUBLIC__/m/js/picker.min.js"></script>
+<script type="text/javascript">
+    var city = {$cates};
+</script>
+<script type="text/javascript" src="__PUBLIC__/m/js/pick-common.js"></script>
+<script type="text/javascript">
+    $(function () {
+        upload1();
+        upload2();
+        upload3();
+        upload4();
+
+        //输入框字数赋值
+        $("#title").keyup(function () {
+            var len = $("#title").val().length;
+            $("#title").siblings('span').text(len + '/15');
+        });
+        $("#author").keyup(function () {
+            var len = $("#author").val().length;
+            $("#author").siblings('span').text(len + '/15');
+        });
+        $("#content").keyup(function () {
+            var len = $("#content").val().length;
+            $("#content").siblings('span').text(len + '/300');
+        });
+        // 分类
+        $(".device-border").click(function () {
+            $(".device-border").removeClass("on");
+            $(this).addClass("on");
+            $("#cat_ids").val($(this).attr('data-cat-value'));
+        });
+
+        // 保存
+        $('#save').click(function () {
+            var params = get_params();
+            $.post("{:U('/Public/save')}", params, function (msg) {
+                if (msg.status == 1) {
+                    layer.msg('<p>发布成功</p><p>请等待管理员审核！</p>');
+                    setTimeout(function () {
+                        window.location.href = "/";
+                    }, 1000);
+                } else {
+                    layer.msg(msg.info);
+                }
+            });
+        });
+    });
+
+    function get_params() {
+        var title = $('#title').val(),
+                author = $('#author').val(),
+                icon = $('#icon').val(),
+                qrcode = $('#qrcode').val(),
+                open_qrcode = $('#open_qrcode').val(),
+                content = $('#content').val(),
+                pid = $('#pid').val(),
+                cid = $('#cid').val(),
+                attr_imgs = $('#attr_imgs').val(),
+                tags = $('#tags').val(),
+                qq = $('#qq').val()
+        var params = {
+            title: title,
+            author: author,
+            icon: icon,
+            qrcode: qrcode,
+            open_qrcode: open_qrcode,
+            content: content,
+            pid: pid,
+            cid: cid,
+            attr_imgs: attr_imgs,
+            tags: tags,
+            qq: qq
+        };
+
+        return params;
+    }
+
+</script>
+	
+	<script>
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+	</script>
+<p style="display:none">
+{$Think.CONFIG.footer}
+</p>
+    </body>
+</html>

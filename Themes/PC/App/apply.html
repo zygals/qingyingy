@@ -1,0 +1,357 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<link rel="shortcut icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon"/>
+		<title>发布小程序 - {$Think.CONFIG.title}</title>
+		<script type="text/javascript"  src="__PUBLIC__/js/uaredirect.js"></script>
+		<script type="text/javascript">uaredirect("{$Think.CONFIG.wap_url}{:U('/app/apply')}");</script>
+		<meta name="keywords" content="{$Think.CONFIG.keywords}" />
+		<meta name="description" content="{$Think.CONFIG.description}" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reseting.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/lite.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/layer/skin/default/layer.css">
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/common.js" charset="utf-8"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	</head>
+	<body>
+		<div class="body-container">
+			<include file="Public:header" />
+			<div class="title_common containers">
+				<a href="/">
+					首页
+				</a>
+				<label>
+				</label>
+				<a href="/app/">
+					轻应用商店
+				</a>
+				<label>
+				</label>
+				<a>
+					发布
+				</a>
+			</div>
+			<div class="releasebox containers">
+				<div class="title">
+					发布小程序
+				</div>
+				<div class="release-content">
+					<div class="lite_name">
+						<h2>
+							小程序 &nbsp;&nbsp;名称
+						</h2>
+						<span>
+							0/15
+						</span>
+						<input class="am-g" type="text" name="title" id="title" maxlength="15"
+						placeholder="请输入小程序名称" />
+					</div>
+					<div class="lite_name">
+						<h2>
+							小程序 &nbsp;&nbsp;作者
+						</h2>
+						<span>
+							0/15
+						</span>
+						<input class="am-g" type="text" name="author" id="author" maxlength="15"
+						placeholder="请输入小程序作者" />
+					</div>
+					<div class="clear oneimg">
+						<h2>
+							小程序 &nbsp;&nbsp;ICON / 二维码
+							<span>
+								建议尺寸：不小于 400×400px，并且为正方形
+							</span>
+						</h2>
+						<div id="filelist1" class="files fl">
+							<span id="filePicker1" class="file-btn">
+								<img id="img1" onload="setImgWH(this)" src="__PUBLIC__/images/file1.png">
+							</span>
+							<p>
+								上传ICON
+							</p>
+						</div>
+						<div id="filelist2" class="files fl">
+							<span id="filePicker2" class="file-btn">
+								<img id="img2" onload="setImgWH(this)" src="__PUBLIC__/images/file1.png">
+							</span>
+							<p>
+								上传二维码
+							</p>
+						</div>
+						<div id="filelist3" class="files fl">
+							<span id="filePicker3" class="file-btn">
+								<img id="img3" onload="setImgWH(this)" src="__PUBLIC__/images/file1.png">
+							</span>
+							<p>
+								上传公众号二维码
+							</p>
+						</div>
+					</div>
+					<div class="lite_content">
+						<h2>
+							小程序 &nbsp;&nbsp;介绍
+						</h2>
+						<span> 0/300 </span>
+						<textarea class="am-g" name="content" id="content" maxlength="300" placeholder="请输入小程序介绍"></textarea>
+					</div>
+					<div class="sorts clear">
+						<h2 class="special">
+							小程序 &nbsp;&nbsp;分类
+						</h2>
+						<div class="selected rfirst fl pcat">
+							<span class="text">
+								选择主分类
+							</span>
+							<span class="select_down">
+							</span>
+							<ul class="select_pop p_select">
+								<li class="select" data-id="">
+									选择主分类
+								</li>
+								<volist name="cates" id="vo">
+								<li data-id="{$vo.id}">{$vo.name}</li>
+								</volist>
+							</ul>
+						</div>
+						<div class="selected rsecond fl cat">
+							<span class="text">
+								选择子分类
+							</span>
+							<span class="select_down">
+							</span>
+							<ul class="select_pop c_select">
+							</ul>
+						</div>
+					</div>
+					<div class="lite_name">
+						<h2 class="special2">
+							小程序 &nbsp;&nbsp;标签
+							<span>
+								（选填）每个标签字数不超 6个字,多个用英文逗号隔开
+							</span>
+						</h2>
+						<input class="am-g" type="text" name="tags" id="tags" placeholder="请输入小程序标签"
+						/>
+					</div>
+					<div class="upload2 clear">
+						<h2>
+							小程序 &nbsp;&nbsp;截图
+							<span>
+								建议尺寸：750x1334px（最多不超过五张)
+							</span>
+						</h2>
+						<div class="files4" id="filelist4">
+							<span id="filePicker4" class="file-btn3">
+								<img id="img4" onload="setImgWH(this)" src="__PUBLIC__/images/file2.png">
+							</span>
+						</div>
+					</div>
+					<div class="lite_name">
+						<h2 class="special">
+							联系QQ
+							<span>
+								方便填写错误时，客服能与你联系哦
+							</span>
+						</h2>
+						<input class="am-g" type="text" name="qq" id="qq" maxlength="15" placeholder="请填写联系QQ"
+						/>
+					</div>
+					<div class="test clear">
+						<h2 class="">
+							验证码
+						</h2>
+						<input type="text" id="verify" name="verify" placeholder="请输入验证码" />
+						<div class="testimg">
+							<img id="verifyImg" src="{:U('/Public/vcode')}" onClick="fleshVerify()" alt="点击刷新验证码">
+						</div>
+					</div>
+					<div class="release-save">
+						<input type="hidden" name="icon" id="icon" value="">
+						<input type="hidden" name="qrcode" id="qrcode" value="">
+						<input type="hidden" name="open_qrcode" id="open_qrcode" value="">
+						<input type="hidden" name="pid" id="pid" value="">
+						<input type="hidden" name="cid" id="cid" value="">
+						<input type="hidden" name="attr_imgs" id="attr_imgs" value="">
+						<div class="text-center">
+							<a id="save">
+								保存并上传
+							</a>
+							<a class="cancel" onclick="history.back();">
+								取消
+							</a>
+							<p>
+								联系QQ：{$Think.CONFIG.wap_qq}，加快审核进度，获得独家曝光机会
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<include file="Public:footer" />
+		</div>
+		<script type="text/javascript">
+			var UPLOAD_URL = "{:U('/Public/uploadfile')}";
+			var SWF_URL = '__PUBLIC__/js/Uploader.swf';
+		</script>
+		<script type="text/javascript" src="__PUBLIC__/js/webuploader.js">
+		</script>
+		<script type="text/javascript" src="__PUBLIC__/js/public.js" charset="utf-8">
+		</script>
+		<script>
+			$(function() {
+				upload1();
+				upload2();
+				upload3();
+				upload4();
+
+				//输入框字数赋值
+				$("#title").keyup(function() {
+					var len = $("#title").val().length;
+					$("#title").siblings('span').text(len + '/15');
+				});
+				$("#author").keyup(function() {
+					var len = $("#author").val().length;
+					$("#author").siblings('span').text(len + '/15');
+				});
+				$("#content").keyup(function() {
+					var len = $("#content").val().length;
+					$("#content").siblings('span').text(len + '/300');
+				});
+				// 分类
+				$(".sorts a").click(function() {
+					$(".sorts a").removeClass("active");
+					$(this).addClass("active");
+					$("#cat_ids").val($(this).attr('data-id'));
+				});
+
+				// 保存
+				$('#save').click(function() {
+					var params = get_params();
+					console.log(params);
+					$.post("{:U('/Public/save')}", params,
+					function(msg) {
+						if (msg.status == 1) {
+							layer.msg('发布成功，请等待管理员审核！');
+							setTimeout(function() {
+								window.location.href = "/";
+							},
+							1000);
+						} else {
+							layer.msg(msg.info);
+						}
+						fleshVerify();
+					});
+				});
+			});
+
+			function get_params() {
+				var title = $('#title').val(),
+				author = $('#author').val(),
+				icon = $('#icon').val(),
+				qrcode = $('#qrcode').val(),
+				open_qrcode = $('#open_qrcode').val(),
+				content = $('#content').val(),
+				pid = $('#pid').val(),
+				cid = $('#cid').val(),
+				attr_imgs = $('#attr_imgs').val(),
+				tags = $('#tags').val(),
+				qq = $('#qq').val(),
+				verify = $('#verify').val();
+				var params = {
+					title: title,
+					author: author,
+					icon: icon,
+					qrcode: qrcode,
+					open_qrcode: open_qrcode,
+					content: content,
+					pid: pid,
+					cid: cid,
+					attr_imgs: attr_imgs,
+					tags: tags,
+					qq: qq,
+					verify: verify
+				};
+
+				return params;
+			}
+
+			//验证码刷新
+			function fleshVerify() {
+				//重载验证码
+				$('#verifyImg').attr('src', '{:U("/Public/vcode",array("t"=>time()))}');
+			}
+		</script>
+		<script>
+			/* 小程序分类 */
+			$(function() {
+				// 模拟select
+				$(".selected").click(function() {
+					if ($(this).hasClass("active")) {
+						$(this).removeClass("active");
+						$(this).find(".select_pop").stop().slideUp('fast');
+					} else {
+						$(".selected").removeClass("active");
+						$(this).addClass("active");
+						$(".select_pop").slideUp('fast');
+						$(this).find(".select_pop").stop().slideDown('fast');
+					}
+				});
+				// 点击空白关闭
+				$(document).click(function(e) {
+					if ($(e.target).hasClass('selected') || $(e.target).parents().hasClass('selected')) {
+						return;
+					}
+					$(this).find(".select_pop").stop(true, true).slideUp('fast');
+					$(this).find(".selected").removeClass("active");
+				});
+
+				// 主分类
+				$('body').on('click', ".pcat li",
+				function() {
+					var text = $(this).text();
+					var pid = $(this).attr('data-id');
+
+					$(".pcat .text").text(text);
+					$(".pcat li").removeClass("select");
+					$(this).addClass('select');
+
+					$(".cat .text").text('选择子分类');
+					$(".c_select").html('');
+
+					$('#pid').val(pid);
+					$('#cid').val('');
+
+					getCat(pid);
+				});
+				// 子分类
+				$('body').on('click', ".cat li",
+				function() {
+					var text = $(this).text();
+					var cid = $(this).attr('data-id');
+
+					$(".cat .text").text(text);
+					$(".cat li").removeClass("select");
+					$(this).addClass("select");
+
+					$('#cid').val(cid);
+				});
+			});
+
+			function getCat(pid) {
+				$.get("{:U('/Public/getCat')}", {
+					pid: pid
+				},
+				function(msg) {
+					if (msg.status == '1') {
+						$(".c_select").html(msg.data);
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

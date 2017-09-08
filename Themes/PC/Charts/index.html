@@ -1,0 +1,128 @@
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<link rel="shortcut icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon"/>
+		<title>微信小程序排行榜 - {$Think.CONFIG.sitename}</title>
+		<script type="text/javascript"  src="__PUBLIC__/js/uaredirect.js"></script>
+		<script type="text/javascript">uaredirect("{$Think.CONFIG.wap_url}{:U('/chart')}");</script>
+		<meta name="keywords" content="{$Think.CONFIG.keywords}" />
+		<meta name="description" content="{$Think.CONFIG.description}" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reseting.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/lite.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/layer/skin/default/layer.css">
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/common.js" charset="utf-8"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	</head>
+
+    <body>
+
+<div class="body-container">
+
+    <include file="Public:header" />
+
+    <div class="banner2">
+        <p class="hotCount">{$allclick+6201200}<span></span></p>
+        <img src="__PUBLIC__/images/banner2.jpg"/>
+    </div>
+
+    <div class="title_common containers"><a href="/">首页</a> <label></label><a>排行榜</a></div>
+    <div class="rankList containers ">
+        <div class="menu text-center">
+            <a href="/charts" class="active">热门排行</a>        </div>
+        <div id="wrapper3" class="rankHot clear">
+            <volist name="list" id="vo" offset="0" length='3'>
+			<a href="{:U('/app/'.$vo[aid])}" class="clear">
+				<label class="rankIcon "></label>
+				<div class="qrcode">
+					<img src="{$vo.qrcode|default='__PUBLIC__/images/default_qrcode.png'}"/>
+					<p>微信体验扫描</p>
+				</div>
+				<div class="order">{$key+1}</div>
+				<div class="img-rank">
+					<img src="{$vo.thumbnail}" style="width:100%"/>
+				</div>
+				<div class="data-rank">
+					<h2 class="ellipsis">{$vo.title}</h2>
+					<p>分类：{$vo.catename}</p>
+					<div class="bottom-rank">
+						<p class="fl">热度：{$vo.n}</p>
+						<span class="try fr">体验</span>
+					</div>
+				</div>
+			</a>
+			</volist>
+		</div>
+        <table id="wrapper4" class="rankTable">
+            <thead>
+                <tr>
+                    <th>排名</th>
+                    <th><label></label>ICON</th>
+                    <th><label></label>小程序名</th>
+                    <th><label></label>分类</th>
+                    <th><label></label>热度</th>
+                    <th><label></label>二维码</th>
+                </tr>
+            </thead>
+            <tbody id="thelist">
+			<volist name="list" id="vo" offset="3" length='97'>
+            <tr>
+				<td>{$key+1}</td>
+				<td><a href="{:U('/app/'.$vo[aid])}" class="img-table"><img onload="setImgWH(this)" src="{$vo.thumbnail}"/></a></td>
+				<td><a href="{:U('/app/'.$vo[aid])}" class="name-table ellipsis">{$vo.title}</a></td>
+				<td>{$vo.catename}</td>
+				<td>{$vo.n}</td>
+				<td>
+					<div class="code-table">
+						<span></span>
+						<div class="qrcode">
+							<img src="{$vo.qrcode|default='__PUBLIC__/images/default_qrcode.png'}"/>
+							<p>微信体验扫描</p>
+						</div>
+					</div>
+				</td>
+			</tr>
+			</volist>
+			</tbody>	
+        </table>
+        <div class="more">
+                <!-- <a>更多</a> -->
+            </div>    </div>
+
+    <include file="Public:footer" />
+
+</div>
+
+
+    
+
+<script type="text/javascript">
+    $(function () {
+        var $index = 0;
+        $("#wrapper3").on('mouseenter', '.try', function () {
+            $index = $(this).parents("a").index();
+            $(".rankHot a").eq($index).find(".qrcode").stop(true,true).fadeIn();
+        });
+        $("#wrapper3").on('mouseleave', '.try', function () {
+            $index = $(this).parents("a").index();
+            $(".rankHot a").eq($index).find(".qrcode").stop(true,true).hide();
+        });
+        var n = 0;
+        $("#wrapper4").on('mouseenter', '.code-table span', function () {
+            n = $(this).parents("tr").index();
+            $(".rankTable tr").eq(n + 1).find(".qrcode").stop(true,true).fadeIn();
+        });
+        $("#wrapper4").on('mouseleave', '.code-table span', function () {
+            n = $(this).parents("tr").index();
+            $(".rankTable tr").eq(n + 1).find(".qrcode").stop(true,true).hide();
+        });
+    });
+
+</script>
+
+    </body>
+</html>

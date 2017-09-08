@@ -1,0 +1,213 @@
+
+<!doctype html>
+<html>
+
+    <head>
+		<meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<link rel="shortcut icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon"/>
+		<title><if condition="$info['seotitle']">{$info['seotitle']}<else/>{$info.title}</if> - {$Think.CONFIG.sitename}</title>
+		<script type="text/javascript"  src="__PUBLIC__/js/uaredirect.js"></script>
+		<script type="text/javascript">uaredirect("{$Think.CONFIG.wap_url}{:U('/news/'.$info['aid'])}");</script>
+		<meta name="keywords" content="{$info.keywords}" />
+		<meta name="description" content="{$info.description}" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reseting.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/lite.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/layer/skin/default/layer.css">
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/common.js" charset="utf-8"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	</head>
+
+    <body>
+
+<div class="body-container clear">
+    
+	<include file="Public:header" />
+
+    <div class="title_common containers">
+        <a href="/">首页</a>
+        <label></label>
+        <a href="{:U('/news/')}">文章</a>
+        <label></label>
+        <span>{$info.title}</span>
+    </div>
+
+    <div class="articlebox containers clear detail-art">
+        <div class="artcleLeft detail">
+            <div class="contents">
+                <h1>{$info.title}</h1>
+                <div class="data-detail clear">
+                    <p class="fl">文章来源：{$info.befrom}</p>
+                    <p class="label-art fl">
+                        <label class="lableIcon"></label>
+                    <span>{$info.keywords}</span>                   </p>
+                    <p class="fl time-art"><label></label>{$info.t|date='Y-m-d H:i',###}</p>
+                    <p class="view-count fl"><label></label>{$info.n}</p>
+                </div>
+                <div class="data-detail clear" style="text-align:center;">
+                    {:ad(4)}
+                </div>
+                <div class="content-art">
+					{$info.content}
+				   <div class="artOthers clear">  
+						<a href="{$prev.url}">
+							<label class="fl">上一篇：</label>
+							<span class="ellipsis">{$prev.title}</span>
+						</a>                        
+						<a href="{$next.url}">
+							<label class="fl">下一篇：</label>
+							<span class="ellipsis">{$next.title}</span>
+						</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="margin: 10px 20px 20px;">
+
+                <!--PC版-->
+				<if condition="C('open_cy') eq '1'">
+                    <h3><label></label>{$info.title} 评分</h3>
+                    <div class="editbox" style="margin-top: 10px">
+                        <textarea placeholder="说说你的看法吧" class="textarea" id="message_content"></textarea>
+                    </div>
+                    <div class="clear">
+                        <a href="javascript:void(0)" class="editBtn fr commentBtn" id="message_btn">评论</a>
+                    </div>
+                    <div class="comment-list" id="thelist">
+
+                    </div>
+                    <script>
+                        getMsg();
+                        $('#message_btn').click(function () {
+
+                            insert_msg(0,$('#message_content').val());
+                        });
+
+                        function insert_msg(pid,content){
+                            var cid = "{$info.aid}";
+                            var titles = "{$info.title}";
+                            if(content){
+                                var json_text = {"catid": cid, "type":2,"pid":pid,"title":titles,"content":content};
+                                $.post("{:U('app/doMessage')}", json_text, function (msg) {
+                                    if (msg.status == 2) {
+                                        showLogin();return;
+                                    }
+                                    if(msg.status == 1 ){
+                                        $('#thelist textarea').val('');
+                                        getMsg();
+                                    }
+
+                                    layer.msg(msg.info);
+                                });
+                            }else{
+                                layer.msg('留言不能为空！');
+                            }
+                        }
+
+                        function getMsg(){
+                            var cid = "{$info.aid}";
+                            var json_text = {"catid": cid, "type":2};
+                            $.post("{:U('app/doMessagelist')}", json_text, function (msg) {
+                                if (msg.status == 2) {
+                                    showLogin();return;
+                                }
+                                if(msg.status == 1 ){
+                                    var thelist_html = '';
+                                    $(msg.list).each(function(i,n){
+                                        if(n.pid==0){
+                                            thelist_html += '<div class="comment clear"><a class="avater-comment fl"><img src="'+n.head_big+'" onload="setImgWH(this)" style="width: 100%;"></a>';
+                                            thelist_html += '<div class="data-comment"><div class="name-comment clear"><h4 class="fl">'+n.name+'</h4><span class="fl">'+n.createtime+'</span><a class="fr reply" onclick="reply_s(this)">回复</a></div><p>'+n.content+'</p>';
+                                            $(msg.list).each(function(ii,nn){
+                                                if(n.id==nn.pid){
+
+                                                    thelist_html += '<div class="has-reply"><p class="name">'+nn.name+'</p><p>'+nn.content+'</p></div>';
+                                                }
+
+                                            });
+
+                                            thelist_html += '<div class="reply-content" style="display:none"><textarea rows="1" class="re-textarea" id="comment_'+ n.id+'"></textarea><div class="clear"><a data-pid="'+n.id+'" class="editBtn fr active replayBtn">回复</a><a onclick="closeReply(this);" class="cancel fr">取消</a></div></div></div></div>';
+                                        }
+                                    });
+                                    $('#thelist').html(thelist_html);
+
+                                    $('#thelist .replayBtn').off("click").on("click",function(){
+                                        var this_pidTemp = $(this).data('pid');
+                                        insert_msg(this_pidTemp,$('#comment_'+this_pidTemp).val());
+                                    });
+                                }
+
+
+                            });
+                        }
+
+                        function reply_s(ef){
+                            var this_pp = $(ef).parent().parent();
+                            this_pp.find('.reply-content').show();
+                            this_pp.find('.re-textarea').val('');
+
+                        }
+                        function closeReply(ef2){
+                            $(ef2).parent().parent().hide();
+                        }
+                    </script>
+				</if>
+            </div>
+        </div>
+        <include file="Public:right_newt" />
+    </div>
+
+    <include file="Public:footer" />
+	
+</div>
+
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32 jiashare">
+    <a title="分享QQ空间" class="jiathis_button_qzone"></a>
+    <a title="分享QQ好友" class="jiathis_button_cqq"></a>
+    <a title="分享微博" class="jiathis_button_tsina"></a>
+    <a title="分享微信" class="jiathis_button_weixin"></a>
+    <a title="分享豆瓣" class="jiathis_button_douban"></a>
+    <a title="复制地址" class="jiathis_button_copy"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function () {
+        //二维码显示隐藏
+        $(".help-tip .weixin-tip").hover(function () {
+            $(".codepop").eq(0).stop(true, true).fadeToggle()
+        })
+        $(".help-tip .phone-tip").hover(function () {
+            $(".codepop").eq(1).stop(true, true).fadeToggle()
+        })
+    })
+    $(function () {
+        var wWidth = $(window).width();
+        var wHeight = $(window).height();
+        var Top = wHeight / 2 - 98
+        if (wWidth < 980) {
+            imgLeft = (wWidth - 980) - 118;
+        } else {
+            imgLeft = (wWidth - 980) / 2 - 168
+        }
+        //$(".fixed_box").css("top", Top);
+        $(".jiashare").css("left", imgLeft);
+        $(window).resize(function () {
+            var wHeight = $(window).height();
+            var Top = wHeight / 2 - 98
+            var wWidth = $(window).width();
+            if (wWidth < 980) {
+                imgLeft = (wWidth - 980) - 118;
+            } else {
+                imgLeft = (wWidth - 980) / 2 - 118;
+            }
+            //$(".fixed_box").css("top", Top);
+            $(".jiashare").css("left", imgLeft);
+        })
+    })
+</script>
+
+    </body>
+</html>

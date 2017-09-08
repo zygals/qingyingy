@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="shortcut icon" href="__PUBLIC__/m/images/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon-precomposed" href="__PUBLIC__/m/images/favicon.ico"/>
+    <title>{$Think.CONFIG.title}</title>
+    <meta name="keywords" content="{$Think.CONFIG.keywords}" />
+    <meta name="description" content="{$Think.CONFIG.description}" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/reset.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/layout.css?1.0.47">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/swiper.min.css">
+	<script type="text/javascript" src="__PUBLIC__/m/js/adaptive-version.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/m/js/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="page">
+	<div class="m-top white b-bottom-e5">
+		<h2><a href="/" class="logo"></a></h2>
+		<if condition="$user">
+		<a href="{:U('user/index')}" class="btn left">
+			<div class="user">
+				<span class="has">
+					<i><img src="{$user.head}" alt="{$user.name}"></i>
+				</span>
+			</div>
+		</a>
+		<else/>
+		<a href="{:U('public/login')}" class="btn left">
+			<div class="user">
+				<span>
+					<i><img src="__PUBLIC__/m/images/user-icon.png"></i>
+				</span>
+			</div>
+		</a>
+		</if>	
+		<a href="javascript:;" class="btn right headDropMenu"></a>
+	</div>
+	<div class="m-container bottom top">
+		<div class="m-sub">
+			<div class="swiper-container banner">
+				<div class="swiper-wrapper">
+					<volist name="flash" id="vo">
+					<div class="swiper-slide"><a href="{$vo.url}"><img src="{$vo.pic}" alt="{$vo.title}"></a></div>
+					</volist>
+					</div>
+				<div class="pagination"></div>			</div>
+
+			<div class="tag-title-open"><span>特色专题</span><a href="{:U('/special/')}" class="all">显示全部</a></div>
+			<div class="scroll-module special-recommend clear">
+				<span></span>
+				<volist name="special" id="vo">
+				<a href="{:U('/special/'.$vo['aid'])}" class=""><img src="{$vo.thumbnail}" align="recommend" alt="{$vo.title}"></a>
+				</volist>
+				<span></span>
+			</div>
+			<div class="line-one b-bottom-e5"></div>
+
+			<div class="tag-title-open"><span>精选推荐</span><a href="{:U('/app')}" class="all">显示全部</a></div>
+			<div class="scroll-module classify-module">
+				<span></span>
+				<volist name="toplist" id="vo">
+				<a href="{:U('/app/'.$vo[aid])}">
+					<span class="icon"><img src="{$vo.thumbnail}" alt="宝宝树胎教音乐"></span>
+					<p class="name">{$vo.title}</p>
+					<p class="tag"></p>
+				</a>
+				</volist>
+
+				<span></span>
+			</div>
+			
+			<div class="line-one b-bottom-e5"></div>
+            <div class="tag-title-open"><span>最新上线</span><a href="{:U('/app/')}" class="all" title="最新上线">显示全部</a></div>
+			<div class="scroll-module classify-module">
+				<span></span>
+				<volist name="newlist" id="vo">
+				<a href="{:U('/app/'.$vo[aid])}">
+					<span class="icon"><img src="{$vo.thumbnail}" alt="{$vo.title}"></span>
+					<p class="name">{$vo.title}</p>
+				</a>
+				</volist>
+				<span></span>
+			</div>
+			<div class="line-one b-bottom-e5"></div>
+            <div class="tag-title-open"><span>热门排行</span><a href="{:U('/app/')}" class="all" title="热门排行">显示全部</a></div>
+			<div class="scroll-module classify-module">
+				<span></span>
+				<volist name="hot_list" id="vo">
+				<a href="{:U('/app/'.$vo[aid])}">
+					<span class="icon"><img src="{$vo.thumbnail}" alt="{$vo.title}"></span>
+					<p class="name">{$vo.title}</p>
+				</a>
+				</volist>
+				<span></span>
+			</div>
+			<div class="line-one b-bottom-e5"></div>
+			<volist name="appcates" id="vo">
+
+			<div class="tag-title-open"><span>{$vo.name}</span><a href="{:U('/app/'.$vo[dir])}" class="all" title="音乐">显示全部</a></div>
+			
+			<div class="scroll-module classify-module">
+			<if condition="$vo[app]">
+				<span></span>
+				<volist name="vo.app" id="app">
+				<a href="{:U('/app/'.$app[aid])}">
+					<span class="icon"><img src="{$app.thumbnail}" alt="{$app.title}"></span>
+					<p class="name">{$app.title}</p>
+				</a>
+				</volist>
+				<span></span>
+			</if>
+			</div>
+			
+			<div class="line-one b-bottom-e5"></div>
+			</volist>
+						
+			 
+						
+			<div class="foot index">
+				<p>
+				<if condition="CONTROLLER_NAME eq 'Index' and ACTION_NAME eq 'index'">
+					<volist name="flink" id="vo">
+                    <a href="{$vo.url}" target="_blank"> {$vo.title} </a>　
+					</volist>
+				</if>
+				</p>
+				<p>{$Think.CONFIG.wap_Copyright}</p>
+				<p>商务合作联系QQ：{$Think.CONFIG.wap_qq}</p>
+			</div>
+		</div>
+	</div>
+	<div class="headDropMenuLayer">
+		<div class="headDropMenuContent clear">
+			<a href="/" title="小程序精品推荐"><span class="d_recommend"></span><p>精品推荐</p></a>
+			<a href="{:U('/app/category/')}" title="小程序分类"><span class="d_classify"></span><p>类别</p></a>
+			<a href="{:U('app/apply')}" title="小程序发布"><span class="d_ranking"></span><p>发布</p></a>
+			<a href="{:U('/eva/')}" title="小程序资讯"><span class="d_article"></span><p>测评</p></a>
+			<a href="{:U('/special/')}" title="小程序专题"><span class="d_special"></span><p>专题</p></a>
+			<a href="{:U('/search/')}" title="小程序搜索"><span class="d_search"></span><p>搜索</p></a>
+		</div>
+	</div>
+	<include file="Public:bottom_nav"/>	
+	<script type="text/javascript" src="__PUBLIC__/m/js/touch-0.2.14.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/m/js/clipboard.min.js?1.0.14"></script>
+	<script type="text/javascript" src="__PUBLIC__/m/js/common.min.js?1.0.24"></script>
+	<script type="text/javascript" src="__PUBLIC__/m/js/swiper.min.js"></script>
+
+<script>
+$(function(){
+	var mySwiper = new Swiper('.swiper-container', {
+		autoplay: 3000,
+		calculateHeight: true,
+		noSwiping : true,
+		slidesPerView: 'auto',
+		loop: true,
+		pagination : '.pagination'
+	});
+});
+</script>
+
+	<script>
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+	</script>
+<p style="display:none">
+{$Think.CONFIG.footer}
+</p>
+    </body>
+</html>

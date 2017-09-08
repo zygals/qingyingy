@@ -1,0 +1,93 @@
+
+<!doctype html>
+<html>
+
+    <head>
+		<meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<link rel="shortcut icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon"/>
+		<title><if condition="$cate['seotitle']">{$cate['seotitle']}<else/>{$cate.name}</if> - {$Think.CONFIG.sitename}</title>
+		<script type="text/javascript"  src="__PUBLIC__/js/uaredirect.js"></script>
+		<script type="text/javascript">uaredirect("{$Think.CONFIG.wap_url}{:U('/news/'.$cate['dir'])}");</script>
+		<meta name="keywords" content="{$cate.keywords}" />
+		<meta name="description" content="{$cate.description}" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reseting.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/lite.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/layer/skin/default/layer.css">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/page.css" />
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/common.js" charset="utf-8"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	</head>
+
+    <body>
+
+
+
+<div class="body-container">
+
+    <include file="Public:header" />
+
+    <div class="title_common containers">
+        <a href="/">首页</a><label></label><a href="{:U('/news')}">文章</a><label></label><a >{$cate.name}</a>
+    </div>
+
+    <div class="articlebox containers clear">
+        <div class="artcleLeft new">
+		
+            <include file="nav" />
+			
+            <div class="artList">
+				<volist name="list" id="vo">
+                <div class="list-art clear">
+					<a href="{:U('/news/'.$vo[aid])}" class="img-article" target="_blank">
+						<img onload="setImgWH(this)" src="{$vo.thumbnail}"/>
+					</a>
+					<div class="data-art">
+						<a href="{:U('/news/'.$vo[aid])}" target="_blank"><h3>{$vo.title}</h3></a>
+						<div class="label-art">
+							<label class="lableIcon"></label>
+							<span>{$vo.keywords}</span>
+						</div>
+						<div class="else-art">
+							<p class="fl time-art"><label></label>{$vo.t|date="Y-m-d H:i",###}</p>																	
+							<p class="view-count"><label></label>{$vo.n}</p>
+						</div>
+					</div>
+				</div>
+				</volist>
+				<div class="page_group clear">{$page}</div>
+            </div>
+        </div>
+        <include file="Public:right_new_list" />
+    </div>
+
+    <include file="Public:footer" />
+
+</div>
+
+<script type="text/javascript">
+    //图片变大变小
+    $(function () {
+        //二维码显示隐藏
+        $(".help-tip .weixin-tip").hover(function () {
+            $(".codepop").eq(0).stop(true, true).fadeToggle()
+        })
+        $(".help-tip .phone-tip").hover(function () {
+            $(".codepop").eq(1).stop(true, true).fadeToggle()
+        })
+    })
+    //图片变大变小
+    $(function () {
+        $(".img-article").mouseenter(function () {
+            $(this).find("img").addClass("scale").removeClass("scale_return")
+        })
+        $(".img-article").mouseleave(function () {
+            $(this).find("img").removeClass("scale").addClass("scale_return")
+        })
+    })
+</script>
+
+    </body>
+</html>

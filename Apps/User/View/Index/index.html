@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+		<link rel="shortcut icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon"/>
+		<title>会员中心</title>
+
+		<meta name="keywords" content="{$Think.CONFIG.keywords}" />
+		<meta name="description" content="{$Think.CONFIG.description}" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reseting.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/lite.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/ucenter.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/layer/skin/default/layer.css">
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/common.js" charset="utf-8"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+		<link rel="stylesheet" href="__PUBLIC__/layui/css/layui.css"  media="all">
+		<script src="__PUBLIC__/layui/layui.js" charset="utf-8"></script>
+	</head>
+	<body>
+	<script type="text/javascript">
+    $(function(){
+        $('.release-zb').remove();
+    });
+    
+    $(function () {
+        $('.add-fixed').click(function () {
+            window.open('/user/index/apply', '_blank');
+        });
+    });
+	</script>
+
+		<div class="body-container">
+			<include file="./Themes/PC/Public/header.html" />
+			<div class="title_common containers">
+				<a href="/">首页</a>
+				<label></label>
+				<span>个人中心</span>
+			</div>
+			<div class="containers clear">
+
+				<include file="Public:left" />
+				<div class="right-ucenter fr">
+					<div class="title-ucenter">个人资料</div>
+					<div class="information-ucenter">
+						<span class="imgchange">
+							<img id="avater" onload="setImgWH(this)" src="{$user.head_big}"/>
+							<input type="hidden" id="head" value="{$user.head_big}">
+						</span>
+						<div class="">
+							<a class="changeBtn">
+								<input type="file" id="fileImage" name="file" class="layui-upload-file" lay-title="更换头像" lay-ext="jpg|png|gif|jpeg" accept="image/gif,image/jpeg,image/jpg,image/png" /> 
+							</a>
+						</div>
+						<div class="edit-name inputbox clear">
+							<p class="fl">昵称：</p>
+							<div class="fl">
+								<input type="text" id="name" value="{$user.name}"/>
+							</div>
+						</div>
+						<div class="inputbox clear">
+							<p class="fl">性别：</p>
+							<div class="fl">
+								<input type="radio" name="sex" id="nan" value="男" <if condition="$user['sex'] eq '男'">checked</if> />
+								<label for="nan" class="sex-select">						
+									<i></i>
+									<em class="nan"></em>
+									<span>男</span>
+								</label>
+								<input type="radio" name="sex" id="nv" value="女" <if condition="$user['sex'] eq '女'">checked</if>/>
+								<label for="nv" class="sex-select">									
+									<i></i>
+									<em class="nv"></em>
+									<span>女</span>
+								</label>
+							</div>
+						</div>
+						<div class="sure-change">
+							<input type="hidden" id="head" name="head" value="{$user.head_big}"/>
+							<a class="saveBtn">修改</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<include file="./Themes/PC/Public/footer.html" />
+		</div>
+		<script type="text/javascript">
+			$(function () {
+				$('.saveBtn').click(function () {
+					var sex = null;
+
+					var obj = document.getElementsByName("sex")
+					for (var i = 0; i < obj.length; i++) { //遍历Radio 
+						if (obj[i].checked) {
+							sex = obj[i].value;
+						}
+					}
+					var head = $('#head').val();
+					var name = $('#name').val();
+					$.post("{:u('user/index/saveInfo')}", {head: head,head_big: head, name: name, sex: sex}, function (msg) {
+						if (msg.status == 1) {
+							layer.msg('保存成功!');
+							setTimeout(function () {
+								window.location.href = "/user/index";
+							}, 1000);
+						} else {
+							layer.msg(msg.info);
+						}
+					});
+				});
+			});
+		</script>
+		<script>
+		layui.use('upload', function(){
+		  layui.upload({
+			url: '{:U("/user/index/setavatar")}' //上传接口
+			,success: function(res){ //上传成功后的回调
+				console.log(res)
+				if (res.status == 1) {
+					$('#head').val(res.url);
+					$('#avater').attr('src',res.url);
+				} 
+				layer.msg(res.info);
+				
+			}
+		  });
+		  
+		  layui.upload({
+			url: '/test/upload.json'
+			,elem: '#test' //指定原始元素，默认直接查找class="layui-upload-file"
+			,method: 'get' //上传接口的http类型
+			,success: function(res){
+			  LAY_demo_upload.src = res.url;
+			}
+		  });
+		});
+		</script>
+   
+	</body>
+
+</html>

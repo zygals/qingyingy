@@ -1,0 +1,16 @@
+
+		
+		<div class="navbar-right">
+			<div class="navbar-left fl">
+				<a href="{:U('/app/'.$r['dir'])}" data-value="jiaoyu" class="list <if condition="$cate['pid'] eq '0'">active</if>">
+					<span>全部<i></i></span>
+				</a>
+			</div>
+			<if condition="$subcates">
+				<volist name="subcates" id="vo">
+				<a href="{:U('/app/'.$vo['dir'])}" data-value="dancizidian" class="list <if condition="$vo['dir'] eq $_GET['dir']">active</if>">
+					<span>{$vo.name}<i></i></span>
+				</a>
+				</volist>
+			</if>			
+			</div>

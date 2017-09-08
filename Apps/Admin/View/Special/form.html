@@ -1,0 +1,275 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <form class="form-horizontal" id="form" method="post" action="{:U('update')}">
+
+                            <!-- PAGE CONTENT BEGINS -->
+
+                            <input type="hidden" name="aid" value="{$special.aid}" id="aid"/>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    标题 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="title" id="title" placeholder="标题"
+                                           class="col-xs-10 col-sm-5" value="{$special['title']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">标题不能为空。</span>
+											</span>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    包含小程序 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="appinput" placeholder="输入 小程序名称 搜索" class="col-xs-10 col-sm-5" value="" style="width:150px">
+									<a class="btn btn-info" style="border-width:1px;" id="appsearch">搜索</a>
+                                    
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                     </label>
+								<div class="col-sm-9" id="appsbox">
+									<if condition="$apps">
+									<volist name="apps" id="vo">
+									<label id="app{$vo.aid}"><input type="checkbox" name="apps[]" checked value="{$vo.aid}">{$vo.title}</label>
+									</volist>
+									</if>
+								</div>
+                            </div>
+<!--                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    来源 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="befrom" id="befrom" placeholder="来源"
+                                           class="col-xs-10 col-sm-5" value="{$special['befrom']|default=''}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    SEO标题 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="seotitle" id="seotitle" placeholder="SEO标题"
+                                           class="col-xs-10 col-sm-5" value="{$special['seotitle']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">如果设置SEO标题，将会在IE标题栏显示SEO标题。</span>
+											</span>
+                                </div>
+                            </div>
+-->
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    关键词 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="keywords" id="keywords" placeholder="关键词"
+                                           class="col-xs-10 col-sm-5" value="{$special['keywords']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">专题关键词。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    点击数 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="n" id="n" placeholder="点击数"
+                                           class="col-xs-10 col-sm-5" value="{$special['n']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">专题点击数。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+
+                            <!--<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-3">
+                                    专题摘要 </label>
+                                <div class="col-sm-9">
+                                        <textarea name="description" id="description" placeholder="专题摘要"
+                                                  class="col-xs-10 col-sm-5"
+                                                  rows="5">{$special['description']}</textarea>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">专题摘要、描述。</span>
+											</span>
+                                </div>
+                            </div>-->
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-4">
+                                    缩略图 </label>
+                                <div class="col-sm-9">
+                                    <div class="col-xs-10 col-sm-5">
+                                        {:UpImage("thumbnail",250,120,$special['thumbnail'])}
+                                    </div>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">仅支持jpg、gif、png、bmp、jpeg，且小于1MB。</span>
+											</span>
+                                </div>
+
+                            </div>
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    专题内容 </label>
+                                <div class="col-sm-9">
+                                        <textarea name="content" id="content"
+                                                  style="width:100%;height:400px;visibility:hidden;">{$special['content']}</textarea>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+
+
+                            <div class="col-md-offset-2 col-md-9">
+                                <button class="btn btn-info submit" type="button">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="icon-undo bigger-110"></i>
+                                    重置
+                                </button>
+                            </div>
+
+                            <!-- PAGE CONTENT ENDS -->
+
+
+                        </form>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    $(function () {
+		$('#appsearch').click(function(){
+			var text=$('#appinput').val();
+			if(!text){
+				bootbox.dialog({
+                    title: '友情提示：',
+                    message: "小程序名称必须填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+			}
+			$.post('{:U("special/getAppId")}',{'text':text},function(ret){
+				if(ret.code==1){
+					$('#app'+ret.aid).remove();
+					var html='<label id="app'+ret.aid+'"><input type="checkbox" name="apps[]" checked value="'+ret.aid+'" />'+ret.title+'</label>';
+					$('#appsbox').append(html);
+					$('#appinput').val('').focus();
+				}else{
+					bootbox.dialog({
+						title: '友情提示：',
+						message: ret.msg,
+						buttons: {
+							"success": {
+								"label": "确定",
+								"className": "btn-danger"
+							}
+						}
+					});
+				}
+			})
+		});
+        $("#tabs").tabs();
+        var editor = KindEditor.create('textarea[name="content"]', {
+            uploadJson: '__PUBLIC__/kindeditor/php/upload_json.php',
+            fileManagerJson: '__PUBLIC__/kindeditor/php/file_manager_json.php',
+            allowFileManager: true,
+            afterBlur: function () {
+                this.sync();
+            }
+        });
+		
+        $(".submit").click(function () {
+            var sid = $("#sid").val();
+            var title = $("#title").val();
+            var content = $("#content").val();
+            if (sid == 0) {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "专题分类必须选择。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            if (title == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "专题标题必须填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            if (content == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "专题内容需要填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+                return;
+            }
+            $("#form").submit();
+        });
+    });
+</script>
+</body>
+</html>

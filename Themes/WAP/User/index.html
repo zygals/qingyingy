@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<title>个人中心</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/reset.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/layout.css">
+	<script type="text/javascript" src="__PUBLIC__/m/js/adaptive-version.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/m/js/jquery.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/m/js/common.min.js"></script>
+</head>
+<body>
+	<div class="page">
+		<div class="m-top white b-bottom-e5">
+			<h2 style="color: #303030;">个人中心</h2>
+			<if condition="$user">
+			<a href="{:U('user/index')}" class="btn left">
+				<div class="user">
+					<span class="has">
+						<i><img src="{$user.head}" alt="{$user.name}"></i>
+					</span>
+				</div>
+			</a>
+			<else/>
+			<a href="{:U('public/login')}" class="btn left">
+				<div class="user">
+					<span>
+						<i><img src="__PUBLIC__/m/images/user-icon.png"></i>
+					</span>
+				</div>
+			</a>
+			</if>	
+			<a href="javascript:;" class="btn right headDropMenu"></a>
+		</div>
+		<div class="m-container top">
+			<div class="m-sub">
+				<div class="tool-list">
+					<!-- <div class="list b-bottom-e5"><a href="/user/info/"><i class="icon info-icon"></i><span class="title">个人资料</span><label class="jt"></label></a></div> -->
+					<div class="list b-bottom-e5"><a href="/app/apply/"><i class="icon release-icon"></i><span class="title">发布小程序</span><label class="jt"></label></a></div>
+					<!-- <div class="list b-bottom-e5"><a href="/user/message/"><i class="icon message-icon"></i><span class="title">消息中心</span><label class="jt"></label></a></div> -->
+					<!-- <div class="list b-bottom-e5"><a href="/user/contact/"><i class="icon link-icon"></i><span class="title">联系我们</span><label class="jt"></label></a></div> -->
+				</div>
+				<a href="{:U('logout')}" class="loginout">退出登录</a>
+			</div>
+		</div>
+		<div class="headDropMenuLayer">
+		<div class="headDropMenuContent clear">
+			<a href="/" title="小程序精品推荐"><span class="d_recommend"></span><p>精品推荐</p></a>
+			<a href="{:U('/app/category/')}" title="小程序分类"><span class="d_classify"></span><p>类别</p></a>
+			<a href="{:U('app/apply')}" title="小程序发布"><span class="d_ranking"></span><p>发布</p></a>
+			<a href="{:U('/eva/')}" title="小程序资讯"><span class="d_article"></span><p>测评</p></a>
+			<a href="{:U('/special/')}" title="小程序专题"><span class="d_special"></span><p>专题</p></a>
+			<a href="{:U('/search/')}" title="小程序搜索"><span class="d_search"></span><p>搜索</p></a>
+		</div>
+	</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<div class="keysbox">
+            <div class="keys clear">
+                <a class="" href="{:U('/app')}">全部</a>
+				<volist name="cates" id="vo">
+                <a <if condition="$vo['dir'] eq $_GET['dir'] or $pid eq $vo[id]">class="active"</if> href="{:U('/app/'.$vo['dir'])}" title="{$vo.name}">{$vo.name}</a>
+				</volist>
+			</div>
+			<if condition="$subcates">
+            <div class="type clear">
+				<a class="active" href="{:U('/app/'.$subdir)}">全部</a>
+				<volist name="subcates" id="vo">
+                <a <if condition="$vo['dir'] eq $_GET['dir']">class="active"</if> href="{:U('/app/'.$vo['dir'])}" title="{$vo.name}">{$vo.name}</a>
+				</volist>
+			</div>
+			</if>
+		</div>
+		<if condition="!$keyword">
+        <div class="filterbox clear">
+            <!--<div class="filterLeft fr clear">
+                <a class="c-status active" >已上架<label></label></a>
+                <a class="c-status" >未上架<label></label></a>
+            </div>-->
+			
+            <div class="filterRight fl clear">
+                <a class="c-order <if condition="$_GET[o] eq ''">active</if>" href="{:U('/app/'.$_GET[dir])}">默认</a>
+                <label></label>
+                <a class="c-order <if condition="$_GET[o] eq 't'">active</if>" href="{:U('/app/'.$_GET[dir])}?o=t">最新</a>
+                <label></label>
+                <a class="c-order <if condition="$_GET[o] eq 'n'">active</if>" href="{:U('/app/'.$_GET[dir])}?o=n">最热</a>
+            </div>
+			
+        </div>
+		</if>

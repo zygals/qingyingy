@@ -1,0 +1,75 @@
+
+<!doctype html>
+<html>
+
+    <head>
+		<meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<link rel="shortcut icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon"/>
+		<title>微信小程序精选专题频道_好玩的小程序合集 - {$Think.CONFIG.sitename}</title>
+		<script type="text/javascript"  src="__PUBLIC__/js/uaredirect.js"></script>
+		<script type="text/javascript">uaredirect("{$Think.CONFIG.wap_url}{:U('/special')}");</script>
+		<meta name="keywords" content="{$Think.CONFIG.keywords}" />
+		<meta name="description" content="{$Think.CONFIG.description}" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reseting.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/lite.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/page.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/layer/skin/default/layer.css">
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/common.js" charset="utf-8"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	</head>
+
+    <body>
+
+		<div class="body-container clear">
+			
+			<include file="Public:header" />
+
+			<div class="title_common containers">
+				<a href="/">首页</a>
+				<label></label>
+				<a href="{:U('/sepcial/')}">专题</a>
+				
+			</div>
+
+			<div id="wrapper-sub">
+				<div id="thelist" class="subjectbox containers clear">
+					<volist name="list" id="vo">
+					<div class="subject">
+						<a href="{:U('/special/'.$vo['aid'])}" class="sub-img" style="height:auto" target="_blank"><img onload="setImgWH(this)" src="{$vo.thumbnail}" class="scale_return" style="height: 100%;"></a>
+						<div class="subject-tip" style="height:20px;line-height:20px;">共{$vo.appnum}款</div>
+						<div class="lite-new">
+							<volist name="vo.app" id="v">
+							<a href="{:U('/app/'.$v['aid'])}" class="clear" target="_blank"><div class="img-new"><img onload="setImgWH(this)" src="{$v.thumbnail}" style="width: 100%;"></div><div class="data-new">{$v.title}</div><p>分类：工具</p></a>
+							</volist>
+						</div>
+						<div class="goBtn"><a href="{:U('/special/'.$vo['aid'])}" target="_blank">进入专题</a></div>
+					</div>
+					
+					</volist>
+				</div>
+				<div class="page_group clear">{$page}</div>
+			</div>
+		
+		
+		<include file="Public:footer" />
+	
+</div>
+
+<script type="text/javascript">
+    //图片变大变小
+    $(function () {
+        $("#wrapper-sub").on('mouseenter', '.subject', function () {
+            $(this).find(".sub-img img").addClass("scale").removeClass("scale_return")
+        });
+        $("#wrapper-sub").on('mouseleave', '.subject', function () {
+            $(this).find(".sub-img img").addClass("scale_return").removeClass("scale")
+        });
+    })
+</script>
+
+
+    </body>
+</html>

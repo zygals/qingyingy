@@ -1,0 +1,204 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <form class="form-horizontal" id="form" method="post" action="{:U('update')}">
+
+                            <!-- PAGE CONTENT BEGINS -->
+
+                            <input type="hidden" name="uid" value="{$user.uid}" id="uid"/>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    用户名 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="name" id="name" placeholder="用户名"
+                                           class="col-xs-10 col-sm-5" value="{$user['name']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">用户名不能为空。</span>
+											</span>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    状态 </label>
+                                <div class="col-sm-9">
+                                    <select id="status" name="status" class="rcol-xs-10 col-sm-2">
+										<option value="0" <if condition="$user['status'] eq '0'">selected</if>>禁用</option>
+										<option value="1" <if condition="$user['status'] eq '1'">selected</if>>正常</option>                                    
+									</select>
+											<span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    登录类型 </label>
+                                <div class="col-sm-9">
+                                    <select id="type" name="type" class="rcol-xs-10 col-sm-2">
+										<option value="{$user['type']}" <if condition="$user['type'] eq 'QQ'">{$user['type']}</if>>QQ</option>                                  
+									</select>                                    
+									<span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle"></span>
+									</span>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    性别 </label>
+                                <div class="col-sm-9">
+                                    <select id="sex" name="sex" class="rcol-xs-10 col-sm-2">
+										<option value="女" <if condition="$user['sex'] eq '女'">selected</if>>女</option>
+										<option value="男" <if condition="$user['sex'] eq '男'">selected</if>>男</option>                                    
+									</select>                                    
+									<span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle"></span>
+									</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    登录时间 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="lasttime" id="lasttime" placeholder="用户名" class="col-xs-10 col-sm-5" value="{$user['lasttime']|date='Y-m-d H:i:s',###}" readonly>
+									<span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">登录时间</span>
+									</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-4">
+                                    头像 </label>
+                                <div class="col-sm-9">
+                                    <div class="col-xs-10 col-sm-5">
+                                        {:UpImage("head",100,100,$user['head'])}
+                                    </div>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">仅支持jpg、gif、png、bmp、jpeg，且小于1MB。</span>
+									</span>
+                                </div>
+                            </div>
+							
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    城市 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="city" id="city" placeholder="城市" class="col-xs-10 col-sm-5" value="{$user['city']}" />
+									<span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle"></span>
+									</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+
+
+
+                            <div class="col-md-offset-2 col-md-9">
+                                <button class="btn btn-info submit" type="button">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="icon-undo bigger-110"></i>
+                                    重置
+                                </button>
+                            </div>
+
+                            <!-- PAGE CONTENT ENDS -->
+
+
+                        </form>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    $(function () {
+        $("#tabs").tabs();
+        var editor = KindEditor.create('textarea[name="content"]', {
+            uploadJson: '__PUBLIC__/kindeditor/php/upload_json.php',
+            fileManagerJson: '__PUBLIC__/kindeditor/php/file_manager_json.php',
+            allowFileManager: true,
+            afterBlur: function () {
+                this.sync();
+            }
+        });
+        $(".submit").click(function () {
+            var sid = $("#sid").val();
+            var title = $("#title").val();
+            var content = $("#content").val();
+            if (sid == 0) {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "文章分类必须选择。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            if (title == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "文章用户名必须填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            if (content == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "文章内容需要填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+                return;
+            }
+            $("#form").submit();
+        });
+    });
+</script>
+</body>
+</html>

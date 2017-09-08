@@ -1,0 +1,6 @@
+<div class="menu-art">
+                <a class="<if condition="ACTION_NAME eq 'index'">active</if>" href="{:U('/news')}">全部</a>
+				<volist name="cates" id="vo">
+                <a class="<if condition="$_GET['dir'] eq $vo['dir']">active</if>" href="{:U('/news/'.$vo['dir'])}" title="{$vo.name}">{$vo.name}</a>          
+				</volist>
+			</div>

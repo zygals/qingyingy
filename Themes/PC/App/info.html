@@ -1,0 +1,442 @@
+
+<!doctype html>
+<html>
+
+    <head>
+		<meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<link rel="shortcut icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon"/>
+		<title><if condition="$info['seotitle']">{$info['seotitle']}<else/>{$info.title}</if> - {$Think.CONFIG.sitename}</title>
+		<script type="text/javascript"  src="__PUBLIC__/js/uaredirect.js"></script>
+		<script type="text/javascript">uaredirect("{$Think.CONFIG.wap_url}{:U('/app/'.$info['aid'])}");</script>
+		<meta name="keywords" content="<if condition="$info['keywords']">{$info['keywords']}<else/>{$info.tags}</if>" />
+		<meta name="description" content="{$info.description}" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reseting.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/lite.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/list.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/layer/skin/default/layer.css">
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/common.js" charset="utf-8"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	</head>
+
+    <body>
+
+<script type="text/javascript">
+    $(function () {
+        var w = ($(".imgsroll li").length * 149) - 8;
+        if (w > 740) {
+            $(".imgbox").addClass("overflow-x");
+            $(".imgsroll").css("width", w);
+        } else {
+            $(".imgbox").removeClass("overflow-x");
+        }
+    });
+</script>
+
+<div class="body-container">
+
+    <include file="Public:header" />
+
+    <div class="title_common containers">
+        <a href="/">首页</a>
+        <label></label>
+        <a href="{:U('/app/')}">轻应用商店</a>
+        <label></label>
+        <span>{$info.title}</span>
+    </div>
+    <div class="detailbox containers clear">
+        <div class="detailLeft fl">
+            <div class="data clear">
+                <div class="img fl">
+                    <img onload="setImgWH(this)" src="{$info.thumbnail}"/>
+                </div>
+                <div class="dataList fl">
+					<div class="clear">
+						<h3 class="fl">{$info.title}</h3>
+						<div class="score-show2 fl"><span><i style="width: {$info.width}%;"></i></span><p>{$info.score}</p></div>
+						<span class="fr view-count"><label></label>{$info.n}</span>
+					</div>
+					<p>分类：{$catename}</p>
+					<p>标签：{$tags}</p>
+					
+                </div>
+            </div>
+            <div class="detaltext">						
+                <div class="lite_detail clear">
+                    <div class="lite-text fl">
+                        <h3><label></label>{$info.title} 信息</h3>
+                        <div class="fl">
+                            <p>作者</p>
+                            <p>发布时间</p>
+                            <p>查看要求</p>
+                        </div>
+                        <div class="fl">
+                            <p>{$info.zuozhe}</p>
+                            <p>{$info.t|date='Y-m-d',###}</p>
+                            <p>{$info.yaoqiu|default='微信最新版本客户端，6.5.3 版本以上。'}</p>
+                        </div>
+                    </div>
+					<div class="lite-code fr" style="width:180px">
+                       <div>
+                       		 <img src="{$info.qrcode|default='__PUBLIC__/images/default_qrcode.png'}"/>
+                        	 <p>小程序二维码</p>
+                       </div>
+                       <div style="margin-top:10px;">
+                       		<img src="{$info.open_qrcode|default='__PUBLIC__/images/default_gzh_qrcode.png'}"/>
+                        	<p>公众号二维码</p>
+                       </div>
+                    </div>
+					 
+                    
+                </div>
+                <h3><label></label>{$info.title} 介绍</h3>
+                <p>{$info.description}</p>
+                <h3><label></label>{$info.title} 截图</h3>
+                <div class="imgbox">
+                    <ul class="imgsroll clear">
+						<php>
+						$info[screen]=trim($info[screen],'|');
+						$arr=explode('|',$info[screen]);
+						foreach($arr as $v){
+							echo '<li><img onload="setImgWH(this)" src="'.$v.'"/></li>';
+						}
+						</php>
+					</ul>
+                </div>
+
+				<h3><label></label>{$info.title} 评分</h3>
+				<div class="mark clear">
+					<div class="mark-left fl">
+						<div class="num fl">{$info.score}</div>
+						<div class="fl many">
+							<div class="score-detail clear">
+								<div class="scoreblack">
+									<div style="width: {$info.width}%;" class="scorelight"></div>
+								</div>
+							</div>
+							<p>共{$snum}人参与评分</p>
+						</div>
+					</div>
+					<div class="mark-right fl">
+						<div>
+							<label>5星</label>
+							<div class="bar">
+								<div style="width: {$sinfo[5]['width']}%;" class="bar-active"></div>
+							</div>
+							<span>{$sinfo[5]['num']}条</span>
+						</div>
+						<div>
+							<label>4星</label>
+							<div class="bar">
+								<div style="width: {$sinfo[4]['width']}%;" class="bar-active"></div>
+							</div>
+							<span>{$sinfo[4]['num']}条</span>
+						</div>
+						<div>
+							<label>3星</label>
+							<div class="bar">
+								<div style="width: {$sinfo[3]['width']}%;" class="bar-active"></div>
+							</div>
+							<span>{$sinfo[3]['num']}条</span>
+						</div>
+						<div>
+							<label>2星</label>
+							<div class="bar">
+								<div style="width: {$sinfo[2]['width']}%;" class="bar-active"></div>
+							</div>
+							<span>{$sinfo[2]['num']}条</span>
+						</div>
+						<div>
+							<label>1星</label>
+							<div class="bar">
+								<div style="width: {$sinfo[1]['width']}%;" class="bar-active"></div>
+							</div>
+							<span>{$sinfo[1]['num']}条</span>
+						</div>
+					</div>
+				</div>
+				<if condition="!$hasScore">
+				<div class="score-box text-center clear">
+					<p class="fl">请给小程序评分吧</p>
+					<ul class="grade clear score">
+						<li title="很差"><span></span></li>
+						<li title="较差"><span></span></li>
+						<li title="还行"><span></span></li>
+						<li title="推荐"><span></span></li>
+						<li title="力荐"><span></span></li>									
+					</ul>
+					<input type="hidden" value="" name="score" id="score">
+					<a id="save" class="btn">确认评分</a>
+					<script type="text/javascript">
+						$(function () {
+							// 评分的js
+							var n = 0
+							var m = 0
+							$(".score li").click(function () {
+								n = $(this).index()
+								$(".score span").removeClass("active")
+								$(".score span:lt(" + (n + 1) + ")").addClass('active')
+								$('#score').val(n + 1);
+							})
+							$(".score li").mouseenter(function () {
+								m = $(this).index()
+								$(".score span:lt(" + (m + 1) + ")").addClass('active2')
+							})
+							$(".score li").mouseleave(function () {
+								m = $(this).index()
+								$(".score span:lt(" + (m + 1) + ")").removeClass('active2')
+							})
+
+							// 评分
+							$('#save').click(function () {
+								var cid = '{$info.aid}';
+								var score = $('#score').val();
+								if (!score) {
+									layer.msg('您还未打分！');
+									return;
+								}
+								$.post("{:U('app/doScore')}", {cid: cid, score: score}, function (msg) {
+									if (msg.status == 2) {
+										showLogin();return;
+									}
+									if(msg.status == 1 ){
+										window.location.reload();
+									}
+									if(msg.status == 0 ){
+										$('#save').remove();
+									}
+									layer.msg(msg.info);
+								});
+							});
+						})
+					</script> 
+				</div>
+				</if>
+				
+            </div>
+            <div class="comment-common" style="margin-left:40px; margin-right: 40px;">
+
+
+                <!--PC版-->
+				<if condition="C('open_cy') eq '1'">
+                    <h3><label></label>评论</h3>
+                    <div class="editbox" style="margin-top: 10px">
+                        <textarea placeholder="说说你的看法吧" class="textarea" id="message_content"></textarea>
+                    </div>
+                    <div class="clear">
+                        <a href="javascript:void(0)" class="editBtn fr commentBtn" id="message_btn">评论</a>
+                    </div>
+                    <div class="comment-list" id="thelist">
+
+                    </div>
+                    <script>
+                        getMsg();
+                        $('#message_btn').click(function () {
+
+                            insert_msg(0,$('#message_content').val());
+                        });
+
+                        function insert_msg(pid,content){
+                            var cid = "{$info.aid}";
+                            var titles = "{$info.title}";
+                            if(content){
+                                var json_text = {"catid": cid, "type":1,"pid":pid,"title":titles,"content":content};
+                                $.post("{:U('app/doMessage')}", json_text, function (msg) {
+                                    if (msg.status == 2) {
+                                        showLogin();return;
+                                    }
+                                    if(msg.status == 1 ){
+                                        $('#thelist textarea').val('');
+                                        getMsg();
+                                    }
+
+                                    layer.msg(msg.info);
+                                });
+                            }else{
+                                layer.msg('留言不能为空！');
+                            }
+                        }
+
+                        function getMsg(){
+                            var cid = "{$info.aid}";
+                            var json_text = {"catid": cid, "type":1};
+                            $.post("{:U('app/doMessagelist')}", json_text, function (msg) {
+                                if (msg.status == 2) {
+                                    showLogin();return;
+                                }
+                                if(msg.status == 1 ){
+                                    var thelist_html = '';
+                                   $(msg.list).each(function(i,n){
+                                       if(n.pid==0){
+                                       thelist_html += '<div class="comment clear"><a class="avater-comment fl"><img src="'+n.head_big+'" onload="setImgWH(this)" style="width: 100%;"></a>';
+                                       thelist_html += '<div class="data-comment"><div class="name-comment clear"><h4 class="fl">'+n.name+'</h4><span class="fl">'+n.createtime+'</span><a class="fr reply" onclick="reply_s(this)">回复</a></div><p>'+n.content+'</p>';
+                                           $(msg.list).each(function(ii,nn){
+                                               if(n.id==nn.pid){
+
+                                                   thelist_html += '<div class="has-reply"><p class="name">'+nn.name+'</p><p>'+nn.content+'</p></div>';
+                                               }
+
+                                           });
+
+                                       thelist_html += '<div class="reply-content" style="display:none"><textarea rows="1" class="re-textarea" id="comment_'+ n.id+'"></textarea><div class="clear"><a data-pid="'+n.id+'" class="editBtn fr active replayBtn">回复</a><a onclick="closeReply(this);" class="cancel fr">取消</a></div></div></div></div>';
+                                       }
+                                   });
+                                    $('#thelist').html(thelist_html);
+
+                                    $('#thelist .replayBtn').off("click").on("click",function(){
+                                        var this_pidTemp = $(this).data('pid');
+                                        insert_msg(this_pidTemp,$('#comment_'+this_pidTemp).val());
+                                    });
+                                }
+
+
+                            });
+                        }
+
+                        function reply_s(ef){
+                            var this_pp = $(ef).parent().parent();
+                            this_pp.find('.reply-content').show();
+                            this_pp.find('.re-textarea').val('');
+
+                        }
+                        function closeReply(ef2){
+                            $(ef2).parent().parent().hide();
+                        }
+                    </script>
+				</if>
+
+            </div>
+        </div>
+        <include file="Public:right_app" />
+    </div>
+
+    <include file="Public:footer" />
+
+</div>
+
+<div class="alert">
+    <div class="imgs">
+        <div class="close"></div>									
+        <p>Pic <span id="index"></span> of <span id="count"></span></p>
+        <a class="pre"><span></span></a>
+        <a class="next"><span></span></a>
+        <img src=""/>
+    </div>
+</div>
+
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32 jiashare">
+    <a title="分享QQ空间" class="jiathis_button_qzone"></a>
+    <a title="分享QQ好友" class="jiathis_button_cqq"></a>
+    <a title="分享微博" class="jiathis_button_tsina"></a>
+    <a title="分享微信" class="jiathis_button_weixin"></a>
+    <a title="分享豆瓣" class="jiathis_button_douban"></a>
+    <a title="复制地址" class="jiathis_button_copy"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function () {
+        //二维码显示隐藏
+        $(".help-tip .weixin-tip").hover(function () {
+            $(".codepop").eq(0).stop(true, true).fadeToggle();
+        });
+        $(".help-tip .phone-tip").hover(function () {
+            $(".codepop").eq(1).stop(true, true).fadeToggle();
+        });
+    });
+    $(function () {
+        var wWidth = $(window).width();
+        var wHeight = $(window).height();
+        var Top = wHeight / 2 - 98;
+        if (wWidth < 980) {
+            imgLeft = (wWidth - 980) - 118;
+        } else {
+            imgLeft = (wWidth - 980) / 2 - 168;
+        }
+        //$(".fixed_box").css("top", Top);
+        $(".jiashare").css("left", imgLeft);
+        $(window).resize(function () {
+            var wHeight = $(window).height();
+            var Top = wHeight / 2 - 98;
+            var wWidth = $(window).width();
+            if (wWidth < 980) {
+                imgLeft = (wWidth - 980) - 118;
+            } else {
+                imgLeft = (wWidth - 980) / 2 - 118;
+            }
+            //$(".fixed_box").css("top", Top);
+            $(".jiashare").css("left", imgLeft);
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        //图片弹窗
+        var H = $(window).height()
+        $(".imgs").css({"height": H * .7, "width": H * .7 / 1.78, "marginLeft": H * .7 / 1.78 / 2 * -1, "marginTop": H * .7 / 2 * -1})
+        var $index = 0;
+        var imgSrc = '';
+        var flag = true
+        $(".imgsroll li").click(function () {
+            $(".imgs a").show()
+            $index = $(this).index();
+            $(".alert").fadeIn()
+            imgSrc = $(".imgsroll li").eq($index).find("img").attr("src");
+            $(".imgs img").attr("src", imgSrc)
+            $("#index").html($index + 1)
+            $("#count").html($(".imgsroll li").length)
+            if ($index == 0) {
+                $(".imgs .pre").hide()
+            }
+            if ($index == $(".imgsroll li").length - 1) {
+                $(".imgs .next").hide()
+            }
+        })
+        $(".imgs .next").click(function () {
+            $index++;
+            imgSrc = $(".imgsroll li").eq($index).find("img").attr("src");
+            $(".imgs img").attr("src", imgSrc)
+            if ($index == $(".imgsroll li").length - 1) {
+                $(".imgs .next").hide()
+            }
+            $(".imgs .pre").show()
+            $("#index").html($index + 1)
+            $("#count").html($(".imgsroll li").length)
+        })
+        $(".imgs .pre").click(function () {
+            $index--;
+            if ($index == 0) {
+                $(".imgs .pre").hide()
+            }
+            imgSrc = $(".imgsroll li").eq($index).find("img").attr("src");
+            $(".imgs img").attr("src", imgSrc)
+            $(".imgs .next").show()
+            $("#index").html($index + 1)
+            $("#count").html($(".imgsroll li").length)
+        })
+        $(".imgs a").click(function () {
+            if (flag) {
+                $(".imgs").addClass("opacityStyle")
+                $(".imgs img").removeClass("opacityStyle")
+            } else {
+                $(".imgs img").addClass("opacityStyle")
+                $(".imgs").removeClass("opacityStyle")
+            }
+            flag = !flag
+        })
+        $(".alert").click(function (e) {
+            $(".alert").fadeOut()
+        })
+        $(".imgs .close").click(function () {
+            $(".alert").fadeOut()
+        })
+        $(".imgs").click(function (e) {
+            e.stopPropagation()
+        })
+    })
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,114 @@
+<include file="Public/head"/>
+
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <table class="table table-striped table-bordered">
+							<thead>
+							<tr>
+								<th>总数量</th>
+								<th>每页显示数量</th>
+								<th>总页数</th>
+							</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="">{$total}</td>
+									<td class="">{$count}</td>
+									<td class="" id="pages">{$pages}</td>
+								</tr>
+							</tbody>
+						</table>
+						
+                        <div class="cf">
+							<label class="col-sm-1 control-label no-padding-right" for="jiange"> 间隔： </label>
+							<input type="text" id="jiange" placeholder="间隔秒数" class="col-xs-10 col-sm-1" value="1">
+                            <input id="click" class="btn btn-info" type="button" value="开始采集">
+                        </div>
+						<div class="space-4"></div>
+						<table class="table table-striped table-bordered">
+							<volist name="list" id="vo" >
+							<tr><th class="col-xs-1">列表{$key}</th><td class="url" id="td{$key}" data-id="{$key}"><a href="{$vo}" target="_blank">{$vo}</a> <a href="javascript:;" onclick="onecj(this)">采集</a></td></tr>
+							</volist>
+						</table>
+						<input type="hidden" id="hideid" value=""/>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+	function onecj(obj){
+		var pages=$(obj).prev().attr('data-id');
+		var url=$(obj).prev().attr('href');
+		$.ajax({  
+			type : "get",  
+			url : '{:U("/admin/caiji/get")}',  
+			data : {'url':url},  
+			async : true,  
+			success : function(ret){
+				//if(ret.code==1){
+					$(obj).parent().append(ret.msg);
+				//}
+			},  
+			complete : function(){
+				
+			}
+		});
+	}
+    $(function () {
+		$("#click").click(function(){
+			
+			var pages=$('#hideid').val()?$('#hideid').val():$('#pages').text();
+			var obj=$('#td'+pages+' a');
+			$.ajax({  
+				type : "get",  
+				url : '{:U("/admin/caiji/get")}',  
+				data : {'url':obj.attr('href')},  
+				async : true,  
+				success : function(ret){
+					//if(ret.code==1){
+						obj.parent().append(ret.msg);
+					//}
+				},  
+				complete : function(){
+					p=obj.parents('tr').next().find('td').attr('data-id');
+					$('#hideid').val(p);
+					setTimeout(function(){
+						$("#click").click();
+					},$('#jiange').val()*1000);
+					
+				}
+			});
+		});
+    })
+</script>
+</body>
+</html>

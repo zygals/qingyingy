@@ -1,0 +1,3 @@
+<?php
+//000000000600a:3:{i:0;a:5:{s:2:"id";s:1:"5";s:5:"title";s:15:"净水新闻网";s:3:"url";s:22:"http://www.shuihy.com/";s:4:"logo";s:0:"";s:1:"o";s:1:"0";}i:1;a:5:{s:2:"id";s:1:"6";s:5:"title";s:15:"轻应用联盟";s:3:"url";s:32:"http://weilaihexun.com/yewu/qyy/";s:4:"logo";s:0:"";s:1:"o";s:1:"0";}i:2;a:5:{s:2:"id";s:1:"3";s:5:"title";s:12:"未来和讯";s:3:"url";s:27:"http://www.weilaihexun.com/";s:4:"logo";s:0:"";s:1:"o";s:1:"1";}}
+?>

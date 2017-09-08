@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+		<link rel="shortcut icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon"/>
+		<title>联系我们</title>
+		
+
+		<meta name="keywords" content="{$Think.CONFIG.keywords}" />
+		<meta name="description" content="{$Think.CONFIG.description}" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reseting.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/lite.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/ucenter.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/aboutus.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/layer/skin/default/layer.css">
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/common.js" charset="utf-8"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	</head>
+	<body>
+	<script type="text/javascript">
+    $(function(){
+        $('.release-zb').remove();
+    });
+    
+    $(function () {
+        $('.add-fixed').click(function () {
+            window.open('/user/index/apply', '_blank');
+        });
+    });
+	</script>
+
+		<div class="body-container">
+			<include file="./Themes/PC/Public/header.html" />
+			<div class="title_common containers">
+				<a href="/">首页</a>
+				<label></label>
+				<a href="{:U('/user/index')}">个人中心</a>
+				<label></label>
+				<span>联系我们</span>
+			</div>
+			<div class="containers clear">
+
+				<include file="Public:left" />
+				<div class="right-ucenter fr">
+					<div class="title-ucenter">联系我们</div>
+					<div class="about-us">
+						<h2>北京未来和讯信息科技有限公司</h2>
+						<p>北京未来和讯信息科技有限公司于2016年成立于北京。专注于为企业解决营销难题，帮助企业突破发展瓶颈。以“有细节、有策略、可执行”的理念为核心，提供科学有效的推广优化服务，以及系统全面的营销解决方案。未来和讯致力于为企业及个人提供互联网基础应用、主机托管、云主机、网站、APP建设、网站推广、网络品牌营销等全方位、立体化服务。</p>
+						<div class="something clear">
+							<div class="position">
+								<div><span class="pos"></span></div>
+								<h3>联系地址</h3>
+								<p>北京市朝阳区鼎成路9号世纪宝鼎B座16F</p>
+							</div>
+							<div class="relation">
+								<div><span class="tel"></span></div>
+								<h3>联系电话</h3>
+								<p>010-84626698</p>
+							</div>
+							<div class="email">
+								<div><span class="eml"></span></div>
+								<h3>联系邮箱</h3>
+								<p>fangzy@weilaihexun.com</p>
+							</div>
+						</div>
+						<div class="clear" style="display:none">
+							<p class="fr">
+								<label class="map-icon"></label> 地理位置
+							</p>
+						</div>
+						<div class="img-map" style="display:none">
+							<img src="__PUBLIC__/images/map.jpg">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<include file="./Themes/PC/Public/footer.html" />
+		</div>
+		
+		
+
+	</body>
+
+</html>

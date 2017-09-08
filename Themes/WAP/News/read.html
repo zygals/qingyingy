@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="shortcut icon" href="__PUBLIC__/m/images/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon-precomposed" href="__PUBLIC__/m/images/favicon.ico"/>
+    <title><if condition="$info['seotitle']">{$info['seotitle']}<else/>{$info.title}</if> - {$Think.CONFIG.sitename}</title>
+    <meta name="keywords" content="{$info.keywords}" />
+    <meta name="description" content="{$info.description}" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/reset.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/layout.css?1.0.47">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/page.css">
+	<script type="text/javascript" src="__PUBLIC__/m/js/adaptive-version.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/m/js/jquery.min.js"></script>
+</head>
+<body>
+
+	<div class="page">
+		<div class="m-top white b-bottom-e5">
+			<h2><a href="/" class="logo"></a></h2>
+			<if condition="$user">
+			<a href="{:U('user/index')}" class="btn left">
+				<div class="user">
+					<span class="has">
+						<i><img src="{$user.head}" alt="{$user.name}"></i>
+					</span>
+				</div>
+			</a>
+			<else/>
+			<a href="{:U('public/login')}" class="btn left">
+				<div class="user">
+					<span>
+						<i><img src="__PUBLIC__/m/images/user-icon.png"></i>
+					</span>
+				</div>
+			</a>
+			</if>
+			<a href="javascript:;" class="btn right headDropMenu"></a>
+		</div>
+		<div class="m-container top" style="bottom: 1.1rem;">
+			<div class="m-sub">
+				<div class="article">
+					<div class="title">{$info.title}</div>
+					<div class="from">文章来源：{$info.befrom|default='本站'}<label class="time">{$info.t|date='m月d日 H:i',###}</label><label class="view">{$info.n}</label></div>
+					<div class="tool clear">
+						<label class="tags">
+						<php>$info['keywords']=str_replace('，',',',$info['keywords']);$arr=explode(',',$info['keywords']);foreach($arr as $v){</php>
+						<a href="{:U('/search/result',array('keyword'=>$v,'t'=>'news'))}" title="{$v}">{$v}</a>
+						<php>}</php>
+						</label>
+					</div>
+
+					<div class="article-content">
+						{$info.content}
+					</div>
+				</div>
+				<div class="tag-title clear discuss-model">
+					<div class="color fl"></div>全部评论
+				</div>
+				<!--WAP版-->
+				<if condition="C('open_cy') eq '1'">
+                    <div class="tag-title clear discuss-model">
+                        <div class="color fl"></div>全部评论
+                    </div>
+                    <div class="discuss">
+                        <div id="thelist">
+                        </div>
+                    </div>
+                    <div class="m-bottom recommend b-top-e5">
+                        <div class="input" contenteditable="true"></div>
+                        <a href="javascript:;" class="btn"></a>
+                    </div>
+				</if>
+			</div>
+		</div>
+		
+		<div class="headDropMenuLayer">
+			<div class="headDropMenuContent clear">
+				<a href="/" title="小程序精品推荐"><span class="d_recommend"></span><p>精品推荐</p></a>
+				<a href="{:U('/app/category/')}" title="小程序分类"><span class="d_classify"></span><p>类别</p></a>
+				<a href="{:U('app/apply')}" title="小程序发布"><span class="d_ranking"></span><p>发布</p></a>
+				<a href="{:U('/eva/')}" title="小程序资讯"><span class="d_article"></span><p>测评</p></a>
+				<a href="{:U('/special/')}" title="小程序专题"><span class="d_special"></span><p>专题</p></a>
+				<a href="{:U('/search/')}" title="小程序搜索"><span class="d_search"></span><p>搜索</p></a>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="__PUBLIC__/m/js/touch-0.2.14.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/m/js/clipboard.min.js?1.0.14"></script>
+	<script type="text/javascript" src="__PUBLIC__/m/js/common.min.js?1.0.24"></script>
+	<script type="text/javascript" src="__PUBLIC__/m/js/swiper.min.js"></script>
+
+    
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/layer/skin/default/layer.css">
+<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+
+	
+	<script>
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+        getMsg();
+        $('.m-bottom .btn').click(function(){
+            /*if(uid <= 0){
+             window.location.href = "{:U('/public/login')}";
+             return false;
+             }*/
+            if($('.input').text()){
+                insert_msg(0,$('.input').text());
+            }else{
+
+                $('.m-container').stop().animate({
+                    scrollTop: $('.discuss-model').position().top + $('.m-container').scrollTop()
+                }, 500);
+            }
+
+        });
+	})();
+    function insert_msg(pid,content){
+        var cid = "{$info.aid}";
+        var titles = "{$info.title}";
+        if(content){
+            var json_text = {"catid": cid, "type":1,"pid":pid,"title":titles,"content":content};
+            $.post("{:U('app/doMessage')}", json_text, function (msg) {
+                if (msg.status == 2) {
+                    window.location.href = "{:U('/public/login')}";
+                    return false;
+                }
+                if(msg.status == 1 ){
+                    $('#thelist textarea').val('');
+                    getMsg();
+                }
+
+                layer.msg(msg.info);
+            });
+        }else{
+            layer.msg('留言不能为空！');
+        }
+    }
+
+    function getMsg(){
+        var cid = "{$info.aid}";
+        var json_text = {"catid": cid, "type":1};
+        $.post("{:U('app/doMessagelist')}", json_text, function (msg) {
+            if (msg.status == 2) {
+                showLogin();return;
+            }
+            if(msg.status == 1 ){
+                var thelist_html = '';
+                $(msg.list).each(function(i,n){
+                    if(n.pid==0){
+                        thelist_html += '<div class="list"><div class="list-top"><span class="user"><img src="'+n.head_big+'"></span><div class="right"><div class="group"><div class="name">'+n.name+'<a class="reply" href="javascript:;" onclick="reply_s(this)">回复</a></div> <p class="time">'+n.createtime+'</p></div></div></div><div class="content"><p>'+n.content+'</p></div>';
+
+                        $(msg.list).each(function(ii,nn){
+                            if(n.id==nn.pid){
+
+                                thelist_html += '<div class="one-reply"><p class="name">'+nn.name+'</p><p>'+nn.content+'</p></div>';
+                            }
+
+                        });
+
+                        thelist_html += '<div class="recommend-mode" style="display:none;margin-top: 20px;"><textarea rows="1" class="re-textarea" id="comment_'+ n.id+'"></textarea><div class="bottom"><a data-pid="'+n.id+'" class="btn active"  style="margin-left:10px;">回复</a><a onclick="closeReply(this);" class="btn">取消</a></div></div></div></div>';
+                    }
+                });
+                $('#thelist').html(thelist_html);
+
+                $('#thelist .recommend-mode .active').off("click").on("click",function(){
+                    var this_pidTemp = $(this).data('pid');
+                    insert_msg(this_pidTemp,$('#comment_'+this_pidTemp).val());
+                });
+            }
+
+
+        });
+    }
+
+    function reply_s(ef){
+        var this_pp = $(ef).parent().parent().parent().parent().parent();
+
+        this_pp.find('.recommend-mode').show();
+        this_pp.find('.re-textarea').val('');
+
+    }
+    function closeReply(ef2){
+        $(ef2).parent().parent().hide();
+    }
+	</script>
+<p style="display:none">
+{$Think.CONFIG.footer}
+</p>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+		<link rel="shortcut icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon"/>
+		<title>消息中心</title>
+
+		<meta name="keywords" content="{$Think.CONFIG.keywords}" />
+		<meta name="description" content="{$Think.CONFIG.description}" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reseting.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/lite.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/ucenter.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/layer/skin/default/layer.css">
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/common.js" charset="utf-8"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	</head>
+	<body>
+	<script type="text/javascript">
+    $(function(){
+        $('.release-zb').remove();
+    });
+    
+    $(function () {
+        $('.add-fixed').click(function () {
+            window.open('/user/index/apply', '_blank');
+        });
+    });
+	</script>
+
+		<div class="body-container">
+			<include file="./Themes/PC/Public/header.html" />
+			<div class="title_common containers">
+				<a href="/">首页</a>
+				<label></label>
+				<a href="{:U('/user/index')}">个人中心</a>
+				<label></label>
+				<span>消息中心</span>
+			</div>
+			<div class="containers clear">
+
+				<include file="Public:left" />
+				<div class="right-ucenter fr">
+					<div class="title-ucenter">消息中心</div>
+					<div class="content-center">
+						<div id="thelist" class="comment-list"></div>
+						<div class="comment-more lookmore" style="display: none;">
+							<a>查看更多</a>
+						</div>
+					</div>
+					<div class="no-conment text-center nonebox" style="">
+						<img src="__PUBLIC__/images/no-message.png">
+						<p>您还没消息</p>
+					</div>
+				</div>
+			</div>
+			
+			<include file="./Themes/PC/Public/footer.html" />
+		</div>
+		
+		
+
+	</body>
+
+</html>

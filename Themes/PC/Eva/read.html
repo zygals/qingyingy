@@ -1,0 +1,181 @@
+
+<!doctype html>
+<html>
+
+    <head>
+		<meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<link rel="shortcut icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon"/>
+		<title><if condition="$info['seotitle']">{$info['seotitle']}<else/>{$info.title}</if> - {$Think.CONFIG.sitename}</title>
+		<script type="text/javascript"  src="__PUBLIC__/js/uaredirect.js"></script>
+		<script type="text/javascript">uaredirect("{$Think.CONFIG.wap_url}{:U('/eva/'.$info['aid'])}");</script>
+		<meta name="keywords" content="{$info.keywords}" />
+		<meta name="description" content="{$info.description}" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reseting.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/lite.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/layer/skin/default/layer.css">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/list.css" />
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/common.js" charset="utf-8"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	</head>
+
+    <body>
+
+
+
+<div class="body-container">
+
+    <include file="Public:header" />
+
+    <div class="title_common containers">
+        <a href="/">首页</a><label></label><a >评测</a><label></label><span>{$info.title}</span>
+    </div>
+
+    <div class="articlebox containers clear">
+        
+		<div class="artcleLeft detail">
+			<div class="contents"><h1>{$info.title}</h1>
+				<div class="data-detail clear"><p class="fl">来源：{$info.befrom|default='<a href=/ target=_blank>本站</a>'}</p><p class="label-art fl"><label class="lableIcon"></label><span>{$info.keywords}</span></p><p class="fl time-art"><label></label>{$info.t|date="Y-m-d H:i",###}</p><p class="view-count fl"><label></label>{$info.n}</p></div>
+				<if condition="$app">
+				<div class="evaluate special">
+				<a class="clear" href="{:U('/app/'.$app[aid])}" target="_blank">
+				<span class="fl"><img onload="setImgWH(this)" src="{$app.thumbnail}" style="width: 100%;"></span>
+				<div class="fl datas"><h3>{$app.title}</h3><p>{$app.description}</p></div>
+				<div class="fl num">8.0<span>分</span></div>
+				<div class="qrcode fl"><img src="{$app.qrcode|default='__PUBLIC__/images/default_qrcode.png'}"><p>微信扫描体验</p></div>
+				</a>
+				</div>
+				</if>
+				<div class="evaluate " style="text-align:center;border:none">
+                    {:ad(5)}
+				</div>
+				<div class="content-art">
+				{$info.content}
+				<div class="artOthers clear"><a href="{$prev.url}" ><label class="fl">上一篇：{$prev.title}</label><span class="ellipsis"></span></a><a href="{$next.url}"><label class="fl">下一篇：{$next.title}</label><span class="ellipsis"></span></a></div>
+				</div>
+
+				<div class="comment-common">
+				<!--PC版-->
+				<if condition="C('open_cy') eq '1'">
+                    <h3><label></label>评论</h3>
+                    <div class="editbox" style="margin-top: 10px">
+                        <textarea placeholder="说说你的看法吧" class="textarea" id="message_content"></textarea>
+                    </div>
+                    <div class="clear">
+                        <a href="javascript:void(0)" class="editBtn fr commentBtn" id="message_btn">评论</a>
+                    </div>
+                    <div class="comment-list" id="thelist">
+
+                    </div>
+                    <script>
+                        getMsg();
+                        $('#message_btn').click(function () {
+
+                            insert_msg(0,$('#message_content').val());
+                        });
+
+                        function insert_msg(pid,content){
+                            var cid = "{$info.aid}";
+                            var titles = "{$info.title}";
+                            if(content){
+                                var json_text = {"catid": cid, "type":3,"pid":pid,"title":titles,"content":content};
+                                $.post("{:U('app/doMessage')}", json_text, function (msg) {
+                                    if (msg.status == 2) {
+                                        showLogin();return;
+                                    }
+                                    if(msg.status == 1 ){
+                                        $('#thelist textarea').val('');
+                                        getMsg();
+                                    }
+
+                                    layer.msg(msg.info);
+                                });
+                            }else{
+                                layer.msg('留言不能为空！');
+                            }
+                        }
+
+                        function getMsg(){
+                            var cid = "{$info.aid}";
+                            var json_text = {"catid": cid, "type":3};
+                            $.post("{:U('app/doMessagelist')}", json_text, function (msg) {
+                                if (msg.status == 2) {
+                                    showLogin();return;
+                                }
+                                if(msg.status == 1 ){
+                                    var thelist_html = '';
+                                    $(msg.list).each(function(i,n){
+                                        if(n.pid==0){
+                                            thelist_html += '<div class="comment clear"><a class="avater-comment fl"><img src="'+n.head_big+'" onload="setImgWH(this)" style="width: 100%;"></a>';
+                                            thelist_html += '<div class="data-comment"><div class="name-comment clear"><h4 class="fl">'+n.name+'</h4><span class="fl">'+n.createtime+'</span><a class="fr reply" onclick="reply_s(this)">回复</a></div><p>'+n.content+'</p>';
+                                            $(msg.list).each(function(ii,nn){
+                                                if(n.id==nn.pid){
+
+                                                    thelist_html += '<div class="has-reply"><p class="name">'+nn.name+'</p><p>'+nn.content+'</p></div>';
+                                                }
+
+                                            });
+
+                                            thelist_html += '<div class="reply-content" style="display:none"><textarea rows="1" class="re-textarea" id="comment_'+ n.id+'"></textarea><div class="clear"><a data-pid="'+n.id+'" class="editBtn fr active replayBtn">回复</a><a onclick="closeReply(this);" class="cancel fr">取消</a></div></div></div></div>';
+                                        }
+                                    });
+                                    $('#thelist').html(thelist_html);
+
+                                    $('#thelist .replayBtn').off("click").on("click",function(){
+                                        var this_pidTemp = $(this).data('pid');
+                                        insert_msg(this_pidTemp,$('#comment_'+this_pidTemp).val());
+                                    });
+                                }
+
+
+                            });
+                        }
+
+                        function reply_s(ef){
+                            var this_pp = $(ef).parent().parent();
+                            this_pp.find('.reply-content').show();
+                            this_pp.find('.re-textarea').val('');
+
+                        }
+                        function closeReply(ef2){
+                            $(ef2).parent().parent().hide();
+                        }
+                    </script>
+				</if>
+				</div>
+			</div>
+		</div>
+		
+        <include file="Public:right_eva" />
+    </div>
+	
+    <include file="Public:footer" />
+
+</div>
+
+<script type="text/javascript">
+    //图片变大变小
+    $(function () {
+        //二维码显示隐藏
+        $(".help-tip .weixin-tip").hover(function () {
+            $(".codepop").eq(0).stop(true, true).fadeToggle()
+        })
+        $(".help-tip .phone-tip").hover(function () {
+            $(".codepop").eq(1).stop(true, true).fadeToggle()
+        })
+    })
+    //图片变大变小
+    $(function () {
+        $(".img-article").mouseenter(function () {
+            $(this).find("img").addClass("scale").removeClass("scale_return")
+        })
+        $(".img-article").mouseleave(function () {
+            $(this).find("img").removeClass("scale").addClass("scale_return")
+        })
+    })
+</script>
+
+    </body>
+</html>

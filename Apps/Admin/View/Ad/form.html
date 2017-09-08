@@ -1,0 +1,215 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <form class="form-horizontal" id="form" method="post" action="{:U('update')}">
+
+                            <!-- PAGE CONTENT BEGINS -->
+
+                            <input type="hidden" name="aid" value="{$ad.aid}" id="aid"/>
+							
+							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-10"> 开启/关闭 </label>
+                                <div class="col-sm-9">
+                                    <select id="status" name="status" class="rcol-xs-10 col-sm-5">
+									<option value="1" <if condition="$ad['status'] eq 1">selected</if>>开启</option>
+									<option value="0" <if condition="$ad['status'] eq 0">selected</if>>关闭</option>
+									</select>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-10"> 广告类型 </label>
+                                <div class="col-sm-9">
+                                    <select id="type" name="type" class="rcol-xs-10 col-sm-5">
+									<option value="1" <if condition="$ad['type'] eq 1">selected</if>>图片广告</option>
+									<option value="2" <if condition="$ad['type'] eq 2">selected</if>>文字广告</option>
+									<option value="3" <if condition="$ad['type'] eq 3">selected</if>>纯代码</option>
+									</select>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    名称 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="title" id="title" placeholder="标题"
+                                           class="col-xs-10 col-sm-5" value="{$ad['title']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">标题不能为空。</span>
+									</span>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    链接 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="url" id="url" placeholder="链接"
+                                           class="col-xs-10 col-sm-5" value="{$ad['url']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">点击广告跳转的URL。图片类型 和 文字类型，此链接才有用</span>
+											</span>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    广告文字 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="word" id="word" placeholder="广告文字"
+                                           class="col-xs-10 col-sm-5" value="{$ad['word']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"> 文字类型用</span>
+											</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-4">
+                                    广告图片 </label>
+                                <div class="col-sm-9">
+                                    <div class="col-xs-10 col-sm-5">
+                                        {:UpImage("pic",300,100,$ad['pic'])}
+                                    </div>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">图片类型用。仅支持jpg、gif、png、bmp、jpeg，且小于1MB。</span>
+									</span>
+                                </div>
+
+                            </div>
+							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    图片宽 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="width" id="width" placeholder="图片宽"  class="col-xs-10 col-sm-5" value="{$ad['width']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">PX， 图片宽，也可用百分比：100%、自动auto</span>
+											</span>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    图片高 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="height" id="height" placeholder="图片高"  class="col-xs-10 col-sm-5" value="{$ad['height']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">PX， 图片高，也可用百分比：100%、自动auto</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    广告代码 </label>
+                                <div class="col-sm-9">
+                                        <textarea name="code" id="code" style="width:80%;height:200px" placeholder="纯代码类型的广告代码。支持任何html代码">{$ad['code']}</textarea>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+
+
+                            <div class="col-md-offset-2 col-md-9">
+                                <button class="btn btn-info submit" type="button">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="icon-undo bigger-110"></i>
+                                    重置
+                                </button>
+                            </div>
+
+                            <!-- PAGE CONTENT ENDS -->
+
+
+                        </form>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    $(function () {
+        
+        $(".submit").click(function () {
+            var sid = $("#sid").val();
+            var title = $("#title").val();
+            var content = $("#content").val();
+            if (sid == 0) {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "广告分类必须选择。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            if (title == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "广告标题必须填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            if (content == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "广告内容需要填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+                return;
+            }
+            $("#form").submit();
+        });
+    });
+</script>
+</body>
+</html>

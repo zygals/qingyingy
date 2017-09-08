@@ -1,0 +1,16 @@
+
+			<div class="navbar b-bottom-e5 b-top-e5 clear">
+				<div class="navbar-left fl">
+					<a data-value="" class="list <if condition="ACTION_NAME eq 'index'">active</if>" href="{:U('/news')}">
+						<span>全部<i></i></span>
+					</a>
+				</div>
+				
+				<div class="navbar-right">
+					<div class="navbar-list">
+						<volist name="cates" id="vo">
+						<a href="{:U('/news/'.$vo['dir'])}" data-value="zixun" class="list <if condition="$_GET['dir'] eq $vo['dir']">active</if>"><span>{$vo.name}<i></i></span></a>
+						</volist>
+					</div>
+				</div>
+			</div>

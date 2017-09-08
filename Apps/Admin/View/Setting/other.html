@@ -1,0 +1,232 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <form class="form-horizontal" id="form" role="form" method="post" action="{:U('otherupdate')}">
+
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    COOKIE加密串 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="COOKIE_QT" id="COOKIE_QT" placeholder="COOKIE加密串" class="col-xs-10 col-sm-5" value="{$other.COOKIE_QT|default='jiami'}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">任意6位 字母+数字，用于COOKIE加密</span>
+									</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    COOKIE域名 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="COOKIE_DOMAIN" id="COOKIE_DOMAIN" placeholder="COOKIE域名" class="col-xs-10 col-sm-5" value="{$other.COOKIE_DOMAIN}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">域名是www.xxx.com.cn，则填写xxx.com.cn 填错会导致登录失败</span>
+									</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    手机版域名 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="WAP_DOMAIN" id="WAP_DOMAIN" placeholder="手机版域名" class="col-xs-10 col-sm-5" value="{$other.WAP_DOMAIN|default='m.xxx.com'}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">例：http://m.xxx.com，则填写m.xxx.com</span>
+									</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    后台路径  </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="ADMIN_DIR" id="ADMIN_DIR" placeholder="后台目录路径 " class="col-xs-10 col-sm-5" value="{$other.ADMIN_DIR|default='admin'}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">例：设置为xxx后，后台地址是http://www.xxx.com/xxx</span>
+									</span>
+                                </div>
+                            </div>
+							
+							<div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    缓存类型  </label>
+                                <div class="col-sm-9">
+                                    <select class="rcol-xs-10 col-sm-2" name="DATA_CACHE_TYPE">
+										<option value="File" <if condition="$other['DATA_CACHE_TYPE'] eq 'File'">selected</if>>File（文件缓存）</option>
+										<option value="Memcache" <if condition="$other['DATA_CACHE_TYPE'] eq 'Memcache'">selected</if>>Memcache（性能更高）</option>
+									</select>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">如选择Memcache请确认服务器安装并开启Memcached，否则会出现致命错误</span>
+									</span>
+                                </div>
+                            </div>
+                            
+							
+                            <div class="space-4"></div>
+							<HR>
+							<h2 style="color:orange;text-indent:100px;line-height:30px;margin-bottom:20px;">图片存储设置</h2>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    图片上传至贴图库  </label>
+                                <div class="col-sm-9">
+                                    <select class="rcol-xs-10 col-sm-2" name="ttk_open" onchange="$('#ttkbox').toggleClass('hide')">
+										<option value="1" <if condition="$other['ttk_open'] eq '1'">selected</if>>开启</option>
+										<option value="0" <if condition="$other['ttk_open'] eq '0'">selected</if>>关闭</option>
+									</select>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">开启后，图片上传到贴图库。贴图库申请地址<a href="http://www.tietuku.com" target="_blank">http://www.tietuku.com</a></span>
+									</span>
+                                </div>
+                            </div>
+							
+							<span id="ttkbox" <if condition="$other['ttk_open'] eq '0'">class="hide"</if>>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    贴图库accesskey  </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="tietuku_accesskey" id="tietuku_accesskey" placeholder="贴图库accesskey " class="col-xs-10 col-sm-5" value="{$other.tietuku_accesskey}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">贴图库accesskey,<a href="http://www.tietuku.com/manager/manager" target="_blank">http://www.tietuku.com/manager/manager</a></span>
+									</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    贴图库secretkey  </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="tietuku_secretkey" id="tietuku_accesskey" placeholder="贴图库secretkey " class="col-xs-10 col-sm-5" value="{$other.tietuku_secretkey}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">贴图库secretkey,<a href="http://www.tietuku.com/manager/manager" target="_blank">http://www.tietuku.com/manager/manager</a></span>
+									</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    贴图库相册ID  </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="tietuku_aid" id="tietuku_aid" placeholder="贴图库相册ID " class="col-xs-10 col-sm-5" value="{$other.tietuku_aid}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">贴图库aid,<a href="http://www.tietuku.com/manager/album" target="_blank">http://www.tietuku.com/manager/album</a></span>
+									</span>
+                                </div>
+                            </div>
+							<div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    返回类型  </label>
+                                <div class="col-sm-9">
+                                    <select class="rcol-xs-10 col-sm-2" name="tietuku_return_type">
+										<option value="t_url" <if condition="$other['tietuku_return_type'] eq 't_url'">selected</if>>缩略图</option>
+										<option value="s_url" <if condition="$other['tietuku_return_type'] eq 's_url'">selected</if>>展示图</option>
+										<option value="linkurl" <if condition="$other['tietuku_return_type'] eq 'linkurl'">selected</if>>原图</option>
+									</select>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">贴图库图片返回类型，缩略图最宽300，展示图宽度最宽800</span>
+									</span>
+                                </div>
+                            </div>
+							</span>
+							<HR>
+							<h2 style="color:orange;text-indent:100px;line-height:30px;margin-bottom:20px;">快捷登录</h2>
+							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    QQ登录APPID  </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="QQ_ID" id="QQ_ID" placeholder="QQ登录APPID " class="col-xs-10 col-sm-5" value="{$other.QQ_ID}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">QQ登录APPID,<a href="https://connect.qq.com/" target="_blank">申请地址</a></span>
+									</span>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    QQ登录APPKEY  </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="QQ_KEY" id="QQ_KEY" placeholder="QQ登录APPID " class="col-xs-10 col-sm-5" value="{$other.QQ_KEY}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">QQ登录APPKEY</span>
+									</span>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    微博登录APPID  </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="SINA_ID" id="SINA_ID" placeholder="微博登录APPID " class="col-xs-10 col-sm-5" value="{$other.SINA_ID}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">微博登录APPID,<a href="http://open.weibo.com/connect" target="_blank">申请地址</a></span>
+									</span>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    微博登录APPKEY  </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="SINA_KEY" id="SINA_KEY" placeholder="微博登录APPID " class="col-xs-10 col-sm-5" value="{$other.SINA_KEY}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+										<span class="middle">微博登录APPKEY</span>
+									</span>
+                                </div>
+                            </div>
+							<div class="space-4"></div>
+                            
+                            <div class="col-md-offset-2 col-md-9">
+                                <button class="btn btn-info submit" type="button">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="icon-undo bigger-110"></i>
+                                    重置
+                                </button>
+                            </div>
+                        </form>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    $(".submit").click(function () {
+        $("#form").submit();
+    })
+</script>
+</body>
+</html>
