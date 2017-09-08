@@ -1,4 +1,6 @@
 Public/attached
+db
+Apps/Common/Conf/db.php
 Apps/Runtime
 .svn
 
