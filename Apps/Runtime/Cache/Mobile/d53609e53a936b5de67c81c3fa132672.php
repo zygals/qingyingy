@@ -169,30 +169,61 @@
 				<a href="<?php echo U('/search/');?>" title="小程序搜索"><span class="d_search"></span><p>搜索</p></a>
 			</div>
 		</div>
-				<div class="copy-laye"></div>
-		<div class="copy-laye-content copy-laye-show-1" style="bottom:0px;">
-			<span class="ewm">
-				<img src="" alt="">
-			</span>
-			<p class="name"></p>
-			<p class="copy-tip">长按二维码体验小程序</p>
-			<div class="tip-img">
-				<img src="<?php echo ((isset($info["qrcode"]) && ($info["qrcode"] !== ""))?($info["qrcode"]):'/Public/images/default_qrcode.png'); ?>" alt="<?php echo (C("sitename")); ?>公众号二维码"  style="width:150px">
+		<div class="weixinshow">
+			<div class="copy-laye"></div>
+			<div class="copy-laye-content copy-laye-show-1" style="bottom:0px;">
+				<span class="ewm">
+					<img src="" alt="">
+				</span>
+				<p class="name"></p>
+				<p class="copy-tip">长按二维码体验小程序</p>
+				<div class="tip-img">
+					<img src="<?php echo ((isset($info["qrcode"]) && ($info["qrcode"] !== ""))?($info["qrcode"]):'/Public/images/default_qrcode.png'); ?>" alt="<?php echo (C("sitename")); ?>公众号二维码"  style="width:150px">
+				</div>
+				
+			</div>
+			<div class="copy-laye-content copy-laye-show-2">
+				<span class="ewm">
+					<img src="" alt="">
+				</span>
+				<p class="name"></p>
+				<p class="copy-tip">长按二维码体验小程序</p>
+				 
+				<div class="tip-img">
+					<img src="<?php echo ((isset($info["qrcode"]) && ($info["qrcode"] !== ""))?($info["qrcode"]):'/Public/images/default_qrcode.png'); ?>" alt="<?php echo (C("sitename")); ?>公众号二维码" style="width:150px">
+				</div>
+				
+			</div>
+		</div>
+		<div class="weixinshowno">
+			<div class="copy-laye"></div>
+			<div class="copy-laye-content copy-laye-show-1" style="bottom:60px;">
+				<span class="ewm">
+					<img src="" alt="">
+				</span>
+				<p class="name"></p>
+				<p class="copy-tip">小程序名称复制成功</p>
+				<p class="copy-tip">快到微信 - 搜索小程序体验吧</p>
+				<div class="tip-img">
+					<img src="/Public/m/images/copy-lay-img.jpg?1.0.15" alt="">
+				</div>
+				<a href="weixin://" class="toweixin">前往微信</a>
+			</div>
+			<div class="copy-laye-content copy-laye-show-2">
+				<span class="ewm">
+					<img src="" alt="">
+				</span>
+				<p class="name"></p>
+				<p class="copy-tip">手动复制小程序名称</p>
+				<p class="copy-tip">快到微信 - 搜索小程序体验吧</p>
+				<div class="tip-img">
+					<img src="/Public/m/images/copy-lay-img.jpg?1.0.15" alt="">
+				</div>
+				<a href="weixin://" class="toweixin">前往微信</a>
 			</div>
 			
 		</div>
-		<div class="copy-laye-content copy-laye-show-2">
-			<span class="ewm">
-				<img src="" alt="">
-			</span>
-			<p class="name"></p>
-			<p class="copy-tip">长按二维码体验小程序</p>
-			 
-			<div class="tip-img">
-				<img src="<?php echo ((isset($info["qrcode"]) && ($info["qrcode"] !== ""))?($info["qrcode"]):'/Public/images/default_qrcode.png'); ?>" alt="<?php echo (C("sitename")); ?>公众号二维码" style="width:150px">
-			</div>
-			
-		</div>
+		
 	</div>
 	
 	<script type="text/javascript" src="/Public/m/js/touch-0.2.14.min.js"></script>
@@ -346,12 +377,18 @@ function closeReply(ef2){
 	$(function(){
 		if(window.navigator.userAgent.match(/MicroMessenger/i) ? true : false){
 			$('.toweixin').hide();
+			$('.weixinshowno').html('');
+			//alert('是微信');
+		}else{
+			$('.weixinshow').html('');
+			//alert('不是微信');
 		}
 	});
 
 	new Clipboard('.copyBtn').on('success', function(e) {
 		var e = e || window.event;
 		setTop('.copy-laye-show-1');
+		console.log(e);
 		e.clearSelection();
 	}).on('error', function(e) {
 		var e = e || window.event;
@@ -398,4 +435,4 @@ function closeReply(ef2){
 <?php echo (C("footer")); ?>
 </p>
     </body>
-</html>
+</html>l>

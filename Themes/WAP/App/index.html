@@ -112,27 +112,56 @@
 				</volist>
 				</div>
 		</div>
-		
+		<div class="weixinshow">
 				<div class="copy-laye"></div>
-		<div class="copy-laye-content copy-laye-show-1">
-			<span class="ewm">
-				<img src="" alt="">
-			</span>
-			<p class="name"></p>
-			<p class="copy-tip">长按二维码体验小程序</p>
-			<div class="qrcode">
-				<img src="" alt="" style="width:150px">
+			<div class="copy-laye-content copy-laye-show-1">
+				<span class="ewm">
+					<img src="" alt="">
+				</span>
+				<p class="name"></p>
+				<p class="copy-tip">长按二维码体验小程序</p>
+				<div class="qrcode">
+					<img src="" alt="" style="width:150px">
+				</div>
+			</div>
+			<div class="copy-laye-content copy-laye-show-2">
+				<span class="ewm">
+					<img src="" alt="">
+				</span>
+				<p class="name"></p>
+				<p class="copy-tip">长按二维码体验小程序</p>
+				<div class="qrcode">
+					<img src="" alt="" style="width:150px">
+				</div>
 			</div>
 		</div>
-		<div class="copy-laye-content copy-laye-show-2">
-			<span class="ewm">
-				<img src="" alt="">
-			</span>
-			<p class="name"></p>
-			<p class="copy-tip">长按二维码体验小程序</p>
-			<div class="qrcode">
-				<img src="" alt="" style="width:150px">
+		<div class="weixinshowno">
+			<div class="copy-laye"></div>
+			<div class="copy-laye-content copy-laye-show-1" style="bottom:60px;">
+				<span class="ewm">
+					<img src="" alt="">
+				</span>
+				<p class="name"></p>
+				<p class="copy-tip">手动复制小程序名称</p>
+				<p class="copy-tip">快到微信 - 搜索小程序体验吧</p>
+				<div class="tip-img">
+					<img src="__PUBLIC__/m/images/copy-lay-img.jpg?1.0.15" alt="">
+				</div>
+				<a href="weixin://" class="toweixin">前往微信</a>
 			</div>
+			<div class="copy-laye-content copy-laye-show-2">
+				<span class="ewm">
+					<img src="" alt="">
+				</span>
+				<p class="name"></p>
+				<p class="copy-tip">手动复制小程序名称</p>
+				<p class="copy-tip">快到微信 - 搜索小程序体验吧</p>
+				<div class="tip-img">
+					<img src="__PUBLIC__/m/images/copy-lay-img.jpg?1.0.15" alt="">
+				</div>
+				<a href="weixin://" class="toweixin">前往微信</a>
+			</div>
+			
 		</div>
 	</div>
 	
@@ -141,9 +170,15 @@
 	<script type="text/javascript" src="__PUBLIC__/m/js/common.min.js?1.0.24"></script>
 	<script type="text/javascript" src="__PUBLIC__/m/js/swiper.min.js"></script>
 		<script type="text/javascript">
+		 
 		$(function(){
 			if(window.navigator.userAgent.match(/MicroMessenger/i) ? true : false){
 				$('.toweixin').hide();
+				$('.weixinshowno').html('');
+				//alert('是微信');
+			}else{
+				$('.weixinshow').html('');
+				//alert('不是微信');
 			}
 		});
 

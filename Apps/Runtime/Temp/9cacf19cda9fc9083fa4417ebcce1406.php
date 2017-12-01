@@ -1,279 +1,179 @@
 <?php
-//000000001800a:4:{i:0;a:12:{s:3:"aid";s:2:"50";s:5:"title";s:50:"轻应用商店：野心与梦想  一直在路上";s:3:"app";s:12:"未来和讯";s:8:"seotitle";s:27:"轻应用商店未来和讯";s:8:"keywords";s:55:"轻应用商店,野心,微信小程序,微信公众号,";s:11:"description";s:590:"【轻应用商店qingyy.net】拥有目前最新、最全、最热门、最实用的微信小程序和微信公众号，是国内首家集微信小程序与公众号为一体的综合性应用商店， 轻应用商店致力于为用户提供最优质的微信小程序和公众号体验，自上线以来，已有超过1500个优质小程序在这里扎根成长，涵盖社交、音乐、出行、旅游、阅读、母婴、办公等20余种品类的小程序。除了为用户推荐优质的小程序外，也帮助更多开发者进行免费的推广引流，从而收获更多用户。";s:9:"thumbnail";s:45:"/Public/attached/2017/06/22/594b20ad21f4d.jpg";s:7:"content";s:2420:"<p>
-	微信小程序自1月9日发布至今，在4个多月的时间里，已经完成了由“偶像派”到“实力派”的华丽转变，从最初的“雷声大雨点小”，到现在的“排山倒海惊天动地”。这不仅让全世界看到了张小龙团队出神入化的产品塑造能力，也同样证明了小程序的价值——新时代的革命者。
+//000000001800a:4:{i:0;a:12:{s:3:"aid";s:2:"54";s:5:"title";s:33:"心诚愿成：一个许愿花园";s:3:"app";s:12:"心诚愿成";s:8:"seotitle";s:0:"";s:8:"keywords";s:0:"";s:11:"description";s:0:"";s:9:"thumbnail";s:45:"/Public/attached/2017/11/02/59fab2db6121c.jpg";s:7:"content";s:1670:"<p class="MsoNormal" style="text-indent:21pt;">
+	许愿，人们总是喜欢将内心最深处的渴望与希冀寄托于许愿之上。
+</p>
+<p class="MsoNormal" style="text-indent:21pt;">
+	许愿的方式有千万种，
+</p>
+<p class="MsoNormal" style="text-indent:21pt;">
+	当吹生日蜡烛时双手合起默念心愿，
+</p>
+<p class="MsoNormal" style="text-indent:21pt;">
+	当孔明灯带着寄托于天际漂泊，星夜的一点亮光笼罩了人生；
+</p>
+<p class="MsoNormal" style="text-indent:21pt;">
+	当漂流瓶灌注希望随波逐流，不安的心也随着海浪的翻滚消逝。
+</p>
+<p class="MsoNormal" style="text-indent:21pt;">
+	当流星从银河边上转瞬掠过，当绘马映入妙趣横生的绘画，
+</p>
+<p class="MsoNormal" style="text-indent:21pt;">
+	当灯火通明的夜晚烟花绽放……许愿的心从未停止。
+</p>
+<p class="MsoNormal">
+	&nbsp;
+</p>
+<p class="MsoNormal" style="margin-left:21pt;">
+	然而，这些传统的许愿方式早已不符合当今的时代。
+</p>
+<p class="MsoNormal" style="margin-left:21pt;">
+	繁冗的许愿过程，特定的许愿载体都为许愿带来了种种不便。
+</p>
+<p class="MsoNormal" style="margin-left:21pt;">
+	<span>用</span>“心诚愿成”小程序，无需在特定的时间，场景下，只要心有所想就可立即许下心愿，分享心愿更能获得亲朋友的祝福。
+</p>
+<p class="MsoNormal" style="margin-left:21pt;">
+	<img src="/Public/attached/2017/11/02/150960204232161.png" alt="" />
+</p>
+<p class="MsoNormal" style="margin-left:21pt;">
+	<img src="/Public/attached/2017/11/02/150960205345607.png" alt="" />
+</p>";s:1:"t";s:10:"1509602069";s:1:"n";s:3:"585";s:6:"status";s:1:"1";s:6:"befrom";s:0:"";}i:1;a:12:{s:3:"aid";s:2:"53";s:5:"title";s:54:"差旅新玩法，【共享床位】有胆你就来？";s:3:"app";s:12:"同住拼房";s:8:"seotitle";s:25:"同住拼房,共享床位";s:8:"keywords";s:25:"共享床位,同住拼房";s:11:"description";s:0:"";s:9:"thumbnail";s:45:"/Public/attached/2017/11/02/59faacb963b7b.jpg";s:7:"content";s:2500:"　　统计，2016年全中国酒店数量超过25万间，房间数量达到1400万间以上，每天的入住量超过700万间，其中单人入住的用户占到很大一部分比例，而你，是不是这些单人出行的人群中的一员呢?<br />
+<br />
+单人出行的人群，大多是商务出差人士、穷游者和爱拼爱玩的大学生，如果恰好你就是这些人群中的一个的话，相信你已经对一个人入住酒店所要面临的枯燥乏味无人解闷、独自承担出行中高昂住宿费用等情况深恶痛绝。<br />
+<br />
+年轻人爱玩追求享受，为了在旅途中玩得更尽兴只能在住宿方面委屈自己，选择更加廉价的青旅，却要面对未知的环境和“房友”;职场白领要拼搏求上进，虽然有一定的出差补助，但在繁忙的工作过后回到酒店还要独自面对空荡的房间，孤独油然而生。<br />
+<br />
+<p>
+	据小轻(qingyy.net)了解在这个全民社交的时代，如果你还让你自己这么落寞你就OUT了!因为同住拼房来了!
 </p>
 <p>
-	但是，对于千千万万个普通用户来讲，这位革命者目前还不是特别接地气。首先，它光芒太耀眼，导致很多开发者缺少基层的平台推广自己的作品;其次，它格调太高，无法让使用者更方便快捷地进行接触和使用。
+	<img src="/Public/attached/2017/10/23/150872778289873.jpg" alt="" /> 
+</p>
+<br />
+如果你是已经预订酒店，想要找一个人与你一起分享旅途的时光，那么可以来同住拼房小程序将你房间内闲置的床位共享出去;又或者你是想用更低廉的价格住上更好的酒店，想要找一个人和你一起分担酒店的费用，那么你可以去同住拼房小程序邂逅那些将床位共享，等待着你的人!<br />
+<br />
+目前如果要体验同住拼房小程序，需添加同住拼房服务号并进行实名认证和芝麻信用授权之后便可以在小程序内发布拼房信息。同住拼房小程序采用智能匹配用户需求功能，将志同道合有共同话题的人推荐拼房用户，所以为了提高拼房的成功率，你还需要完善自己的资料，如相册、爱好等兴趣标签。<br />
+<br />
+在系统推荐的拼友中，你可以参考他们的历史评价来选择喜欢的人加入心仪列表，在接到你心仪的通知之后，如果对方也将你加入心仪列表，便可进行进一步的充分沟通完成匹配和交易下单!<br />
+<br />
+<p>
+	如果你也对这种全新的“共享床位”的酒店住宿方式感兴趣，记得来同住拼房小程序体验一番来自陌生人社交的感动!
 </p>
 <p>
-	所以，不管是对于开发者还是使用者来说，都需要一座桥梁，一座可以让小程序变得“亲民一些”的桥梁。
+	<img src="/Public/attached/2017/10/23/150872794966674.jpg" alt="" />
+</p>
+<div>
+	<br />
+</div>";s:1:"t";s:10:"1509600442";s:1:"n";s:3:"386";s:6:"status";s:1:"1";s:6:"befrom";s:0:"";}i:2;a:12:{s:3:"aid";s:2:"52";s:5:"title";s:57:"安安静静的卖茶，只想做一个有情怀的茶商";s:3:"app";s:15:"无忧品茶庄";s:8:"seotitle";s:12:"无忧茶庄";s:8:"keywords";s:12:"无忧茶庄";s:11:"description";s:0:"";s:9:"thumbnail";s:45:"/Public/attached/2017/11/02/59faafc78a31a.jpg";s:7:"content";s:1329:"说老实话，茶叶的水真的好深。<br />
+<br />
+过年过节，买茶送礼，你是否会不知所措;<br />
+<br />
+到底该去哪买茶?<br />
+<br />
+上淘宝京东，假货太多，送礼更尴尬;<br />
+<br />
+上线下实体店买?<br />
+<br />
+身边又没有熟人认识，<br />
+<br />
+一层层的经销商，自己都不知道要被坑多少?<br />
+<br />
+所以，轻应用商店(qingyy.net)来推荐：“无忧茶庄”小程序;<br />
+<br />
+<p>
+	………….
 </p>
 <p>
-	于是，【轻应用商店qingyy.net】就承载着这座桥梁的使命横空出世，在服务开发者和使用者的同时，也为小程序的体量成长提供了巨大的推动力。
+	<br />
 </p>
 <p>
-	<img src="/Public/attached/2017/06/22/149809566116776.png" alt="" /> 
+	<img src="/Public/attached/2017/10/23/150872759245114.jpg" alt="" /> 
+</p>
+<br />
+这款小程序，就是这么一群热爱茶的茶商，<br />
+<br />
+他们希望可以为中国的茶叶市场迎来一片净土，<br />
+<br />
+就是和外面的妖艳贱货都不一样的那种，<br />
+<br />
+精心打造“无忧茶庄”小程序。<br />
+<br />
+这里，每一款茶都是一种心境，品的不是茶，而是人生。<br />
+<br />
+厂家直供，剔除中间经销商不必要的利润;<br />
+<br />
+包装与茶叶分开，拒绝买椟还珠，还原茶叶真实价格;<br />
+<br />
+<p>
+	每日茶知识，茶文化的分享，在涨姿势的时候还能获得现金积分。
 </p>
 <p>
-	【轻应用商店qingyy.net】拥有目前最新、最全、最热门、最实用的微信小程序和微信公众号，是国内首家集微信小程序与公众号为一体的综合性应用商店， 
-轻应用商店致力于为用户提供最优质的微信小程序和公众号体验，自上线以来，已有超过1500个优质小程序在这里扎根成长，涵盖社交、音乐、出行、旅游、阅读、母婴、办公等20余种品类的小程序。除了为用户推荐优质的小程序外，也帮助更多开发者进行免费的推广引流，从而收获更多用户。
+	<img src="/Public/attached/2017/10/23/150872797721810.jpg" alt="" />
+</p>";s:1:"t";s:10:"1509601224";s:1:"n";s:3:"399";s:6:"status";s:1:"1";s:6:"befrom";s:0:"";}i:3;a:12:{s:3:"aid";s:2:"51";s:5:"title";s:54:"附近招聘岗位——找到离家最近的好工作";s:3:"app";s:18:"附近招聘岗位";s:8:"seotitle";s:18:"附近招聘岗位";s:8:"keywords";s:6:"招聘";s:11:"description";s:0:"";s:9:"thumbnail";s:45:"/Public/attached/2017/11/02/59faaf3713c63.jpg";s:7:"content";s:4495:"<p>
+	<br />
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>在招聘过程中，</span></span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>招聘方都会觉得自己给的薪资足够高，</span></span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>而求职者却认为远远不够，越高越好</span>;</span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>招聘方都会认为员工其实能够做更多的事情，</span></span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>而求职者却认为，钱那么少，凭什么做那么多事</span>?</span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;">……</span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>求职者都想找钱多事少离家近的工作，</span></span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>钱多不多，到手才知道</span>;</span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>事情少不少，做完才知道</span>;</span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>而离家近不近，看招聘信息的时候就应该立刻能知道</span>!</span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>用</span>“附近招聘岗位”小程序，</span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><img src="/Public/attached/2017/10/13/150788441974390.png" alt="" /><br />
+</span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>招聘方无需下载安装注册任何平台，</span></span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>就能发布工作岗位，</span></span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>标注自己位置</span>;</span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>求职者无需下载安装注册任何平台，</span></span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>就能根据自己的位置，</span></span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>实时查看周边正在招聘的岗位，</span></span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>快速找到离家最近的好工作</span>!</span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
+</p>
+<p class="MsoNormal">
+	<span style="font-family:微软雅黑;font-size:10.5000pt;"><span>轻应用联盟</span>www.qingyy.net已经上传了千款小程序，涉及到生活、工作等各个方面，附近招聘小程序就是其中一款，赶紧来使用吧。</span><span style="font-family:微软雅黑;font-size:10.5000pt;"></span>
 </p>
 <p>
-	与其它小程序商店相比，【轻应用商店qingyy.net】更加注重用户体验，除了开通模糊搜索，一键直达之外，还根据用户的使用习惯进行小程序和公众号的个性化推荐，结合自有的大数据分析机制，给予用户一次又一次酣畅淋漓的使用体验。
-</p>
-<p>
-	【轻应用商店qingyy.net】由北京未来和讯信息科技有限公司一个平均年龄不到30岁的年轻团队倾力打造，在这里，这群年轻人奉献了自己的青春与汗水，装着各自的野心与梦想，把这座“桥梁”扛在肩上。
-</p>
-<p>
-	通向完美的道路永远充满荆棘和坎坷，我们一直在路上。
-</p>";s:1:"t";s:10:"1498098787";s:1:"n";s:3:"245";s:6:"status";s:1:"1";s:6:"befrom";s:0:"";}i:1;a:12:{s:3:"aid";s:2:"49";s:5:"title";s:41:"为你读诗 —— 给灵魂片刻自由";s:3:"app";s:12:"为你读诗";s:8:"seotitle";s:42:"为你读诗公众号为你读诗小程序";s:8:"keywords";s:20:"读诗,朗读,朗诵";s:11:"description";s:75:"先淡定一下，按我说的做，你会收获一个个别样的夜晚。";s:9:"thumbnail";s:45:"/Public/attached/2017/06/15/59424caa6a49e.jpg";s:7:"content";s:5146:"<p>
-	<p>
-		<br />
-	</p>
-	<p>
-		<span style="font-size:14px;">每次过完周末上班是不是特烦？</span><span style="font-size:14px;line-height:1.6;">烦的都不想看我这段文字对吧？</span> 
-	</p>
-	<p>
-		<br />
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;">先淡定一下，按我说的做，你会收获一个个别样的夜晚。</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;"><br />
-</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;">第一步：调整一个舒服的姿势，最好是躺着，仰着，灯不要开太亮；</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><br />
-</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;">第二步：带上耳机，注意不要缠到头发哦；</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><br />
-</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;">第三步：在轻应用商店搜索《为你读诗》，直接识别二维码进入公众号；</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><br />
-</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;">第四步：请收听鲍勃迪伦的经典之一《<a href="http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5NjU5NDkzMg==&appmsgid=10001673&itemidx=1&sign=c76bbac45fa893db061754cdaff6b6ad&scene=21#wechat_redirect" target="_blank">时光慢慢流逝</a>》，感受一下年少时不酸不臭又香又美的爱恋；</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><br />
-</span>
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><img src="/Public/attached/2017/06/15/149751766152030.jpg" alt="" /><br />
-</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><br />
-</span>
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;">第五步：请收听雪莱的《<a href="https://mp.weixin.qq.com/s?__biz=MjM5NjU5NDkzMg==&mid=2651833748&idx=1&sn=4b3916c084553fe6b4fb47ac7aab457c&chksm=bd1db00f8a6a391949e223a654997bc85c278244d170be0a1bc1a2407ea0a0196d3b5d4ccb24&mpshare=1&scene=21&srcid=0502T7zkk4CmoegFLrNkzrfV#wechat_redirect" target="_blank">孤独者</a>》，接触一下高逼格的人生态度；</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><br />
-</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><img src="/Public/attached/2017/06/15/149751768474760.jpg" alt="" /><br />
-</span>
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><br />
-</span>
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;">第六步：请收听鲁米《<a href="https://mp.weixin.qq.com/s?__biz=MjM5NjU5NDkzMg==&mid=2651833408&idx=1&sn=a4c5449a3bc85938d2949212c6d5c537&chksm=bd1db1db8a6a38cd3a5f9e723ad0ab6576a9cf813049ce06617692a1d7918882cf9b477f739c&mpshare=1&scene=21&srcid=0401r0KK7bVbdAdYWTdg1rJl#wechat_redirect" target="_blank">在风完美的一天</a>》，品尝一下无毒无公害的心灵鸡汤；</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><br />
-</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><img src="/Public/attached/2017/06/15/149751770814043.jpg" alt="" /><br />
-</span>
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><br />
-</span>
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;">第七步：请收听汪国真《<a href="https://mp.weixin.qq.com/s?__biz=MjM5NjU5NDkzMg==&mid=2651834234&idx=1&sn=00825022f356db825529531eaad4c6a9&chksm=bd1db2e18a6a3bf73869076315cae0599e2015aeac25dac83cd42fdc6d1c394ea1eca5f48b2d&mpshare=1&scene=21&srcid=0531tYbwq6bBtvmgdQLkXgku#wechat_redirect" target="_blank">只要彼此爱过一次</a>》，领略一下天涯沦落人超正的爱情观；</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><br />
-</span>
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><img src="/Public/attached/2017/06/15/149751772161860.jpg" alt="" /><br />
-</span>
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><br />
-</span>
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><br />
-</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;">第八步：是不是还想接着听？</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><br />
-</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;">人生呀，可不单单只有微博和电视剧，你值得拥有诗和远方。</span><span style="font-size:14px;line-height:22.4px;">如果还嫌不够，还有排骨和汤，烤肉和馕，虾和蟹黄，火锅和麻辣烫，烤鸭和涮肥羊，咖啡和焦糖，饼干和牛奶棒，炸鸡和大酱汤，榴莲酥和虾饺皇。</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;"><br />
-</span> 
-	</p>
-	<p>
-		<span style="font-size:14px;line-height:22.4px;">不过此刻你已经躺在床上，这些吃的想都不要想，还是去翻翻轻应用商店之前的文章。</span> 
-	</p>
-	<p>
-		<br />
-	</p>
-</p>";s:1:"t";s:10:"1497517737";s:1:"n";s:3:"230";s:6:"status";s:1:"1";s:6:"befrom";s:0:"";}i:2;a:12:{s:3:"aid";s:2:"48";s:5:"title";s:41:"只想送你一个好梦 —— 小睡眠";s:3:"app";s:9:"小睡眠";s:8:"seotitle";s:31:"催眠小程序,生活小程序";s:8:"keywords";s:30:"小程序,睡眠,健康,养生";s:11:"description";s:125:"让小睡眠带你摆脱白天的忧愁和烦恼，带你畅游真实的内心世界，带你走进安静祥和的梦境。
-";s:9:"thumbnail";s:45:"/Public/attached/2017/06/12/593e5bbfe5386.jpg";s:7:"content";s:4674:"<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	周五的夜晚最美丽，周五的梦也最美丽。
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
 	<br />
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	周五的主角是很温柔的【小睡眠】。
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<br />
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<br />
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;text-align:center;background-color:#FFFFFF;">
-	小程序档案
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;text-align:center;background-color:#FFFFFF;">
-	<br />
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<span style="font-size:14px;">姓名：小睡眠<br />
-</span>
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<br />
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<span style="font-size:14px;">年龄：半岁</span>
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<br />
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<span style="font-size:14px;">照片：</span>
-</p>
-<p style="text-align:center;color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<img class="" src="http://mmbiz.qpic.cn/mmbiz_png/JqP8jejB32RVrqhSK3q07tBeJXusLiaFuqPmGzeOjLibwD8voTQZBCmFHanXuqPfuJqjJdpuI2fMSvw8vCqmj6TA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="height:auto !important;width:auto !important;" />
-</p>
-<p style="text-align:center;color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<br />
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<br />
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<span style="font-size:14px;">性格：温柔</span>
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<br />
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<span style="font-size:14px;">特长：催眠哄睡觉</span>
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<br />
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<span style="font-size:14px;">代表技能一：呼吸冥想</span>
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<br />
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<span style="font-size:14px;">代表技能二：半岛铁盒</span>
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<br />
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<span style="font-size:14px;">代表技能三：清风徐来</span>
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<br />
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<span style="font-size:14px;">代表技能四：摇篮小曲</span>
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<br />
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<span style="font-size:14px;">代表技能五：夜虫唧唧</span>
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<br />
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<span style="font-size:14px;">简介：目前已解锁八十余种技能，柔美的女声和性感的男声随心切换。只需带上耳机，闭上双眼，放松身体，让小睡眠带你摆脱白天的忧愁和烦恼，带你畅游真实的内心世界，</span><span style="font-size:14px;line-height:1.6;">带你走进安静祥和的梦境。</span>
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<br />
-</p>
-<p style="color:#3E3E3E;font-family:&quot;font-size:16px;background-color:#FFFFFF;">
-	<span style="font-size:14px;">住址：轻应用商店（<a href="https://www.qingyy.net/" target="_blank">www.qingyy.net</a>）</span>
-</p>";s:1:"t";s:10:"1497258969";s:1:"n";s:3:"366";s:6:"status";s:1:"1";s:6:"befrom";s:15:"轻应用商店";}i:3;a:12:{s:3:"aid";s:2:"47";s:5:"title";s:42:"木鸟短租：旅游住宿的新选择！";s:3:"app";s:12:"木鸟短租";s:8:"seotitle";s:0:"";s:8:"keywords";s:44:"短租小程序,租房小程序,木鸟短租";s:11:"description";s:42:"木鸟短租：旅游住宿的新选择！";s:9:"thumbnail";s:45:"/Public/attached/2017/05/04/590aecef84c0a.jpg";s:7:"content";s:2342:"<p class="MsoNormal">
-	<span style="font-family:宋体;font-size:10.5pt;"></span> 
-</p>
-<p class="MsoNormal">
-	<span style="font-family:宋体;font-size:10.5pt;"><span>旅游已经成为了人们空闲生活的一部分，每逢节假日，大部分的人，不愿意宅在家里，而是去各地旅游，哪怕是一晚上的逗留，也必须是留恋的。短租逐渐成为情侣或者家庭旅游的一种住宿方式，最大的原因，是因为有家一般的感受，一家人在一起，无论在哪里，都能享受生活的美好。木鸟短租小程序，出行人全新的住宿方式。</span></span>
-</p>
-<p class="MsoNormal">
-	<span style="font-family:宋体;font-size:10.5pt;"><span></span></span><img alt="" src="/Public/kindeditor/php/../../attached/2017/05/04/149388515322531.jpg" /><img alt="" src="/Public/attached/2017/05/04/149388517811009.jpg" /><span style="font-family:宋体;font-size:10.5pt;"></span> 
-</p>
-<p class="MsoNormal">
-	<span style="font-family:宋体;font-size:10.5pt;"></span> 
-</p>
-<p class="MsoNormal">
-	<span style="font-family:宋体;font-size:10.5pt;"></span> 
-</p>
-<p class="MsoNormal">
-	<span style="font-family:宋体;font-size:10.5pt;"><span>城市地区选择：</span></span><span style="font-family:宋体;font-size:10.5pt;"></span> 
-</p>
-<p class="MsoNormal">
-	<span style="font-family:宋体;font-size:10.5pt;"><span>可以根据自己旅游的地址，选择该地区已经发布的短租信息和房源信息，方式就是那么简单，程序就是那么简化，想旅游，就走吧！</span></span> 
-</p>
-<p class="MsoNormal">
-	<span style="font-family:宋体;font-size:10.5pt;"><img alt="" src="/Public/attached/2017/05/04/149388519713671.jpg" /><img alt="" src="/Public/attached/2017/05/04/149388521084849.jpg" /></span> 
-</p>
-<p class="MsoNormal">
-	<span style="font-family:宋体;font-size:10.5pt;"><span></span><img alt="" src="/Public/attached/2017/05/04/149388523191167.jpg" /></span> 
-</p>
-<p class="MsoNormal">
-	<span style="font-family:宋体;font-size:10.5pt;">轻应用联盟<a href="http://www.qingyy.net">www.qingyy.net</a>已经上传了千款小程序，涉及到生活、工作等各个方面，木鸟短租小程序就是其中一款，赶紧来使用吧。</span> 
-</p>
-<span style="font-family:宋体;font-size:10.5pt;"></span>";s:1:"t";s:10:"1495298410";s:1:"n";s:3:"371";s:6:"status";s:1:"1";s:6:"befrom";s:0:"";}}
+</p>";s:1:"t";s:10:"1509601081";s:1:"n";s:3:"500";s:6:"status";s:1:"1";s:6:"befrom";s:0:"";}}
 ?>
