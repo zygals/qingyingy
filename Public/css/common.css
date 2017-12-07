@@ -1545,13 +1545,18 @@ a:active{
     background-color: #f9f9f9;
     padding-bottom:40px;
 }
-.jx-list {
+.jx-list a{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex: 0 0 33%;
     padding-top: 40px;
+}
+.jx-list .jx-img-wrap {
+    width: 68px;
+    height: 68px;
+    border-radius: 6px;
 }
 .jx-list .shuoshuo {
     padding: 10px 0;
