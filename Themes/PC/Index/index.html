@@ -186,7 +186,7 @@
 					</div>
 					<div class="jx-cont">
 						<volist name="toplist" id="vo">
-							<div class="jx-list"><a class="" href="{:U('/app/'.$vo[aid])}"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片"><span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}">扫一扫体验</span></a></div>
+							<div class="jx-list"><a class="" href="{:U('/app/'.$vo[aid])}"><img onload="" src="{$vo.thumbnail}" alt="没有图片"><span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}">扫一扫体验</span></a></div>
 						</volist>
 
 					</div>
@@ -196,7 +196,7 @@
 					</div>
 					<div class="hot-cont">
 						<volist name="new_list" id="vo">
-						<div class="hot-list"><a class="" href="{:U('/app/'.$vo[aid])}"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片"><span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}">扫一扫体验</span></a></div>
+						<div class="hot-list"><a class="" href="{:U('/app/'.$vo[aid])}"><img onload="" src="{$vo.thumbnail}" alt="没有图片"><span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}">扫一扫体验</span></a></div>
 						</volist>
 					</div>
 				</div><!--热门排行-->
@@ -207,7 +207,7 @@
 						<volist name="hot_list" id="vo">
 						<a class="rank-list" href="{:U('/app/'.$vo[aid])}">
 							<span class="rank-num">{++$key}</span>
-							<img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片">
+							<img onload="" src="{$vo.thumbnail}" alt="没有图片">
 							<div class="rank-info">
 								<h2>{$vo.title}</h2>
 								<p>{$vo.n}<span>体验</span></p>
