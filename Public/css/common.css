@@ -1545,6 +1545,14 @@ a:active{
     background-color: #f9f9f9;
     padding-bottom:40px;
 }
+.jx-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 33%;
+    padding-top: 40px;
+}
 .jx-list a{
     display: flex;
     flex-direction: column;
@@ -1553,10 +1561,32 @@ a:active{
     flex: 0 0 33%;
     padding-top: 40px;
 }
-.jx-list .jx-img-wrap {
+.jx-list .ty-img-wrap {
     width: 68px;
     height: 68px;
-    border-radius: 6px;
+}
+.jx-list .ty-img-wrap img {
+    border-radius: 4px;
+}
+.hot-list a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 33%;
+    padding-top: 40px;
+}
+.hot-list .ty-img-wrap {
+    width: 68px;
+    height: 68px;
+}
+.hot-list .ty-img-wrap img {
+    border-radius: 4px;
+}
+.rank-list .ty-img-wrap {
+    width: 68px;
+    height: 68px;
+    margin-left: 20px;
 }
 .jx-list .shuoshuo {
     padding: 10px 0;
@@ -1623,9 +1653,7 @@ a:active{
     color: #ff8d27;
 }
 .rank-list img {
-    width: 60px;
-    height: 60px;
-    margin-left: 20px;
+    border-radius: 4px;
 }
 
 .rank-list .rank-info {

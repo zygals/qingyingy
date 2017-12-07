@@ -18,7 +18,7 @@ class IndexController extends ComController
 		$this->assign('toplist',$toplist);
 
         //热门
-        $hot_list=$m->cache('indexhotlist',3600)->where("status=1")->order('n desc')->limit(6)->select();
+        $hot_list=$m->cache('indexhotlist',3600)->where("status=1")->order('n desc')->limit(5)->select();
         foreach($hot_list as $kk=>$vv){
             $hot_scoreres=M('appscore')->field('num')->where("aid='{$vv['aid']}'")->order("score desc")->limit(5)->select();
             $hot_list[$kk]['width']=$vv['score'];
