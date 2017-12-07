@@ -79,26 +79,56 @@
 				<a href="{:U('/search/')}" title="小程序搜索"><span class="d_search"></span><p>搜索</p></a>
 			</div>
 		</div>
-		<div class="copy-laye"></div>
-		<div class="copy-laye-content copy-laye-show-1">
-			<span class="ewm">
-				<img src="" alt="">
-			</span>
-			<p class="name"></p>
-			<p class="copy-tip">长按二维码体验小程序</p>
-			<div class="tip-img">
-				<img src=""   style="width:150px">
+		<div class="weixinshow">
+			<div class="copy-laye"></div>
+			<div class="copy-laye-content copy-laye-show-1">
+				<span class="ewm">
+					<img src="" alt="">
+				</span>
+				<p class="name"></p>
+				<p class="copy-tip">长按二维码体验小程序</p>
+				<div class="tip-img">
+					<img src=""   style="width:150px">
+				</div>
+			</div>
+			<div class="copy-laye-content copy-laye-show-2">
+				<span class="ewm">
+					<img src="" alt="" >
+				</span>
+				<p class="name"></p>
+				<p class="copy-tip">长按二维码体验小程序</p>
+				<div class="tip-img">
+					<img src=""   style="width:150px">
+				</div>
 			</div>
 		</div>
-		<div class="copy-laye-content copy-laye-show-2">
-			<span class="ewm">
-				<img src="" alt="">
-			</span>
-			<p class="name"></p>
-			<p class="copy-tip">长按二维码体验小程序</p>
-			<div class="tip-img">
-				<img src=""   style="width:150px">
+		<div class="weixinshowno">
+			<div class="copy-laye"></div>
+			<div class="copy-laye-content copy-laye-show-1" style="bottom:60px;">
+				<span class="ewm">
+					<img src="" alt="">
+				</span>
+				<p class="name"></p>
+				<p class="copy-tip">手动复制小程序名称</p>
+				<p class="copy-tip">快到微信 - 搜索小程序体验吧</p>
+				<div class="tip-img">
+					<img src="__PUBLIC__/m/images/copy-lay-img.jpg?1.0.15" alt="" style="width:150px">
+				</div>
+				<a href="weixin://" class="toweixin">前往微信</a>
 			</div>
+			<div class="copy-laye-content copy-laye-show-2">
+				<span class="ewm">
+					<img src="" alt="" >
+				</span>
+				<p class="name"></p>
+				<p class="copy-tip">手动复制小程序名称</p>
+				<p class="copy-tip">快到微信 - 搜索小程序体验吧</p>
+				<div class="tip-img">
+					<img src="__PUBLIC__/m/images/copy-lay-img.jpg?1.0.15" alt="" style="width:150px">
+				</div>
+				<a href="weixin://" class="toweixin">前往微信</a>
+			</div>
+			
 		</div>
 	</div>
 	<script type="text/javascript" src="__PUBLIC__/m/js/touch-0.2.14.min.js"></script>
@@ -112,6 +142,9 @@
 		$(function(){
 			if(window.navigator.userAgent.match(/MicroMessenger/i) ? true : false){
 				$('.toweixin').hide();
+				$('.weixinshowno').html('');
+			}else{
+				$('.weixinshow').html('');
 			}
 		});
 

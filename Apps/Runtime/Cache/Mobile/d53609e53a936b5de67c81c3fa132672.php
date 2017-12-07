@@ -1,58 +1,56 @@
-
+<?php if (!defined('THINK_PATH')) exit();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-	<link rel="shortcut icon" href="__PUBLIC__/m/images/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon-precomposed" href="{$info.thumbnail}"/>
-    <title><if condition="$info['seotitle']">{$info['seotitle']}<else/>{$info.title}</if> - {$Think.CONFIG.sitename}</title>
-    <meta name="keywords" content="{$info.keywords}" />
-    <meta name="description" content="{$info.description}" />
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/reset.min.css">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/layout.css?1.0.47">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/swiper.min.css">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/page.css">
-	<script type="text/javascript" src="__PUBLIC__/m/js/adaptive-version.js"></script>
-	<script type="text/javascript" src="__PUBLIC__/m/js/jquery.min.js"></script>
+	<link rel="shortcut icon" href="/Public/m/images/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon-precomposed" href="<?php echo ($info["thumbnail"]); ?>"/>
+    <title><?php if($info['seotitle']): echo ($info['seotitle']); else: echo ($info["title"]); endif; ?> - <?php echo (C("sitename")); ?></title>
+    <meta name="keywords" content="<?php echo ($info["keywords"]); ?>" />
+    <meta name="description" content="<?php echo ($info["description"]); ?>" />
+	<link rel="stylesheet" type="text/css" href="/Public/m/css/reset.min.css">
+	<link rel="stylesheet" type="text/css" href="/Public/m/css/layout.css?1.0.47">
+	<link rel="stylesheet" type="text/css" href="/Public/m/css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/page.css">
+	<script type="text/javascript" src="/Public/m/js/adaptive-version.js"></script>
+	<script type="text/javascript" src="/Public/m/js/jquery.min.js"></script>
 </head>
 <body>
 
 	<div class="page">
 		<div class="m-top white b-bottom-e5">
 			<h2><a href="/" class="logo"></a></h2>
-			<if condition="$user">
-			<a href="{:U('app/apply')}" class="btn left">
+			<?php if($user): ?><a href="<?php echo U('app/apply');?>" class="btn left">
 				<div class="user">
 					<span>
-						<i><img src="__PUBLIC__/m/images/add.png" alt="发布小程序"></i>
+						<i><img src="/Public/m/images/add.png" alt="发布小程序"></i>
 					</span>
 				</div>
 			</a>
-			<else/>
-			<a href="{:U('public/login')}" class="btn left">
+			<?php else: ?>
+			<a href="<?php echo U('public/login');?>" class="btn left">
 				<div class="user">
 					<span>
-						<i><img src="__PUBLIC__/m/images/user-icon.png"></i>
+						<i><img src="/Public/m/images/user-icon.png"></i>
 					</span>
 				</div>
-			</a>
-			</if>
+			</a><?php endif; ?>
 			<a href="javascript:;" class="btn right headDropMenu"></a>
 		</div>
 		<div class="m-container top" style="bottom: 1.1rem;">
 			<div class="m-sub">
 				<div class="objects">
 					<div class="list list13 b-bottom-e5">
-						<a href="javascript:;" class="btn fr copyBtn" data-clipboard-text="{$info.title}" onclick="showtip('{$info.title}','{$info.thumbnail}','')">进入</a>
-						<a href="javascript:;" title="{$info.title}" class="left">
+						<a href="javascript:;" class="btn fr copyBtn" data-clipboard-text="<?php echo ($info["title"]); ?>" onclick="showtip('<?php echo ($info["title"]); ?>','<?php echo ($info["thumbnail"]); ?>','')">进入</a>
+						<a href="javascript:;" title="<?php echo ($info["title"]); ?>" class="left">
 							<span class="obj-img fl">
-								<img src="{$info.thumbnail}" alt="{$info.title}">
+								<img src="<?php echo ($info["thumbnail"]); ?>" alt="<?php echo ($info["title"]); ?>">
 							</span>
 							<div class="mid">
-								<div class="title elps">{$info.title}</div>
-								<p class="author">分类：{$catename}</p>
-								<p class="author">热度：{$info.n}</p>
+								<div class="title elps"><?php echo ($info["title"]); ?></div>
+								<p class="author">分类：<?php echo ($catename); ?></p>
+								<p class="author">热度：<?php echo ($info["n"]); ?></p>
 								<div class="author"><div class="star"><div class="star-inner" style="width: 84%;"></div></div></div>
 							</div>
 						</a>
@@ -61,25 +59,19 @@
 				</div>
 
 				<div class="tag-title">
-					<div class="color fl"></div>{$info.title} 介绍
+					<div class="color fl"></div><?php echo ($info["title"]); ?> 介绍
 				</div>
 				<div class="tag-content wx-info-content height">
-					{$info.description}
+					<?php echo ($info["description"]); ?>
 				</div>
 	
 				<div class="tag-title">
-					<div class="color fl"></div>{$info.title} 截图
+					<div class="color fl"></div><?php echo ($info["title"]); ?> 截图
 				</div>
 				<div class="cut-wrap">
 					<div class="cut-imgs">
 						<div class="line c-img"></div>
-						<php>
-						$info[screen]=trim($info[screen],'|');
-						$arr=explode('|',$info[screen]);
-						foreach($arr as $k=>$v){
-							echo '<span class="c-img"><img src="'.$v.'" alt="'.$info['title'].'截图-'.$k.'" bigimg="'.$v.'"/></span>';
-						}
-						</php>
+						<?php $info[screen]=trim($info[screen],'|'); $arr=explode('|',$info[screen]); foreach($arr as $k=>$v){ echo '<span class="c-img"><img src="'.$v.'" alt="'.$info['title'].'截图-'.$k.'" bigimg="'.$v.'"/></span>'; } ?>
 											
 						
 						<div class="line c-img"></div>
@@ -94,35 +86,35 @@
 						<p class="text">一键直达小程序！</p>
 					</div>
 					<div class="guid-ewm">
-						<span><img src="{$info.qrcode|default='__PUBLIC__/images/default_qrcode.png'}" alt="{$Think.CONFIG.sitename}公众号二维码"></span>
+						<span><img src="<?php echo ((isset($info["qrcode"]) && ($info["qrcode"] !== ""))?($info["qrcode"]):'/Public/images/default_qrcode.png'); ?>" alt="<?php echo (C("sitename")); ?>公众号二维码"></span>
 						<p>长按保存二维码</p>
 					</div>
                     <div class="guide">
 						<p class="text">一键关注我们！</p>
 					</div>
 					<div class="guid-ewm">
-						<span><img src="{$info.open_qrcode|default='__PUBLIC__/images/default_gzh_qrcode.png'}" alt="{$Think.CONFIG.sitename}公众号二维码"></span>
+						<span><img src="<?php echo ((isset($info["open_qrcode"]) && ($info["open_qrcode"] !== ""))?($info["open_qrcode"]):'/Public/images/default_gzh_qrcode.png'); ?>" alt="<?php echo (C("sitename")); ?>公众号二维码"></span>
 						<p>长按保存二维码</p>
 					</div>
 					
 				</div>
 				<div class="tag-title" style="margin-bottom: .2rem;">
-					<div class="color fl"></div>{$info.title} 评分
+					<div class="color fl"></div><?php echo ($info["title"]); ?> 评分
 				</div>
 				<div class="score-wrap clear">
 					<div class="score-left">
-						<span class="score">{$info.score}</span>
+						<span class="score"><?php echo ($info["score"]); ?></span>
 						<div class="star-wrap">
-							<div class="star"><div class="star-inner" style="width: {$info.width}%;"></div></div>
-							<p>共{$snum}个评分</p>
+							<div class="star"><div class="star-inner" style="width: <?php echo ($info["width"]); ?>%;"></div></div>
+							<p>共<?php echo ($snum); ?>个评分</p>
 						</div>
 					</div>
 					<div class="score-right">
-						<div class="list"><label class="text">5星</label><div class="progress"><div class="inner" style="width: {$sinfo[5]['width']}%;"></div></div><label class="count">{$sinfo[5]['num']}条</label></div>
-						<div class="list"><label class="text">4星</label><div class="progress"><div class="inner" style="width: {$sinfo[4]['width']}%;"></div></div><label class="count">{$sinfo[4]['num']}条</label></div>
-						<div class="list"><label class="text">3星</label><div class="progress"><div class="inner" style="width: {$sinfo[3]['width']}%;"></div></div><label class="count">{$sinfo[3]['num']}条</label></div>
-						<div class="list"><label class="text">2星</label><div class="progress"><div class="inner" style="width: {$sinfo[2]['width']}%;"></div></div><label class="count">{$sinfo[2]['num']}条</label></div>
-						<div class="list"><label class="text">1星</label><div class="progress"><div class="inner" style="width: {$sinfo[1]['width']}%;"></div></div><label class="count">{$sinfo[1]['num']}条</label></div>
+						<div class="list"><label class="text">5星</label><div class="progress"><div class="inner" style="width: <?php echo ($sinfo[5]['width']); ?>%;"></div></div><label class="count"><?php echo ($sinfo[5]['num']); ?>条</label></div>
+						<div class="list"><label class="text">4星</label><div class="progress"><div class="inner" style="width: <?php echo ($sinfo[4]['width']); ?>%;"></div></div><label class="count"><?php echo ($sinfo[4]['num']); ?>条</label></div>
+						<div class="list"><label class="text">3星</label><div class="progress"><div class="inner" style="width: <?php echo ($sinfo[3]['width']); ?>%;"></div></div><label class="count"><?php echo ($sinfo[3]['num']); ?>条</label></div>
+						<div class="list"><label class="text">2星</label><div class="progress"><div class="inner" style="width: <?php echo ($sinfo[2]['width']); ?>%;"></div></div><label class="count"><?php echo ($sinfo[2]['num']); ?>条</label></div>
+						<div class="list"><label class="text">1星</label><div class="progress"><div class="inner" style="width: <?php echo ($sinfo[1]['width']); ?>%;"></div></div><label class="count"><?php echo ($sinfo[1]['num']); ?>条</label></div>
 					</div>
 				</div>
 
@@ -139,8 +131,7 @@
 				
 				<div style="margin: 10px 0px;">
 					<!--WAP版-->
-					<if condition="C('open_cy') eq '1'">
-                        <div class="tag-title clear discuss-model">
+					<?php if(C('open_cy') == '1'): ?><div class="tag-title clear discuss-model">
                             <div class="color fl"></div>全部评论
                         </div>
                         <div class="discuss">
@@ -150,8 +141,7 @@
                         <div class="m-bottom recommend b-top-e5">
                             <div class="input" contenteditable="true"></div>
                             <a href="javascript:;" class="btn"></a>
-                        </div>
-					</if>
+                        </div><?php endif; ?>
 				</div>
 				
 			</div>
@@ -163,7 +153,7 @@
 			<div class="bbb">
 				<div class="swiper-container imgs-wrap">
 					<div class="swiper-wrapper imgs">
-						<div class="swiper-slide"><img src="" alt="{$info.title}截图-原图0"></div><div class="swiper-slide"><img src="" alt="{$info.title}截图-原图1"></div><div class="swiper-slide"><img src="" alt="{$info.title}截图-原图2"></div>					</div>
+						<div class="swiper-slide"><img src="" alt="<?php echo ($info["title"]); ?>截图-原图0"></div><div class="swiper-slide"><img src="" alt="<?php echo ($info["title"]); ?>截图-原图1"></div><div class="swiper-slide"><img src="" alt="<?php echo ($info["title"]); ?>截图-原图2"></div>					</div>
 					<div class="pagination"></div>
 				</div>
 			</div>
@@ -172,11 +162,11 @@
 		<div class="headDropMenuLayer">
 			<div class="headDropMenuContent clear">
 				<a href="/" title="小程序精品推荐"><span class="d_recommend"></span><p>精品推荐</p></a>
-				<a href="{:U('/app/category/')}" title="小程序分类"><span class="d_classify"></span><p>类别</p></a>
-				<a href="{:U('app/apply')}" title="小程序发布"><span class="d_ranking"></span><p>发布</p></a>
-				<a href="{:U('/eva/')}" title="小程序资讯"><span class="d_article"></span><p>测评</p></a>
-				<a href="{:U('/special/')}" title="小程序专题"><span class="d_special"></span><p>专题</p></a>
-				<a href="{:U('/search/')}" title="小程序搜索"><span class="d_search"></span><p>搜索</p></a>
+				<a href="<?php echo U('/app/category/');?>" title="小程序分类"><span class="d_classify"></span><p>类别</p></a>
+				<a href="<?php echo U('app/apply');?>" title="小程序发布"><span class="d_ranking"></span><p>发布</p></a>
+				<a href="<?php echo U('/eva/');?>" title="小程序资讯"><span class="d_article"></span><p>测评</p></a>
+				<a href="<?php echo U('/special/');?>" title="小程序专题"><span class="d_special"></span><p>专题</p></a>
+				<a href="<?php echo U('/search/');?>" title="小程序搜索"><span class="d_search"></span><p>搜索</p></a>
 			</div>
 		</div>
 		<div class="weixinshow">
@@ -188,7 +178,7 @@
 				<p class="name"></p>
 				<p class="copy-tip">长按二维码体验小程序</p>
 				<div class="tip-img">
-					<img src="{$info.qrcode|default='__PUBLIC__/images/default_qrcode.png'}" alt="{$Think.CONFIG.sitename}公众号二维码"  style="width:150px">
+					<img src="<?php echo ((isset($info["qrcode"]) && ($info["qrcode"] !== ""))?($info["qrcode"]):'/Public/images/default_qrcode.png'); ?>" alt="<?php echo (C("sitename")); ?>公众号二维码"  style="width:150px">
 				</div>
 				
 			</div>
@@ -200,7 +190,7 @@
 				<p class="copy-tip">长按二维码体验小程序</p>
 				 
 				<div class="tip-img">
-					<img src="{$info.qrcode|default='__PUBLIC__/images/default_qrcode.png'}" alt="{$Think.CONFIG.sitename}公众号二维码" style="width:150px">
+					<img src="<?php echo ((isset($info["qrcode"]) && ($info["qrcode"] !== ""))?($info["qrcode"]):'/Public/images/default_qrcode.png'); ?>" alt="<?php echo (C("sitename")); ?>公众号二维码" style="width:150px">
 				</div>
 				
 			</div>
@@ -215,7 +205,7 @@
 				<p class="copy-tip">小程序名称复制成功</p>
 				<p class="copy-tip">快到微信 - 搜索小程序体验吧</p>
 				<div class="tip-img">
-					<img src="__PUBLIC__/m/images/copy-lay-img.jpg?1.0.15" alt="">
+					<img src="/Public/m/images/copy-lay-img.jpg?1.0.15" alt="">
 				</div>
 				<a href="weixin://" class="toweixin">前往微信</a>
 			</div>
@@ -227,7 +217,7 @@
 				<p class="copy-tip">手动复制小程序名称</p>
 				<p class="copy-tip">快到微信 - 搜索小程序体验吧</p>
 				<div class="tip-img">
-					<img src="__PUBLIC__/m/images/copy-lay-img.jpg?1.0.15" alt="">
+					<img src="/Public/m/images/copy-lay-img.jpg?1.0.15" alt="">
 				</div>
 				<a href="weixin://" class="toweixin">前往微信</a>
 			</div>
@@ -236,18 +226,18 @@
 		
 	</div>
 	
-	<script type="text/javascript" src="__PUBLIC__/m/js/touch-0.2.14.min.js"></script>
-	<script type="text/javascript" src="__PUBLIC__/m/js/clipboard.min.js?1.0.14"></script>
-	<script type="text/javascript" src="__PUBLIC__/m/js/common.min.js?1.0.24"></script>
-	<script type="text/javascript" src="__PUBLIC__/m/js/swiper.min.js"></script>
+	<script type="text/javascript" src="/Public/m/js/touch-0.2.14.min.js"></script>
+	<script type="text/javascript" src="/Public/m/js/clipboard.min.js?1.0.14"></script>
+	<script type="text/javascript" src="/Public/m/js/common.min.js?1.0.24"></script>
+	<script type="text/javascript" src="/Public/m/js/swiper.min.js"></script>
 
 
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/layer/skin/default/layer.css">
-<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+<link rel="stylesheet" type="text/css" href="/Public/js/layer/skin/default/layer.css">
+<script type="text/javascript" src="/Public/js/layer/layer.js"></script>
 <script type="text/javascript">
-var uid = "{:cookie('uid')}";
-var my_score = '{$hasScore}';
-var cid = '{$info.aid}';
+var uid = "<?php echo cookie('uid');?>";
+var my_score = '<?php echo ($hasScore); ?>';
+var cid = '<?php echo ($info["aid"]); ?>';
 $(function(){
 	if(my_score > 0){
 		$('.big-star span:lt('+ my_score +')').addClass('active');
@@ -272,7 +262,7 @@ $(function(){
     getMsg();
 	$('.m-bottom .btn').click(function(){
         /*if(uid <= 0){
-            window.location.href = "{:U('/public/login')}";
+            window.location.href = "<?php echo U('/public/login');?>";
             return false;
         }*/
         if($('.input').text()){
@@ -290,17 +280,17 @@ $(function(){
 	
 	$('body').on('tap', '.big-star span', function(){
 		if(uid <= 0){
-			window.location.href = "{:U('/public/login')}";
+			window.location.href = "<?php echo U('/public/login');?>";
 			return false;
 		}
 		if(my_score > 0){
-            layer.msg('您已经给"{$info.title}"评分了');
+            layer.msg('您已经给"<?php echo ($info["title"]); ?>"评分了');
             return false;
 		}
 		var score = $(this).index() + 1;
 		if(!window.confirm('确认给我评' + score + '星？'))return;
 
-        $.post("{:U('/app/doScore')}", {cid:cid,score:score}, function (msg) {
+        $.post("<?php echo U('/app/doScore');?>", {cid:cid,score:score}, function (msg) {
             if (msg.status == 1) {
         		$('.big-star span').removeClass('active');
         		$('.big-star span:lt('+ score +')').addClass('active');
@@ -314,13 +304,13 @@ $(function(){
 });
 
 function insert_msg(pid,content){
-    var cid = "{$info.aid}";
-    var titles = "{$info.title}";
+    var cid = "<?php echo ($info["aid"]); ?>";
+    var titles = "<?php echo ($info["title"]); ?>";
     if(content){
         var json_text = {"catid": cid, "type":1,"pid":pid,"title":titles,"content":content};
-        $.post("{:U('app/doMessage')}", json_text, function (msg) {
+        $.post("<?php echo U('app/doMessage');?>", json_text, function (msg) {
             if (msg.status == 2) {
-                window.location.href = "{:U('/public/login')}";
+                window.location.href = "<?php echo U('/public/login');?>";
                 return false;
             }
             if(msg.status == 1 ){
@@ -336,9 +326,9 @@ function insert_msg(pid,content){
 }
 
 function getMsg(){
-    var cid = "{$info.aid}";
+    var cid = "<?php echo ($info["aid"]); ?>";
     var json_text = {"catid": cid, "type":1};
-    $.post("{:U('app/doMessagelist')}", json_text, function (msg) {
+    $.post("<?php echo U('app/doMessagelist');?>", json_text, function (msg) {
         if (msg.status == 2) {
             showLogin();return;
         }
@@ -442,7 +432,7 @@ function closeReply(ef2){
 	})();
 	</script>
 <p style="display:none">
-{$Think.CONFIG.footer}
+<?php echo (C("footer")); ?>
 </p>
     </body>
 </html>l>
