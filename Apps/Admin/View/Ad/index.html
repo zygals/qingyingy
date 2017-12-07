@@ -26,8 +26,22 @@
                         <div class="cf">
                             <form class="form-inline" action="" method="get">
                                 <a class="btn btn-info" href="{:U('add')}" value="">新增</a>
-                                
-                                
+                                <select name="position" class="form-control">
+                                    <option value="">--位置--</option>
+                                    <?php foreach($pos as $v){?>
+                                    <option value="<?= $v['id'];?>" ><?= $v['name'];?></option>
+                                    <?php }?>
+                                </select>
+                                <select name="status" class="form-control">
+                                    <option value="">--状态--</option>
+                                    <option value="1" >开启</option>
+                                    <option value="0" >关闭</option>
+
+                                </select>
+                                <button type="submit" class="btn btn-purple btn-sm">
+                                    <span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+                                    搜索
+                                </button>
                             </form>
                         </div>
                         <div class="space-4"></div>
@@ -38,9 +52,11 @@
                                     <th class="center"><input class="check-all" type="checkbox" value=""></th>
                                     
                                     <th class="col-xs-5">名称</th>
-                                    <th>类型</th>
+                                    <th>位置</th>
+                                    <!--<th>位置</th>-->
                                     <th>状态</th>
-                                    <th class="col-xs-3">调用代码</th>
+                                    <th>添加时间</th>
+                                    <!--<th class="col-xs-3">调用代码</th>-->
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -50,20 +66,29 @@
                                         <td class="center"><input class="aids" type="checkbox" name="aids[]" value="{$val['aid']}">{$val['aid']}</td>
                                         
                                         <td>{$val['title']}</td>
-                                        <td>
+                                       <!-- <td>
 										<switch name="val.type" >
 										<case value="1" break="1">图片广告</case>
 										<case value="2" break="1">文字广告</case>
 										<case value="3" break="1">纯代码</case>
 										</switch>
-										</td>
+										</td>-->
+                                        <td>
+                                            <switch name="val.position" >
+                                                <case value="1" break="1">首页搜索下3张图(360*240)</case>
+                                                <case value="2" break="1">首页特色专题上2张图(580*240)</case>
+                                                <case value="3" break="1">首页购物上1张图(1200*240)</case>
+                                                <case value="4" break="1">首页热门评测下1张图(1200*240)</case>
+                                            </switch>
+                                        </td>
                                         <td>
 										<switch name="val.status" >
 										<case value="0" break="1">关闭</case>
 										<case value="1" break="1">开启</case>
 										</switch>
 										</td>
-                                        <td><literal>{:</literal>ad({$val['aid']})<literal>}</literal></td>
+                                        <td><?= date('Y-m-d',$val['create_time']);?></td>
+                                    <!--    <td><literal>{:</literal>ad({$val['aid']})<literal>}</literal></td>-->
                                         <td><a href="{:U('edit',array('aid'=>$val['aid']))}"><i
                                                 class="ace-icon fa fa-pencil bigger-100"></i>修改</a>&nbsp&nbsp;<a
                                                 href="javascript:;" val="{:U('del',array('aids'=>$val['aid']))}" class="del"><i

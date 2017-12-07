@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="renderer" content="webkit">
-        
+
         <meta name="baidu-site-verification" content="5CavClpnOL" />
 		<link rel="shortcut icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon"/>
 		<title>{$Think.CONFIG.title}</title>
@@ -17,6 +17,7 @@
 		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/common.css" />
 		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/lite.css" />
 		<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/layer/skin/default/layer.css">
+		<link href="https://cdn.bootcss.com/Swiper/4.0.6/css/swiper.min.css" rel="stylesheet">
 		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="__PUBLIC__/js/common.js" charset="utf-8"></script>
 
@@ -24,6 +25,7 @@
      <!-- <script type="text/javascript" src="__PUBLIC__/css/ssl.js" charset="utf-8"></script> -->
 
 		<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+		<script src="https://cdn.bootcss.com/Swiper/4.0.6/js/swiper.min.js"></script>
 
 	</head>
 	<body>
@@ -104,7 +106,7 @@
                 <div class="f-cb f-pt20 f-pb20" style="position: absolute;z-index: 1001;margin-top: -89px;">
                     <div class="f-ml50 g-w155 f-tac s-c-ffffff f-fl" >
                 	<span class="f-db f-fs3 f-mt5">
-                    	超过<span class="s-c-ff7101">3500</span>&nbsp;个小程序
+                    	超过<span class="s-c-ff7101">3580</span>&nbsp;个小程序
                     </span>
                     <span class="f-db  f-fs3">
                     	在轻应用商店注册
@@ -142,6 +144,87 @@
 
                 </div>
             </div>
+			<!--广告位 1：最多有3个-->
+			<div class="adwrap containers">
+				<?php $num=1;foreach($ads as $k=>$ad){?>
+				<?php if($ad['position']==1 && $num<4){$num++?>
+				<a target="_blank" href="<?= $ad['url'];?>"><img src="<?= $ad['pic'];?>" alt="没有图片" title="<?= $ad['title'];?>"></a>
+				<?php }?>
+<?php }?>
+			</div>
+			<!--附近的小程序-->
+			<!--<div class="nearby containers">
+				<div class="title-common clear" style="padding-top: 24px;">
+					<h2 class="fl">
+						<label>
+						</label>
+						附近的小程序
+					</h2>
+				</div>
+			&lt;!&ndash;图片左右轮播&ndash;&gt;
+				<div class="nearby-slide">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><img src="/Public/images/app.jpg" alt="没有图片"><span class="shuoshuo">表情说说</span><span class="taste">体验轻应用</span></div>
+							<div class="swiper-slide"><img src="/Public/images/app.jpg" alt="没有图片"><span class="shuoshuo">表情说说</span><span class="taste">体验轻应用</span></div>
+							<div class="swiper-slide"><img src="/Public/images/app.jpg" alt="没有图片"><span class="shuoshuo">表情说说</span><span class="taste">体验轻应用</span></div>
+							<div class="swiper-slide"><img src="/Public/images/app.jpg" alt="没有图片"><span class="shuoshuo">表情说说</span><span class="taste">体验轻应用</span></div>
+							<div class="swiper-slide"><img src="/Public/images/app.jpg" alt="没有图片"><span class="shuoshuo">表情说说</span><span class="taste">体验轻应用</span></div>
+							<div class="swiper-slide"><img src="/Public/images/app.jpg" alt="没有图片"><span class="shuoshuo">表情说说</span><span class="taste">体验轻应用</span></div>
+							<div class="swiper-slide"><img src="/Public/images/app.jpg" alt="没有图片"><span class="shuoshuo">表情说说</span><span class="taste">体验轻应用</span></div>
+						</div>
+					</div>
+					<div class="left_btn"></div>
+					<div class="right_btn"></div>
+				</div>
+			</div>-->
+
+			<div class="hot-rank containers">
+				<!--推荐-->
+				<div class="jx-wrap">
+					<div class="title-common clear"><h2 class="fl"><label></label>精选推荐</h2><a href="app.html" class="fr rigth-more">more<label></label></a>
+					</div>
+					<div class="jx-cont">
+						<volist name="toplist" id="vo">
+							<div class="jx-list"><a class="" href="{:U('/app/'.$vo[aid])}"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片"><span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}">扫一扫体验</span></a></div>
+						</volist>
+
+					</div>
+				</div><!--最新上线-->
+				<div class="hot-wrap">
+					<div class="title-common clear"><h2 class="fl"><label></label>最新上线</h2><a href="app.html?o=t" class="fr rigth-more">more<label></label></a>
+					</div>
+					<div class="hot-cont">
+						<volist name="new_list" id="vo">
+						<div class="hot-list"><a class="" href="{:U('/app/'.$vo[aid])}"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片"><span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}">扫一扫体验</span></a></div>
+						</volist>
+					</div>
+				</div><!--热门排行-->
+				<div class="rank-wrap">
+					<div class="title-common clear"><h2 class="fl"><label></label>热门排行</h2><a href="app.html?o=n" class="fr rigth-more">more<label></label></a>
+					</div>
+					<div class="rank-cont">
+						<volist name="hot_list" id="vo">
+						<a class="rank-list" href="{:U('/app/'.$vo[aid])}">
+							<span class="rank-num">{++$key}</span>
+							<img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片">
+							<div class="rank-info">
+								<h2>{$vo.title}</h2>
+								<p>{$vo.n}<span>体验</span></p>
+							</div>
+						</a>
+						</volist>
+					</div>
+				</div>
+			</div>
+			<!--广告位2：两张图-->
+			<div class="adwrap2 containers">
+				<?php $num=1;foreach($ads as $k=>$ad){?>
+				<?php if($ad['position']==2 && $num<3){$num++?>
+				<a target="_blank" href="<?= $ad['url'];?>"><img src="<?= $ad['pic'];?>" alt="没有图片" title="<?= $ad['title'];?>"></a>
+<?php }}?>
+
+			</div>
 			<div class="specialbox containers f-mt20">
 				<div class="title-common clear"><h2 class="fl"><label></label>特色专题</h2><a href="{:U('/special/')}" class="fr rigth-more">查看更多<label></label></a></div>
 				<div class="special-content clear">
@@ -154,8 +237,8 @@
 				</div>
 				</div>
 			</div>
-			 
-			<div class="showbox containers">
+
+	<!--		<div class="showbox containers">
 				<div class="title-common clear" style="padding-top: 24px;">
 					<h2 class="fl">
 						<label>
@@ -170,7 +253,6 @@
 				</div>
 				<div class="show-content containers clear wrapper">
 					<volist name="toplist" id="vo">
-
 					<a class="list" href="{:U('/app/'.$vo[aid])}">
 						<div class="imgLeft">
 							<span>
@@ -227,9 +309,9 @@
 					</a>
 					</volist>
 				</div>
-			</div>
+			</div>-->
 
-            <div class="showbox containers">
+            <!--<div class="showbox containers">
                 <div class="title-common clear" >
                     <h2 class="fl">
                         <label>
@@ -300,9 +382,9 @@
                         </a>
                     </volist>
                 </div>
-            </div>
+            </div>-->
 
-            <div class="showbox containers">
+          <!--  <div class="showbox containers">
                 <div class="title-common clear" >
                     <h2 class="fl">
                         <label>
@@ -373,7 +455,7 @@
                         </a>
                     </volist>
                 </div>
-            </div>
+            </div>-->
             <div class="specialbox containers f-pb20">
                <!-- <div class="title-common clear"><h2 class="fl"><label></label>特色专题</h2><a href="{:U('/special/')}" class="fr rigth-more">查看更多<label></label></a></div>-->
                 <div class="special-content clear">
@@ -386,7 +468,16 @@
                     </div>
                 </div>
             </div>
-			<volist name="appcates" id="vo">
+			<volist name="appcates" id="vo" key="key">
+				<if condition="$key eq 8">
+					<!-- 在购物上面加广告图 -->
+					<div class="ad-wrap3 containers">
+						<?php $num=1;foreach($ads as $k=>$ad){?>
+						<?php if($ad['position']==3 && $num<2){$num++?>
+						<a target="_blank" href="<?= $ad['url'];?>"><img src="<?= $ad['pic'];?>" alt="没有图片" title="<?= $ad['title'];?>"></a>
+						<?php }}?>
+				    </div>
+				</if>
 			<div class="showbox containers">
 				<div class="title-common clear">
 					<h2 class="fl">
@@ -466,44 +557,64 @@
 						</label>
 						热门评测
 					</h2>
-					<a class="fr rigth-more" href="/news/">
+					<a class="fr rigth-more" href="/eva.html">
 						查看更多
 						<label>
 						</label>
 					</a>
 				</div>
-				<div class="content clear">
+				<!--  原来热门评测
+				<div class="content clear">-->
+					<!--<volist name="evalist" id="vo">-->
+					<!--<a href="{:U('/eva/'.$vo[aid])}">-->
+						<!--<div class="img-hot" style="background: url({$vo.thumbnail}) center;background-size: auto 100%">-->
+
+						<!--</div>-->
+						<!--<div class="data-hot">-->
+							<!--<h3>-->
+								<!--{$vo.title}-->
+							<!--</h3>-->
+							<!--<div class="foot-hot clear">-->
+								<!--<label title="{$vo.keywords}-->
+<!--">-->
+									<!--{$vo.keywords}-->
+								<!--</label>-->
+								<!--<p class="view-count fr">-->
+									<!--<label>-->
+									<!--</label>-->
+									<!--{$vo.n}-->
+								<!--</p>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</a>-->
+					<!--</volist>-->
+					<!--<div class="lookmore">-->
+						<!--<a href="/eva.html">-->
+							<!--查看更多-->
+						<!--</a>-->
+					<!--</div>-->
+				<!--</div>-->
+
+				<!--改版区域-->
+				<div class="common-wrap">
 					<volist name="evalist" id="vo">
-					<a href="{:U('/eva/'.$vo[aid])}">
-						<div class="img-hot" style="background: url({$vo.thumbnail}) center;background-size: auto 100%">
-							 
-						</div>
-						<div class="data-hot">
-							<h3>
-								{$vo.title}
-							</h3>
-							<div class="foot-hot clear">
-								<label title="{$vo.keywords}
-">
-									{$vo.keywords}
-								</label>
-								<p class="view-count fr">
-									<label>
-									</label>
-									{$vo.n}
-								</p>
-							</div>
+					<a href="{:U('/eva/'.$vo[aid])}" class="common-cont">
+						<img src="{$vo.thumbnail}" alt="{$vo.title}">
+						<div class="common-title">
+						<h2>{$vo.title}</h2>
+						<p>{$vo.description}</p>
 						</div>
 					</a>
 					</volist>
-					<div class="lookmore">
-						<a href="/eva.html">
-							查看更多
-						</a>
-					</div>
 				</div>
 			</div>
-			
+			<!--广告位4:一张图-->
+			<div class="footer-ad containers">
+				<?php $num=1;foreach($ads as $k=>$ad){?>
+				<?php if($ad['position']==4 && $num<2){$num++?>
+				<a target="_blank" href="<?= $ad['url'];?>"><img src="<?= $ad['pic'];?>" alt="没有图片" title="<?= $ad['title'];?>"></a>
+				<?php }}?>
+			</div>
 			<include file="Public:footer" />
 		</div>
 		<script type="text/javascript">
@@ -529,7 +640,7 @@
                     $(".open_qrcode").hide();
                     $index.stop(true, true).fadeOut();
                 });
-				
+
 			});
 			//图片变大变小
 			$(function() {
@@ -542,6 +653,20 @@
 					$(this).find("img").addClass("scale_return").removeClass("scale");
 				});
 			})
+		</script>
+		<script>
+            var mySwiper = new Swiper('.swiper-container',{
+                navigation: {
+                    nextEl: '.right_btn',
+                    prevEl: '.left_btn',
+				},
+//                pagination : '.swiper-pagination',
+                loop:true,
+                //autoplay:3000,
+                slidesPerView: 7	,
+                spaceBetween:30,
+                autoplayDisableOnInteraction : true
+            })
 		</script>
 	</body>
 

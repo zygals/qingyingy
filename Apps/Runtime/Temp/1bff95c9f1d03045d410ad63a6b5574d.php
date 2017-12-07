@@ -1,3 +1,0 @@
-<?php
-//000000043200a:2:{i:0;a:6:{s:2:"id";s:2:"36";s:5:"title";s:15:"轻应用商店";s:3:"url";s:22:"http://www.qingyy.net/";s:3:"pic";s:45:"/Public/attached/2017/09/06/59af535b72c36.jpg";s:1:"o";s:1:"0";s:4:"type";s:1:"1";}i:1;a:6:{s:2:"id";s:2:"11";s:5:"title";s:7:"banner3";s:3:"url";s:22:"https://www.qingyy.net";s:3:"pic";s:45:"/Public/attached/2017/09/06/59afae0dc4a41.jpg";s:1:"o";s:1:"1";s:4:"type";s:1:"1";}}
-?>

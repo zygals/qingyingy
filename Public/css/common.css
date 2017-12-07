@@ -1454,3 +1454,239 @@ a:active{
     margin-top: 10px;
     padding: 8px;
 }
+
+/*新增功能区*/
+.adwrap {
+    display: flex;
+    justify-content:space-between;
+    padding: 25px 0;
+}
+
+.adwrap img {
+    width: 360px;
+    height:240px;
+}
+
+.adwrap2 {
+    display: flex;
+    justify-content:space-between;
+    padding-bottom:25px;
+}
+.adwrap2 img {
+    width: 580px;
+    height:240px;
+}
+/*小程序轮播区*/
+.swiper-container {
+    padding: 20px 40px !important;
+    border:1px solid #ddd;
+}
+.nearby-slide {
+    position: relative;
+}
+.left_btn {
+    position: absolute;
+    left:5px;
+    top: 40%;
+    background: url("/Public/images/left_btn.png") no-repeat;
+    width:40px;
+    height:40px;
+    cursor: pointer;
+    z-index: 9999;
+}
+.right_btn {
+    position: absolute;
+    right: 5px;
+    top: 40%;
+    background: url("/Public/images/right_btn.png") center center no-repeat;
+    width:40px;
+    height:40px;
+    background-size: 100% 100%;
+    z-index: 9999;
+    cursor: pointer;
+}
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.swiper-slide .shuoshuo {
+    padding: 10px 0;
+}
+.swiper-slide .taste {
+    font-size: 12px;
+    padding: 2px 10px;
+    border: 1px solid #ddd;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+}
+
+/*排行榜*/
+.hot-rank {
+    display: flex;
+    justify-content:space-between;
+    padding: 40px 0;
+}
+
+.hot-rank .jx-wrap {
+    flex:0 0 35%;
+}
+.hot-rank .hot-wrap {
+    flex:0 0 35%;
+}
+.hot-rank .rank-wrap {
+    flex:0 0 25%;
+}
+
+.jx-cont {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f9f9f9;
+    padding-bottom:40px;
+}
+.jx-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 33%;
+    padding-top: 40px;
+}
+.jx-list .shuoshuo {
+    padding: 10px 0;
+}
+.jx-cont .taste {
+    font-size: 12px;
+    padding: 2px 10px;
+    border: 1px solid #ddd;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.hot-cont {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f9f9f9;
+    padding-bottom:40px;
+}
+.hot-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 33%;
+    padding-top: 40px;
+}
+.hot-list .shuoshuo {
+    font-size: 14px;
+    padding: 10px 0;
+}
+.hot-cont .taste {
+    font-size: 12px;
+    padding: 2px 10px;
+    border: 1px solid #ddd;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.hot-rank .rigth-more {
+    margin-right: 20px;
+}
+.rank-cont {
+    margin-top: -10px;
+}
+.rank-list {
+    display: flex;
+    padding: 10px 0;
+}
+.rank-list:hover {
+    background-color: #f8f8f8;
+}
+.rank-list .rank-num {
+    color: #666666;
+    font-size: 30px;
+}
+.rank-list:nth-child(1) .rank-num{
+    color: #ff2929;
+}
+.rank-list:nth-child(2) .rank-num{
+    color: #ff561b;
+}
+.rank-list:nth-child(3) .rank-num{
+    color: #ff8d27;
+}
+.rank-list img {
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+}
+
+.rank-list .rank-info {
+    flex: 1;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.rank-list .rank-info h2 {
+    font-size: 16px;
+}
+.rank-list .rank-info p {
+    color: #ff7010;
+}
+
+.rank-list .rank-info p span {
+    color: #999;
+    margin-left: 10px;
+}
+.footer-ad {
+    width: 1200px;
+    height: 240px;
+    padding: 20px 0;
+}
+.ad-wrap3 {
+    padding-bottom: 40px;
+}
+.ad-wrap3 img {
+    width: 1200px;
+    height: 240px;
+}
+
+/*热门评测*/
+.common-wrap {
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+}
+.common-wrap .common-cont {
+    flex: 0 0 48%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    border:1px solid #ddd;
+}
+
+.common-wrap .common-cont .common-title {
+    margin-left:30px;
+    margin-right: 20px;
+}
+.common-wrap .common-cont img {
+    flex:0 0 285px;
+  width: 285px;
+    height:236px;
+}
+
+.common-wrap .common-cont .common-title h2 {
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+.common-wrap .common-cont .common-title p {
+    line-height: 24px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+}

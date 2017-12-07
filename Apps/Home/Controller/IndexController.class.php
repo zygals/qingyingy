@@ -9,7 +9,7 @@ class IndexController extends ComController
     public function index(){
 		$m=M('app');
 		//每日精选
-		$toplist=$m->/*cache('indextoplist',3600)->*/where("istop=1 and status=1")->order('t desc')->limit(6)->select();
+		$toplist=$m->cache('indextoplist',3600)->where("istop=1 and status=1")->order('t desc')->limit(6)->select();
 		foreach($toplist as $kk=>$vv){
 			$scoreres=M('appscore')->cache('appsnum'.$vv['aid'],3600)->field('num')->where("aid='{$vv['aid']}'")->order("score desc")->limit(5)->select();
 			$toplist[$kk]['width']=$vv['score'];
@@ -17,9 +17,8 @@ class IndexController extends ComController
 		}
 		$this->assign('toplist',$toplist);
 
-
         //热门
-        $hot_list=$m->where("status=1")->order('n desc')->limit(6)->select();
+        $hot_list=$m->cache('indexhotlist',3600)->where("status=1")->order('n desc')->limit(6)->select();
         foreach($hot_list as $kk=>$vv){
             $hot_scoreres=M('appscore')->field('num')->where("aid='{$vv['aid']}'")->order("score desc")->limit(5)->select();
             $hot_list[$kk]['width']=$vv['score'];
@@ -28,7 +27,7 @@ class IndexController extends ComController
         $this->assign('hot_list',$hot_list);
 
         //最新
-        $new_list=$m->where("status=1")->order('aid desc')->limit(6)->select();
+        $new_list=$m->cache('indexnewlist',3600)->where("status=1")->order('aid desc')->limit(6)->select();
         foreach($new_list as $kk=>$vv){
             $new_scoreres=M('appscore')->field('num')->where("aid='{$vv['aid']}'")->order("score desc")->limit(5)->select();
             $new_list[$kk]['width']=$vv['score'];
@@ -46,7 +45,7 @@ class IndexController extends ComController
 			$appcates[$k][cateids]=trim($appcates[$k][cateids],',');
 		}
 		foreach($appcates as $k=>$v){
-			$appcates[$k]['app']=$m->cache('indexapps'.$v[id],3600)->where("sid in ($v[cateids]) and status=1")->order('aid desc')->limit(3)->select();
+			$appcates[$k]['app']=$m->cache('indexapps'.$v['id'],3600)->where("sid in ($v[cateids]) and status=1")->order('aid desc')->limit(3)->select();
 			foreach($appcates[$k]['app'] as $kk=>$vv){
 				$scoreres=M('appscore')->cache('appsnum'.$vv['aid'],3600)->field('num')->where("aid='{$vv['aid']}'")->order("score desc")->limit(5)->select();
 				$appcates[$k]['app'][$kk]['width']=$vv['score'];
@@ -66,6 +65,10 @@ class IndexController extends ComController
 		//大横幅
 		$flash=M('flash')->where("type =1")->cache('indexflash',3600*12)->order('o asc')->limit(5)->select();
 		$this->assign('flash',$flash);
+        //首页所有广告位
+        $ads=M('ad')->where("status =1")->cache('indexads',3600*12)->order('aid desc')->select();
+        $this->assign('ads',$ads);
+        		//dump($ads);exit;
 		//首页专题
 		$special=M('special')->cache('indexspecial',3600)->field('aid,thumbnail,title')->order('aid desc')->limit(10)->select();
 		$this->assign('special',$special);
