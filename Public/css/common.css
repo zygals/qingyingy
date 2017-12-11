@@ -1543,7 +1543,7 @@ a:active{
     display: flex;
     flex-wrap: wrap;
     background-color: #f9f9f9;
-    padding-bottom:40px;
+    height: 440px;
 }
 .jx-list {
     display: flex;
@@ -1551,7 +1551,6 @@ a:active{
     justify-content: center;
     align-items: center;
     flex: 0 0 33%;
-    padding-top: 40px;
 }
 .jx-list a{
     display: flex;
@@ -1559,11 +1558,11 @@ a:active{
     justify-content: center;
     align-items: center;
     flex: 0 0 33%;
-    padding-top: 40px;
 }
 .jx-list .ty-img-wrap {
     width: 68px;
     height: 68px;
+    overflow: hidden;
 }
 .jx-list .ty-img-wrap img {
     border-radius: 4px;
@@ -1572,13 +1571,13 @@ a:active{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-content: center;
     flex: 0 0 33%;
-    padding-top: 40px;
 }
 .hot-list .ty-img-wrap {
     width: 68px;
     height: 68px;
+    overflow: hidden;
 }
 .hot-list .ty-img-wrap img {
     border-radius: 4px;
@@ -1587,6 +1586,7 @@ a:active{
     width: 68px;
     height: 68px;
     margin-left: 20px;
+    overflow: hidden;
 }
 .jx-list .shuoshuo {
     padding: 10px 0;
@@ -1604,7 +1604,7 @@ a:active{
     display: flex;
     flex-wrap: wrap;
     background-color: #f9f9f9;
-    padding-bottom:40px;
+    height: 440px;
 }
 .hot-list {
     display: flex;
@@ -1612,7 +1612,6 @@ a:active{
     justify-content: center;
     align-items: center;
     flex: 0 0 33%;
-    padding-top: 40px;
 }
 .hot-list .shuoshuo {
     font-size: 14px;

@@ -145,15 +145,16 @@
                 </div>
             </div>
 			<!--广告位 1：最多有3个-->
+
 			<div class="adwrap containers">
 				<?php $num=1;foreach($ads as $k=>$ad){?>
 				<?php if($ad['position']==1 && $num<4){$num++?>
 				<a target="_blank" href="<?= $ad['url'];?>"><img src="<?= $ad['pic'];?>" alt="没有图片" title="<?= $ad['title'];?>"></a>
-				<?php }?>
-<?php }?>
+				<?php }}?>
 			</div>
+
 			<!--附近的小程序-->
-			<!--<div class="nearby containers">
+		<div class="nearby containers">
 				<div class="title-common clear" style="padding-top: 24px;">
 					<h2 class="fl">
 						<label>
@@ -161,7 +162,7 @@
 						附近的小程序
 					</h2>
 				</div>
-			&lt;!&ndash;图片左右轮播&ndash;&gt;
+			<!--&lt;!&ndash;图片左右轮播&ndash;&gt;-->
 				<div class="nearby-slide">
 					<div class="swiper-container">
 						<div class="swiper-wrapper">
@@ -177,16 +178,17 @@
 					<div class="left_btn"></div>
 					<div class="right_btn"></div>
 				</div>
-			</div>-->
+			</div>
 
 			<div class="hot-rank containers">
-				<!--推荐-->
+				<!--精选推荐-->
 				<div class="jx-wrap">
 					<div class="title-common clear"><h2 class="fl"><label></label>精选推荐</h2><a href="app.html" class="fr rigth-more">more<label></label></a>
 					</div>
 					<div class="jx-cont">
 						<volist name="toplist" id="vo">
-							<div class="jx-list"><a class="" href="{:U('/app/'.$vo[aid])}"><div class="ty-img-wrap"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片"></div><span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}">扫一扫体验</span></a></div>
+							<a class="jx-list" href="{:U('/app/'.$vo[aid])}"><div class="ty-img-wrap"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片"></div><span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}">扫一扫体验</span>
+							</a>
 						</volist>
 
 					</div>
@@ -196,7 +198,7 @@
 					</div>
 					<div class="hot-cont">
 						<volist name="new_list" id="vo">
-						<div class="hot-list"><a class="" href="{:U('/app/'.$vo[aid])}"><div class="ty-img-wrap"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片"></div><span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}">扫一扫体验</span></a></div>
+							<a class="hot-list" href="{:U('/app/'.$vo[aid])}"><div class="ty-img-wrap"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片"></div><span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}">扫一扫体验</span></a>
 						</volist>
 					</div>
 				</div><!--热门排行-->
@@ -609,12 +611,13 @@
 				</div>
 			</div>
 			<!--广告位4:一张图-->
+			<?php $num=1;foreach($ads as $k=>$ad){?>
 			<div class="footer-ad containers">
-				<?php $num=1;foreach($ads as $k=>$ad){?>
+
 				<?php if($ad['position']==4 && $num<2){$num++?>
 				<a target="_blank" href="<?= $ad['url'];?>"><img src="<?= $ad['pic'];?>" alt="没有图片" title="<?= $ad['title'];?>"></a>
-				<?php }}?>
 			</div>
+			<?php }}?>
 			<include file="Public:footer" />
 		</div>
 		<script type="text/javascript">
