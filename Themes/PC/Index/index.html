@@ -458,18 +458,19 @@
                     </volist>
                 </div>
             </div>-->
-            <div class="specialbox containers f-pb20">
+
+			<!--<div class="specialbox containers f-pb20">-->
                <!-- <div class="title-common clear"><h2 class="fl"><label></label>特色专题</h2><a href="{:U('/special/')}" class="fr rigth-more">查看更多<label></label></a></div>-->
-                <div class="special-content clear">
-                    <div class="scroll clear imgScale">
-                        <volist name="special" id="vo"  key="key">
-                            <if condition="$key gt 5">
-                                <a class="content" href="{:U('/special/'.$vo['aid'])}" target="_blank"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="{$vo.title}" title="{$vo.title}" class="scale_return" style="height: 100%;"></a>
-                            </if>
-                        </volist>
-                    </div>
-                </div>
-            </div>
+                <!--<div class="special-content clear">-->
+                    <!--<div class="scroll clear imgScale">-->
+                        <!--<volist name="special" id="vo"  key="key">-->
+                            <!--<if condition="$key gt 5">-->
+                                <!--<a class="content" href="{:U('/special/'.$vo['aid'])}" target="_blank"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="{$vo.title}" title="{$vo.title}" class="scale_return" style="height: 100%;"></a>-->
+                            <!--</if>-->
+                        <!--</volist>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
 			<volist name="appcates" id="vo" key="key">
 				<if condition="$key eq 8">
 					<!-- 在购物上面加广告图 -->
@@ -565,50 +566,50 @@
 						</label>
 					</a>
 				</div>
-				<!--  原来热门评测
-				<div class="content clear">-->
-					<!--<volist name="evalist" id="vo">-->
-					<!--<a href="{:U('/eva/'.$vo[aid])}">-->
-						<!--<div class="img-hot" style="background: url({$vo.thumbnail}) center;background-size: auto 100%">-->
-
-						<!--</div>-->
-						<!--<div class="data-hot">-->
-							<!--<h3>-->
-								<!--{$vo.title}-->
-							<!--</h3>-->
-							<!--<div class="foot-hot clear">-->
-								<!--<label title="{$vo.keywords}-->
-<!--">-->
-									<!--{$vo.keywords}-->
-								<!--</label>-->
-								<!--<p class="view-count fr">-->
-									<!--<label>-->
-									<!--</label>-->
-									<!--{$vo.n}-->
-								<!--</p>-->
-							<!--</div>-->
-						<!--</div>-->
-					<!--</a>-->
-					<!--</volist>-->
-					<!--<div class="lookmore">-->
-						<!--<a href="/eva.html">-->
-							<!--查看更多-->
-						<!--</a>-->
-					<!--</div>-->
-				<!--</div>-->
-
-				<!--改版区域-->
-				<div class="common-wrap">
+				<!--  原来热门评测-->
+				<div class="content clear">
 					<volist name="evalist" id="vo">
-					<a href="{:U('/eva/'.$vo[aid])}" class="common-cont">
-						<img src="{$vo.thumbnail}" alt="{$vo.title}">
-						<div class="common-title">
-						<h2>{$vo.title}</h2>
-						<p>{$vo.description}</p>
+					<a href="{:U('/eva/'.$vo[aid])}">
+						<div class="img-hot" style="background: url({$vo.thumbnail}) center;background-size: auto 100%">
+
+						</div>
+						<div class="data-hot">
+							<h3>
+								{$vo.title}
+							</h3>
+							<div class="foot-hot clear">
+								<label title="{$vo.keywords}
+">
+									{$vo.keywords}
+								</label>
+								<p class="view-count fr">
+									<label>
+									</label>
+									{$vo.n}
+								</p>
+							</div>
 						</div>
 					</a>
 					</volist>
+					<div class="lookmore">
+						<a href="/eva.html">
+							查看更多
+						</a>
+					</div>
 				</div>
+
+				<!--改版区域-->
+				<!--<div class="common-wrap">-->
+					<!--<volist name="evalist" id="vo">-->
+					<!--<a href="{:U('/eva/'.$vo[aid])}" class="common-cont">-->
+						<!--<img src="{$vo.thumbnail}" alt="{$vo.title}">-->
+						<!--<div class="common-title">-->
+						<!--<h2>{$vo.title}</h2>-->
+						<!--<p>{$vo.description}</p>-->
+						<!--</div>-->
+					<!--</a>-->
+					<!--</volist>-->
+				<!--</div>-->
 			</div>
 			<!--广告位4:一张图-->
 			<?php $num=1;foreach($ads as $k=>$ad){?>
