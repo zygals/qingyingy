@@ -9,7 +9,7 @@ class IndexController extends ComController
     public function index(){
 		$m=M('app');
 		//每日精选
-		$toplist=$m->cache('indextoplist',3600)->where("istop=1 and status=1")->order('t desc')->limit(6)->select();
+		$toplist=$m/*->cache('indextoplist',3600)*/->where("istop=1 and status=1")->order('t desc')->limit(6)->select();
 		foreach($toplist as $kk=>$vv){
 			$scoreres=M('appscore')->cache('appsnum'.$vv['aid'],3600)->field('num')->where("aid='{$vv['aid']}'")->order("score desc")->limit(5)->select();
 			$toplist[$kk]['width']=$vv['score'];
