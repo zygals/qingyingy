@@ -187,18 +187,30 @@
 					</div>
 					<div class="jx-cont">
 						<volist name="toplist" id="vo">
-							<a class="jx-list" href="{:U('/app/'.$vo[aid])}"><div class="ty-img-wrap"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片"></div><span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}">扫一扫体验</span>
+							<a class="jx-list" href="{:U('/app/'.$vo[aid])}"><div class="ty-img-wrap"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片"></div><span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}" >扫一扫体验</span>
+								<div class="qrcode" style="display: none;">
+									<img src="{$vo.qrcode|default=$vo.open_qrcode}" />
+
+								</div>
+
 							</a>
+
 						</volist>
 
 					</div>
+
 				</div><!--最新上线-->
 				<div class="hot-wrap">
 					<div class="title-common clear"><h2 class="fl"><label></label>最新上线</h2><a href="app.html?o=t" class="fr rigth-more">查看更多<label></label></a>
 					</div>
 					<div class="hot-cont">
 						<volist name="new_list" id="vo">
-							<a class="hot-list" href="{:U('/app/'.$vo[aid])}"><div class="ty-img-wrap"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片"></div><span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}">扫一扫体验</span></a>
+							<a class="hot-list" href="{:U('/app/'.$vo[aid])}"><div class="ty-img-wrap"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片"></div><span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}">扫一扫体验</span>
+								<div class="qrcode" style="display: none;">
+									<img src="{$vo.qrcode|default=$vo.open_qrcode}" />
+
+								</div>
+							</a>
 						</volist>
 					</div>
 				</div><!--热门排行-->
@@ -212,13 +224,26 @@
 							<div class="ty-img-wrap"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片"></div>
 							<div class="rank-info">
 								<h2>{$vo.title}</h2>
-								<p>{$vo.n}<span>体验</span></p>
+								<p class="taste">{$vo.n}<span>体验</span></p>
+							</div>
+							<div class="qrcode" style="display: none;">
+								<img src="{$vo.qrcode|default=$vo.open_qrcode}" />
 							</div>
 						</a>
 						</volist>
 					</div>
 				</div>
 			</div>
+			<script>
+				//经过体验时出现二维码：
+                $('.hot-rank .taste').hover(function () {
+            
+                    $(this).parents('a').find('.qrcode').show();
+                },function () {
+                    $(this).parents('a').find('.qrcode').hide();
+                });
+
+			</script>
 			<!--广告位2：两张图-->
 			<div class="adwrap2 containers">
 				<?php $num=1;foreach($ads as $k=>$ad){?>

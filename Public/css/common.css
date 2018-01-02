@@ -1547,7 +1547,7 @@ a:active{
 .jx-cont {
     display: flex;
     flex-wrap: wrap;
-    background-color: #f9f9f9;
+    background-color: #fdfdfd;
     height: 440px;
 }
 .jx-list {
@@ -1556,6 +1556,17 @@ a:active{
     justify-content: center;
     align-items: center;
     flex: 0 0 33%;
+    position: relative;
+}
+.jx-list .qrcode{
+
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+
+}.jx-list .qrcode img{
+
+    width:110px;
 }
 .jx-list a{
     display: flex;
@@ -1618,6 +1629,15 @@ a:active{
     justify-content: center;
     align-items: center;
     flex: 0 0 33%;
+    position: relative;
+}
+.hot-list .qrcode{
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+}
+.hot-list .qrcode img{
+    width:110px;
 }
 .hot-list .shuoshuo {
     font-size: 16px;
@@ -1640,6 +1660,16 @@ a:active{
 .rank-list {
     display: flex;
     padding: 10px 0;
+    position: relative;
+}
+.rank-list .qrcode{
+    position: absolute;
+    top: -6px;
+    z-index: 1;
+    left: 18px;
+}
+.rank-list .qrcode img{
+    width:95px;
 }
 .rank-list:hover {
     background-color: #f8f8f8;
