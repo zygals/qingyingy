@@ -490,7 +490,7 @@ body{
     margin-right: 20px;
 }
 .f-mt20 {
-    margin-top: 20px;
+    /*margin-top: 20px;*/
 }
 .f-mb20 {
     margin-bottom: 20px;
@@ -1462,7 +1462,7 @@ a:active{
 
 }
 .adwrap a {
-    padding: 25px 0;
+    padding-top: 25px;
 }
 .adwrap img {
     width: 360px;
@@ -1531,7 +1531,7 @@ a:active{
 .hot-rank {
     display: flex;
     justify-content:space-between;
-    padding: 40px 0;
+    padding: 24px 0;
 }
 
 .hot-rank .jx-wrap {
