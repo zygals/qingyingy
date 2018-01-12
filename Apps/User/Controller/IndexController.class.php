@@ -30,8 +30,8 @@ class IndexController extends Controller
 			$this->assign('user',$user);
 		}
 		//取我的小程序
-        $myapp=array();
-       // $myapp = M('app')->where("uid=$uid")->field('aid,title,status')->order('t desc')->select();
+        $myapp = array();
+        $myapp = M('app')->where("uid=$uid")->field('aid,title,status')->order('id asc')->select();
 		if(count($myapp) >0 ){
             $this->assign('myapp',$myapp);
         }
