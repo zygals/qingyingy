@@ -9,7 +9,20 @@
 		<a href="{:U('/user/index/index')}" <if condition="ACTION_NAME eq 'index'">class="active"</if>>个人资料</a>
 		<a href="{:U('/user/index/message')}" <if condition="ACTION_NAME eq 'message'">class="active"</if>>消息中心</a>
 		<a href="{:U('/user/index/apply')}" <if condition="ACTION_NAME eq 'apply'">class="active"</if>>发布小程序</a>
+		<?php if(isset($myapp)){?>
+	    	<a href="javascript:void(0)" class="parent_zyg">我的发布</a>
+            <?php foreach($myapp as $k=>$val){?>
+              <p style="text-indent: 2em;"><a href='<?= U("/user/index/applied/id/{$val['aid']}") ;?>' class="child_zyg <?= $_GET['id']==$val['aid']?'active':'';?>" ><?= $val['title'] ;?> </a></p>
+            <?php }?>
+		<?php }?>
+
 		<a href="{:U('/user/index/contact')}" <if condition="ACTION_NAME eq 'contact'">class="active"</if>>联系我们</a>
 		<a href="{:U('/user/index/logout')}" >退出小程序</a>
 	</div>
 </div>
+<script>
+    $('.parent_zyg').click(function () {
+            $('.child_zyg').toggle()
+    })
+
+</script>

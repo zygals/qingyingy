@@ -2000,3 +2000,14 @@
 .search-container .boutique-content>div:last-of-type{
 	border-bottom: none;
 }
+.chaxun input#addrname{
+	width:500px;
+
+}.chaxun input#chaxunbtn{
+	color:white;
+	background-color: #0a6ea7;
+	 padding:7px 10px;
+	 text-align: center;
+
+
+}

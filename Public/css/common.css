@@ -1759,3 +1759,16 @@ a:active{
     -webkit-box-orient:vertical;
     -webkit-line-clamp:2;
 }
+.nearby-slide .swiper-slide {
+    position: relative;
+}
+.swiper-slide .qrcode {
+    position: absolute;
+    left:5px;
+    top:-16px;
+    /*bottom: 48px;*/
+    display: none;
+}
+.swiper-slide .qrcode img{
+    width:85px;
+}

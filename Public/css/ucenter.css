@@ -198,3 +198,12 @@
 	width: 14px;
 	background-position: 0 -13px;
 }
+
+.link-ucenter  a.parent_zyg{
+
+}
+.link-ucenter  a.child_zyg{
+	display: none;
+	font-size:14px;
+	padding-top: 13px;
+}

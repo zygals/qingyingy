@@ -9,7 +9,7 @@ class IndexController extends ComController
     public function index(){
 		$m=M('app');
 		//每日精选
-		$toplist=$m/*->cache('indextoplist',3600)*/->where("istop=1 and status=1")->order('t desc')->limit(6)->select();
+		$toplist=$m->where("istop=1 and status=1")->order('t desc')->limit(6)->select();
 		foreach($toplist as $kk=>$vv){
 			$scoreres=M('appscore')->cache('appsnum'.$vv['aid'],3600)->field('num')->where("aid='{$vv['aid']}'")->order("score desc")->limit(5)->select();
 			$toplist[$kk]['width']=$vv['score'];
@@ -75,6 +75,16 @@ class IndexController extends ComController
 		//友情链接
 		$flink=M('links')->cache('flink',600)->order('o asc')->select();
 		$this->assign('flink',$flink);
+        //附近小程序
+        $city = (new \User\Controller\IndexController)->getPoint()['content']['address_detail']['city']; //取user模块下的index控制器中的方法
+
+        $fujin=array();  //所有附近的小程序限定最多20个吧
+        if($city){
+            $fujin=M('app')->where("weizhi like '%$city%'")->limit(20)->field('aid,title,thumbnail,qrcode,open_qrcode,uid')->order('aid desc')->select();
+        }
+        $this->assign('fujin',$fujin);
+//dump($fujin);exit;
+
         $this->display();
     }
     

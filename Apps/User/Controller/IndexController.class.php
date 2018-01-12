@@ -18,6 +18,7 @@ class IndexController extends Controller
     }
 	public function _initialize()
     {
+
         C(setting());
 		$allclick=file_get_contents(RUNTIME_PATH.'allclick.txt');
 		file_put_contents(RUNTIME_PATH.'allclick.txt',$allclick+1);
@@ -28,6 +29,13 @@ class IndexController extends Controller
 			$user=M('user')->getByUid($uid);
 			$this->assign('user',$user);
 		}
+		//取我的不程序
+        $myapp = M('app')->where("uid=$uid")->field('aid,title,status')->order('t desc')->select();
+		if(count($myapp) >0 ){
+            $this->assign('myapp',$myapp);
+        }
+
+
     }
 	public function logout(){
 		
@@ -54,13 +62,86 @@ class IndexController extends Controller
 		
 		 $this->display();
 	}
+	public function getPoint(){
+        //百度地图：根据ip定位城市坐标
+        $user_ip =  $_SERVER['REMOTE_ADDR'];
+        if($user_ip=='127.0.0.1' || !$user_ip){
+            $user_ip='124.202.184.186';
+        }//请求接口
+        $ret= httpGet("http://api.map.baidu.com/location/ip?ip=$user_ip&ak=i5FHCLVvOE9AiquzKFTUNP1MFufetFGw&coor=bd09ll");
+        //发布者当前城市
+        return json_decode($ret,true);
+    }
+	/*
+	 * 发布小程序表单页面
+	 *
+	 * zyg添加地图功能
+	 * */
 	public function apply(){
 		$uid=cookie('uid');
-		if(!$this->check_user_salt()) redirect( U('/user/index/nologin'));
-		
-		$cates=M('appcate')->where("pid='0'")->select();
+
+        if(!$this->check_user_salt()) redirect( U('/user/index/nologin'));
+        $point=$this->getPoint();
+        $this->assign('point',$point['content']['point']);
+
+        $cates=M('appcate')->where("pid='0'")->select();
 		$this->assign('cates',$cates);
+
 		 $this->display();
+	}
+
+	/*
+	 * 修改小程序表单页面
+	 *  $id:小程序id
+	 * zyg添加地图功能
+	 * */
+	public function applied(){
+	   $appid=I('get.id','','int');
+		$uid=cookie('uid');
+        //查询详情
+        $row_app = M('app')->where("uid=$uid and aid = $appid")->find();
+        if(!$row_app){
+            $this->redirect('index');
+        }
+        if($row_app['zuobiao']){
+            $arr = explode(',',$row_app['zuobiao']);
+            $row_app['zuobiaox']= $arr[0];
+            $row_app['zuobiaoy']= $arr[1];
+        }else{
+            $point=$this->getPoint()['content']['point'];
+            $row_app['zuobiaox']= $point['x'];
+            $row_app['zuobiaoy']= $point['y'];
+        }
+
+
+
+        $cates=M('appcate')->where("pid='0'")->select(); //一级分类
+        $cid= M('appcate')->where("id={$row_app['sid']}")->field('pid,name')->find(); //app二级分类
+        $row_app['cid_name']=$cid['name'];
+        if(!$row_app['pid']){
+
+            $row_app['pid']=$cid['pid'];
+            $pid= M('appcate')->where("id={$cid['pid']}")->field('name')->find(); //app一级分类
+            $row_app['pid_name']= $pid['name'];
+        }else{
+            $pid= M('appcate')->where("id={$row_app['pid']}")->field('name')->find(); //app一级分类
+            $row_app['pid_name']= $pid['name'];
+        }
+
+        $cates_child= M('appcate')->where("pid={$cid['pid']}")->select();
+        $this->assign('cates',$cates);
+        $this->assign('cates_child',$cates_child);
+        $this->assign('row_app',$row_app);
+        if($row_app['screen']){
+            $imgs =  explode('|',$row_app['screen']);
+            dump($row_app['screen']);
+            $this->assign('imgs',$imgs);
+        }
+
+
+//        dump($row_app);
+
+        $this->display();
 	}
 	public function nologin(){
 		$uid=cookie('uid');

@@ -325,7 +325,7 @@ function upload4() {
         }
     });
 
-    // 当有文件添加进来的时候
+    // 当有文件(小程序   截图)添加进来的时候
     uploader.on('fileQueued', function (file) {
         if (len < limit) {
             len++;
@@ -343,6 +343,7 @@ function upload4() {
                 '</span>'
                 );
         $("#filePicker4").before($li);
+
         uploader.upload();
     });
 
@@ -409,10 +410,15 @@ function upload4() {
     //删除图片
     $("#filelist4").on("click", ".delete", function () {
         // 移除队列中文件
+
         var file_id = $(this).parent().attr('id');
+        // console.log('del-',file_id);
         if (file_id != undefined) {
             var rm_file = uploader.getFile(file_id);
-            uploader.removeFile(rm_file);
+            if(rm_file!=undefined){
+                uploader.removeFile(rm_file);
+            }
+
         }
         len--;
         // 移除图片

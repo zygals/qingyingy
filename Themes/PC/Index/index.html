@@ -16,8 +16,25 @@
 		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reseting.css" />
 		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/common.css" />
 		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/lite.css" />
+
 		<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/layer/skin/default/layer.css">
 		<link href="https://cdn.bootcss.com/Swiper/4.0.6/css/swiper.min.css" rel="stylesheet">
+		<!--<style>
+			.nearby-slide .swiper-slide {
+				position: relative;
+			}
+			.swiper-slide .qrcode {
+				position: absolute;
+				left:5px;
+				top:-16px;
+				/*bottom: 48px;*/
+				display: none;
+			}
+			.swiper-slide .qrcode img{
+				width:85px;
+			}
+
+		</style>-->
 		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="__PUBLIC__/js/common.js" charset="utf-8"></script>
 
@@ -154,7 +171,8 @@
 			</div>
 
 			<!--附近的小程序-->
-		<!--<div class="nearby containers">
+<?php if(!empty($fujin)){?>
+		<div class="nearby containers">
 				<div class="title-common clear" style="padding-top: 24px;">
 					<h2 class="fl">
 						<label>
@@ -162,23 +180,30 @@
 						附近的小程序
 					</h2>
 				</div>
-			&lt;!&ndash;&lt;!&ndash;图片左右轮播&ndash;&gt;&ndash;&gt;
+			<!--&lt;!&ndash;图片左右轮播&ndash;&gt;-->
 				<div class="nearby-slide">
 					<div class="swiper-container">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide"><img src="/Public/images/app.jpg" alt="没有图片"><span class="shuoshuo">表情说说</span><span class="taste">体验轻应用</span></div>
-							<div class="swiper-slide"><img src="/Public/images/app.jpg" alt="没有图片"><span class="shuoshuo">表情说说</span><span class="taste">体验轻应用</span></div>
-							<div class="swiper-slide"><img src="/Public/images/app.jpg" alt="没有图片"><span class="shuoshuo">表情说说</span><span class="taste">体验轻应用</span></div>
-							<div class="swiper-slide"><img src="/Public/images/app.jpg" alt="没有图片"><span class="shuoshuo">表情说说</span><span class="taste">体验轻应用</span></div>
-							<div class="swiper-slide"><img src="/Public/images/app.jpg" alt="没有图片"><span class="shuoshuo">表情说说</span><span class="taste">体验轻应用</span></div>
-							<div class="swiper-slide"><img src="/Public/images/app.jpg" alt="没有图片"><span class="shuoshuo">表情说说</span><span class="taste">体验轻应用</span></div>
-							<div class="swiper-slide"><img src="/Public/images/app.jpg" alt="没有图片"><span class="shuoshuo">表情说说</span><span class="taste">体验轻应用</span></div>
+<?php foreach($fujin as $vo){?>
+							<div class="swiper-slide">
+								<a class="jx-list" href="{:U('/app/'.$vo[aid])}">
+									<img src="/Public/images/app.jpg" alt="没有图片">
+									<span class="shuoshuo">{$vo.title}</span>
+									<span class="taste">体验轻应用1</span>
+									<div class="qrcode">
+										<img src="{$vo.qrcode|default=$vo.open_qrcode}" />
+									</div>
+								</a>
+							</div>
+<?php }?>
 						</div>
 					</div>
 					<div class="left_btn"></div>
 					<div class="right_btn"></div>
 				</div>
-			</div>-->
+			</div>
+			<?php }?>
+
 
 			<div class="hot-rank containers">
 				<!--精选推荐-->
@@ -190,7 +215,6 @@
 							<a class="jx-list" href="{:U('/app/'.$vo[aid])}"><div class="ty-img-wrap"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片"></div><span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}" >扫一扫体验</span>
 								<div class="qrcode" style="display: none;">
 									<img src="{$vo.qrcode|default=$vo.open_qrcode}" />
-
 								</div>
 
 							</a>
@@ -234,16 +258,13 @@
 					</div>
 				</div>
 			</div>
-			<script>
-				//经过体验时出现二维码：
-                $('.hot-rank .taste').hover(function () {
-
+			<SCRIPT>
+                $('.taste').hover(function () {
                     $(this).parents('a').find('.qrcode').show();
                 },function () {
                     $(this).parents('a').find('.qrcode').hide();
-                });
-
-			</script>
+                })
+			</SCRIPT>
 			<!--广告位2：两张图-->
 			<div class="adwrap2 containers">
 				<?php $num=1;foreach($ads as $k=>$ad){?>
@@ -690,7 +711,7 @@
                     prevEl: '.left_btn',
 				},
 //                pagination : '.swiper-pagination',
-                loop:true,
+//                loop:true,
                 //autoplay:3000,
                 slidesPerView: 7	,
                 spaceBetween:30,

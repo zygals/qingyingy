@@ -32,8 +32,7 @@
 
 <!--<![endif]-->
 <!-- 页面header钩子，一般用于加载插件CSS文件和代码 -->
-
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AToSHkqDux5yahvMzgXLq97P422dk1ge">
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AToSHkqDux5yahvMzgXLq97P422dk1ge">
         //百度地图jsapi
     </script>
 </head>
@@ -70,49 +69,59 @@
         <include file="Public:left" />
 
         <div class="right-ucenter fr">
-            <div class="title-ucenter">发布小程序</div>
+            <div class="title-ucenter">修改小程序</div>
             <div class="releasebox">
                 <div class="release-content">
                     <div class="lite_name">
                         <h2>小程序 &nbsp;&nbsp;名称</h2>
                         <span>0/15</span>
-                        <input class="am-g" type="text" name="title" id="title" maxlength="15" placeholder="请输入小程序名称"/>
+                        <input class="am-g" type="text" name="title" value="{$row_app.title}" id="title" maxlength="15" placeholder="请输入小程序名称"/>
                     </div>
                     <div class="lite_name">
                         <h2>小程序 &nbsp;&nbsp;作者</h2>
                         <span>0/15</span>
-                        <input class="am-g" type="text" name="author" id="author" maxlength="15" placeholder="请输入小程序作者"/>
+                        <input class="am-g" type="text" name="author" id="author" maxlength="15" value="{$row_app.zuozhe}" placeholder="请输入小程序作者"/>
                     </div>
                     <div class="clear oneimg">
                         <h2>小程序 &nbsp;&nbsp;ICON / 二维码<span>建议尺寸：不小于 400×400px，并且为正方形</span></h2>
                         <div id="filelist1" class="files fl">
-                            <span id="filePicker1" class="file-btn">
-                                <img id="img1" onload="setImgWH(this)" src="__PUBLIC__/images/file1.png">
+
+                            <span id="filePicker1" class="file-btn webuploader-container">
+                                <div class="webuploader-pick">
+                                <img id="img1" onload="setImgWH(this)" src="{$row_app.thumbnail}" style="width: 100%; display: inline-block; height: 100%;">
+                            </div>
+
+                                <div id="rt_rt_1c3hgflll1luidi318vhmm51bim1" style="position: absolute; top: 0px; left: 0px; width: 120px; height: 120px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" accept="image/jpg,image/gif,image/png,image/jpeg"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div>
                             </span>
+
                             <p>上传ICON</p>
                         </div>
                         <div id="filelist2" class="files fl">
-                            <span id="filePicker2" class="file-btn">
-                                <img id="img2" onload="setImgWH(this)" src="__PUBLIC__/images/file1.png">
-                            </span>
+                            <span id="filePicker2" class="file-btn webuploader-container"><div class="webuploader-pick">
+                                <img id="img2" onload="setImgWH(this)" src="{$row_app.qrcode}" style="width: 100%; display: inline-block;">
+                            </div><div id="rt_rt_1c3hivm5j1pcm3b0vatobv6ne4" style="position: absolute; top: 0px; left: 0px; width: 120px; height: 120px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" accept="image/jpg,image/gif,image/png,image/jpeg"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div></span>
+
                             <p>上传小程序码</p>
                         </div>
                         <div id="filelist3" class="files fl">
-                            <span id="filePicker3" class="file-btn">
-                                <img id="img3" onload="setImgWH(this)" src="__PUBLIC__/images/file1.png">
-                            </span>
+                            <span id="filePicker3" class="file-btn webuploader-container"><div class="webuploader-pick">
+                                <img id="img3" onload="setImgWH(this)" src="{$row_app.open_qrcode}" style="width: 100%; display: inline-block;">
+                            </div>
+                                <div id="rt_rt_1c3hivm5mk0g1k5u1av8nev10c27" style="position: absolute; top: 0px; left: 0px; width: 120px; height: 120px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" accept="image/jpg,image/gif,image/png,image/jpeg"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div></span>
                             <p>上传公众号二维码</p>
                         </div>
                     </div>
                     <div class="lite_content">
                         <h2>小程序 &nbsp;&nbsp;介绍</h2>
                         <span>0/300</span>
-                        <textarea class="am-g" name="content" id="content" maxlength="300" placeholder="请输入小程序介绍"></textarea>
+                        <textarea class="am-g" name="content" id="content" maxlength="300" placeholder="请输入小程序介绍">{$row_app.description}</textarea>
                     </div>
                     <div class="sorts clear">
                         <h2 class="special">小程序 &nbsp;&nbsp;分类</h2>
                         <div class="selected rfirst fl pcat">
-                            <span class="text">选择主分类</span>
+
+                            <span class="text">{$row_app.pid_name}</span>
+
                             <span class="select_down"></span>
                             <ul class="select_pop p_select">
                                 <li class="select" data-id="">选择主分类</li>
@@ -122,34 +131,48 @@
 							</ul>
                         </div>
                         <div class="selected rsecond fl cat">
-                            <span class="text">选择子分类</span>
+
+                            <span class="text">{$row_app.cid_name}</span>
                             <span class="select_down"></span>
                             <ul class="select_pop c_select">
-
+                                <volist name="cates_child" id="vo">
+                                    <li data-id="" ></li>
+                                </volist>
                             </ul>
+
                         </div>
                     </div>
                     <div class="lite_name">
                         <h2 class="special2">小程序 &nbsp;&nbsp;标签<span>（选填）每个标签字数不超 6个字,多个用英文逗号隔开</span></h2>
-                        <input class="am-g" type="text" name="tags" id="tags" placeholder="请输入小程序标签"/>
+                        <input class="am-g" type="text" name="tags" id="tags" value="{$row_app.tags}" placeholder="请输入小程序标签"/>
                     </div>
                     <div class="upload2 clear">
                         <h2>小程序 &nbsp;&nbsp;截图<span>建议尺寸：750x1334px（最多不超过五张)</span></h2>
                         <div class="files4" id="filelist4">
-                            <span id="filePicker4" class="file-btn3">
-                                <img id="img4" onload="setImgWH(this)" src="__PUBLIC__/images/file2.png">
+<?php foreach($imgs as $key => $img) {?>
+                            <span id="WU_FILE_<?= $key;?>" class="file-img" data-img="{$img}">
+                                <label class="delete">删除</label>
+                                <img class="img4" onload="setImgWH(this)" alt="..." style="width: 100%;" src="{$img}">
                             </span>
+<?php }?>
+                            <span id="filePicker4" class="file-btn3 webuploader-container">
+                                <div class="webuploader-pick">
+                                    <img id="img4" onload="setImgWH(this)" src="/Public/images/file2.png" style="width: 100%;">
+                                 </div>
+                                <div id="rt_rt_1c3hjgadb401t4j1sr3u0m1h00a" style="position: absolute; top: 0px; left: 0px; width: 150px; height: 266px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" multiple="multiple" accept="image/jpg,image/gif,image/png,image/jpeg"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div>
+                            </span>
+
                         </div>
                     </div>
                     <div class="lite_name">
                         <h2 class="special">联系QQ<span>方便填写错误时，客服能与你联系哦</span></h2>
-                        <input class="am-g" type="text" name="qq" id="qq" maxlength="15" placeholder="请填写联系QQ"/>
+                        <input class="am-g" type="text" name="qq" id="qq" value="{$row_app.qq}" maxlength="15" placeholder="请填写联系QQ"/>
                     </div>
 
                     <div class="test clear">
                         <h2 class="">位置</h2>
-                        <input type="text" id="weizhi" name="weizhi" readonly value="" placeholder="请点击地图确认位置，用户将在附近的小程序发现你的作品" style="width:500px;"/>
-                        <input type="text" readonly  name="zuobiao" id="zuobiao"  value="" placeholder="" style="width:300px;" />
+                        <input type="text" id="weizhi" name="weizhi" value="{$row_app.weizhi}" readonly placeholder="请点击地图确认位置，用户将在附近的小程序发现你的作品" style="width:500px;"/>
+                        <input type="text" readonly name="zuobiao" id="zuobiao"  value="{$row_app.zuobiao}" placeholder="" style="width:300px;" />
                     </div>
                     <!--百度地图定位一下发布者位置-->
 
@@ -169,12 +192,12 @@
                         </div>
                     </div>
                     <div class="release-save">
-                        <input type="hidden" name="icon" id="icon" value="">
-                        <input type="hidden" name="qrcode" id="qrcode" value="">
-                        <input type="hidden" name="open_qrcode" id="open_qrcode" value="">
-                        <input type="hidden" name="pid" id="pid" value="">
-                        <input type="hidden" name="cid" id="cid" value="">
-                        <input type="hidden" name="attr_imgs" id="attr_imgs" value="">
+                        <input type="hidden" name="icon" id="icon" value="{$row_app.thumbnail}">
+                        <input type="hidden" name="qrcode" id="qrcode" value="{$row_app.qrcode}">
+                        <input type="hidden" name="open_qrcode" id="open_qrcode" value="{$row_app.open_qrcode}">
+                        <input type="hidden" name="pid" id="pid" value="{$row_app.pid}">
+                        <input type="hidden" name="cid" id="cid" value="{$row_app.sid}">
+                        <input type="hidden" name="attr_imgs" id="attr_imgs" value="{$row_app.screen}">
                         <div class="text-center">
                             <a id="save">保存并上传</a>
                             <a class="cancel" onclick="history.back();">取消</a>
@@ -187,9 +210,11 @@
     </div>
         <script type="text/javascript">
             var map = new BMap.Map("container_bmap");
-            var point = new BMap.Point('{$point.x}','{$point.y}');
-            map.centerAndZoom(point,15);
+            var point = new BMap.Point('{$row_app.zuobiaox}','{$row_app.zuobiaoy}');
+            map.centerAndZoom(point,16);
             map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+            var marker = new BMap.Marker(point);        // 创建标注
+            map.addOverlay(marker);                     // 将标注添加到地图中
             var local = new BMap.LocalSearch(map, {
                 renderOptions:{map: map}
             });
@@ -333,14 +358,14 @@
             $('#save').click(function () {
                 var params = get_params();
                  console.log(params)
-              //  return ;
-                $.post("{:U('/Home/Public/save')}", params, function (msg) {
+
+                $.post("{:U('/Home/Public/update')}", params, function (msg) {
                     if (msg.status == 2) {
                         showLogin();
                         return;
                     }
                     if (msg.status == 1) {
-                        layer.msg('发布成功，请等待管理员审核！');
+                        layer.msg('修改成功，请等待管理员审核！');
                         setTimeout(function () {
                             window.location.href = "{:U('/user/index/apply')}";
                         }, 1000);
@@ -360,14 +385,15 @@
                     content = $('#content').val(),
                     pid = $('#pid').val(),
                     cid = $('#cid').val(),
-
                     attr_imgs = $('#attr_imgs').val(),
                     tags = $('#tags').val(),
                     qq = $('#qq').val(),
                     verify = $('#verify').val(),
                     weizhi = $('#weizhi').val(),
-                    zuobiao = $('#zuobiao').val();
+                    zuobiao = $('#zuobiao').val(),
+                    aid='{$row_app.aid}';
             var params = {
+                aid:aid,
                 title: title,
                 author: author,
                 icon: icon,
@@ -401,4 +427,7 @@
  <!-- 用于加载js代码 -->
 
 </body>
+<script>
+    $('.child_zyg').show();
+</script>
 </html>
