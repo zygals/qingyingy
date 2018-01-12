@@ -25,16 +25,18 @@ class IndexController extends Controller
 		$this->assign('allclick',$allclick);
         //用户登录信息
 		$uid=cookie('uid');
+        $myapp = array();
 		if($this->check_user_salt()){
 			$user=M('user')->getByUid($uid);
 			$this->assign('user',$user);
+
+            //取我的小程序
+            $myapp = M('app')->where("uid=$uid")->field('aid,title,status')->order('id asc')->select();
+
 		}
-		//取我的小程序
-        $myapp = array();
-        $myapp = M('app')->where("uid=$uid")->field('aid,title,status')->order('id asc')->select();
-		if(count($myapp) >0 ){
+
             $this->assign('myapp',$myapp);
-        }
+
 
 
     }
