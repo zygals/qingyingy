@@ -29,8 +29,9 @@ class IndexController extends Controller
 			$user=M('user')->getByUid($uid);
 			$this->assign('user',$user);
 		}
-		//取我的不程序
-        $myapp = M('app')->where("uid=$uid")->field('aid,title,status')->order('t desc')->select();
+		//取我的小程序
+        $myapp=array();
+       // $myapp = M('app')->where("uid=$uid")->field('aid,title,status')->order('t desc')->select();
 		if(count($myapp) >0 ){
             $this->assign('myapp',$myapp);
         }
