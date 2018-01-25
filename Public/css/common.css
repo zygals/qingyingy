@@ -1764,11 +1764,11 @@ a:active{
 }
 .swiper-slide .qrcode {
     position: absolute;
-    left: 24px;
-    top: 29px;
-
+    left:5px;
+    top:-16px;
+    /*bottom: 48px;*/
     display: none;
 }
 .swiper-slide .qrcode img{
-    width:100px;
+    width:85px;
 }
