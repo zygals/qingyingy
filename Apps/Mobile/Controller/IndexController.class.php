@@ -44,6 +44,7 @@ class IndexController extends ComController
 		//友情链接
 		$flink=M('links')->cache('flink',600)->order('o asc')->select();
 		$this->assign('flink',$flink);
+//        echo 11122333;exit;
         $this->display();
     }
     

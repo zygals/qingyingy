@@ -18,7 +18,6 @@ class IndexController extends Controller
     }
 	public function _initialize()
     {
-
         C(setting());
 		$allclick=file_get_contents(RUNTIME_PATH.'allclick.txt');
 		file_put_contents(RUNTIME_PATH.'allclick.txt',$allclick+1);
@@ -31,7 +30,7 @@ class IndexController extends Controller
 			$this->assign('user',$user);
 
             //取我的小程序
-            $myapp = M('app')->where("uid=$uid")->field('aid,title,status')->order('id asc')->select();
+            $myapp = M('app')->where("uid=$uid")->field('aid,title,status')->order('aid asc')->select();
 
 		}
 
@@ -65,6 +64,9 @@ class IndexController extends Controller
 		
 		 $this->display();
 	}
+	/*
+	 *  百度地图：根据ip定位城市-zyg
+	 * */
 	public function getPoint(){
         //百度地图：根据ip定位城市坐标
         $user_ip =  $_SERVER['REMOTE_ADDR'];
@@ -116,8 +118,6 @@ class IndexController extends Controller
             $row_app['zuobiaoy']= $point['y'];
         }
 
-
-
         $cates=M('appcate')->where("pid='0'")->select(); //一级分类
         $cid= M('appcate')->where("id={$row_app['sid']}")->field('pid,name')->find(); //app二级分类
         $row_app['cid_name']=$cid['name'];
@@ -141,8 +141,6 @@ class IndexController extends Controller
             $this->assign('imgs',$imgs);
         }
 
-
-//        dump($row_app);
 
         $this->display();
 	}
@@ -216,6 +214,7 @@ class IndexController extends Controller
 			}
 		}
 	}
+
 	private function check_user_salt(){
 		$uid=cookie('uid');
 		if(!$uid) return false;

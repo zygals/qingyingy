@@ -8,7 +8,7 @@ if(file_exists("./Public/install") && !file_exists("./Public/install/install.loc
     die;
 }
 // 开启调试模式 建议开发阶段开启 部署阶段注释或者设为false
-define('APP_DEBUG',false); 
+define('APP_DEBUG',false);
 
 
 //不懂代码的 以下不要改动
