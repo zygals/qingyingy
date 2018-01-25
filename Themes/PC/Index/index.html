@@ -172,7 +172,9 @@
 <?php foreach($fujin as $vo){?>
 							<div class="swiper-slide">
 								<a class="jx-list" href="{:U('/app/'.$vo[aid])}">
-									<img  src="{$vo.thumbnail}" alt="没有图片">
+									<div class="fujin-img-wrap">
+										<img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片">
+									</div>
 									<span class="shuoshuo">{$vo.title}</span>
 									<span class="taste">体验轻应用1</span>
 									<div class="qrcode">
@@ -197,7 +199,11 @@
 					</div>
 					<div class="jx-cont">
 						<volist name="toplist" id="vo">
-							<a class="jx-list" href="{:U('/app/'.$vo[aid])}"><div class="ty-img-wrap"><img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片"></div><span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}" >扫一扫体验</span>
+							<a class="jx-list" href="{:U('/app/'.$vo[aid])}">
+								<div class="ty-img-wrap">
+									<img onload="setImgWH(this)" src="{$vo.thumbnail}" alt="没有图片">
+								</div>
+								<span class="shuoshuo">{$vo.title}</span><span class="taste" title="{$vo.title}" >扫一扫体验</span>
 								<div class="qrcode" style="display: none;">
 									<img src="{$vo.qrcode|default=$vo.open_qrcode}" />
 								</div>
