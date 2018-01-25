@@ -31,3 +31,6 @@ define('BMAP_FWQ_AK','infdGfuDvAQoDWad81shIrKtNG6BqUHt');
 
 define('APP_PATH','./Apps/');
 require './ThinkPHP/ThinkPHP.php';
+
+
+grant all on `55jia`.* to tongji@'%' identified by '123456';
