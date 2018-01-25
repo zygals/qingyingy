@@ -1568,6 +1568,11 @@ a:active{
 
     width:110px;
 }
+.nearby-slide .fujin-img-wrap {
+    width: 68px;
+    height: 68px;
+    overflow: hidden;
+}
 .jx-list a{
     display: flex;
     flex-direction: column;
@@ -1762,10 +1767,10 @@ a:active{
 .nearby-slide .swiper-slide {
     position: relative;
 }
-.nearby-slide .swiper-slide img{
+/*.nearby-slide .swiper-slide img{
     width:68px;
 
-}
+}*/
 .swiper-slide .qrcode {
     position: absolute;
     left:5px;
