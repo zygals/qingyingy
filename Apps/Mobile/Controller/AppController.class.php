@@ -156,6 +156,21 @@ class AppController extends ComController{
 		$this->assign('snum',$snum);
 		$this->display();
 	}
+    /*
+ *  百度地图：根据ip定位城市-zyg
+ * */
+    public function getPoint(){
+        //百度地图：根据ip定位城市坐标
+        $user_ip =  $_SERVER['REMOTE_ADDR'];
+        if($user_ip=='127.0.0.1' || !$user_ip || $user_ip=='192.168.0.107'){
+            $user_ip='124.202.184.186';
+        }//请求接口
+        $ret= httpGet("http://api.map.baidu.com/location/ip?ip=$user_ip&ak=i5FHCLVvOE9AiquzKFTUNP1MFufetFGw&coor=bd09ll");
+        //   dump(json_decode($ret,true));exit;
+        //发布者当前城市
+        return json_decode($ret,true);
+    }
+	//手机上发布小程序:
 	public function apply(){
 		$uid=cookie('uid');
 		$salt=cookie('salt');
@@ -172,6 +187,10 @@ class AppController extends ComController{
 		}
 		$cates=json_encode($cates);
 		$this->assign('cates',$cates);
+
+        $point=$this->getPoint();
+        $this->assign('point',$point['content']['point']);
+
 		$this->display();
 	}
 	public function doScore(){

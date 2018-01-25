@@ -123,7 +123,11 @@ class PublicController extends ComController
 			$ajax['info']='未登录';
 			$this->ajaxReturn($ajax);
 		}*/
+        $data['uid'] = $uid;
 		$data['title']=I('post.title','','strip_tags,trim');
+		$data['weizhi']=I('post.weizhi','','strip_tags,trim');
+		$data['zuobiao']=I('post.zuobiao','','strip_tags,trim');
+		$data['pid']=I('post.pid','','intval');
 		$data['sid']=I('post.cid','','intval');
 		$data['zuozhe']=I('post.author','','strip_tags,trim');
 		$data['thumbnail']=I('post.icon','','strip_tags,trim');
@@ -161,6 +165,12 @@ class PublicController extends ComController
 			$ajax['info']='请填写介绍';
 			$this->ajaxReturn($ajax);
 		}
+        if(!$data['pid']){
+            $ajax['status']=0;
+            $ajax['info']='请选择主分类';
+            $this->ajaxReturn($ajax);
+        }
+
 		if(!$data['sid']){
 			$ajax['status']=0;
 			$ajax['info']='请选择分类';
@@ -176,6 +186,16 @@ class PublicController extends ComController
 			$ajax['info']='请填写qq';
 			$this->ajaxReturn($ajax);
 		}
+        if (!$data['weizhi']) {
+            $ajax['status'] = 0;
+            $ajax['info'] = '请在地图选择位置';
+            $this->ajaxReturn($ajax);
+        }
+        if (!$data['zuobiao']) {
+            $ajax['status'] = 0;
+            $ajax['info'] = '请在地图选择位置';
+            $this->ajaxReturn($ajax);
+        }
 		$res=M('app')->data($data)->add();
 		if($res){
 			$ajax['status']=1;

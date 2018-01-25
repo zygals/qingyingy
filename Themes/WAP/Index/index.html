@@ -36,7 +36,7 @@
 				</span>
 			</div>
 		</a>
-		</if>	
+		</if>
 		<a href="javascript:;" class="btn right headDropMenu"></a>
 	</div>
 	<div class="m-container bottom top">
@@ -59,6 +59,21 @@
 			</div>
 			<div class="line-one b-bottom-e5"></div>
 
+			<div class="tag-title-open"><span>附近小程序</span><a href="{:U('/app')}" class="all">显示全部</a></div>
+			<div class="scroll-module classify-module">
+				<span></span>
+				<volist name="fujilist" id="vo">
+					<a href="{:U('/app/'.$vo[aid])}">
+						<span class="icon"><img src="{$vo.thumbnail}" alt="宝宝树胎教音乐"></span>
+						<p class="name">{$vo.title}</p>
+						<p class="tag"></p>
+					</a>
+				</volist>
+
+				<span></span>
+			</div>
+			<div class="line-one b-bottom-e5"></div>
+
 			<div class="tag-title-open"><span>精选推荐</span><a href="{:U('/app')}" class="all">显示全部</a></div>
 			<div class="scroll-module classify-module">
 				<span></span>
@@ -72,7 +87,7 @@
 
 				<span></span>
 			</div>
-			
+
 			<div class="line-one b-bottom-e5"></div>
             <div class="tag-title-open"><span>最新上线</span><a href="{:U('/app/')}" class="all" title="最新上线">显示全部</a></div>
 			<div class="scroll-module classify-module">
@@ -101,7 +116,7 @@
 			<volist name="appcates" id="vo">
 
 			<div class="tag-title-open"><span>{$vo.name}</span><a href="{:U('/app/'.$vo[dir])}" class="all" title="音乐">显示全部</a></div>
-			
+
 			<div class="scroll-module classify-module">
 			<if condition="$vo[app]">
 				<span></span>
@@ -114,12 +129,12 @@
 				<span></span>
 			</if>
 			</div>
-			
+
 			<div class="line-one b-bottom-e5"></div>
 			</volist>
-						
-			 
-						
+
+
+
 			<div class="foot index">
 				<p>
 				<if condition="CONTROLLER_NAME eq 'Index' and ACTION_NAME eq 'index'">
@@ -143,7 +158,7 @@
 			<a href="{:U('/search/')}" title="小程序搜索"><span class="d_search"></span><p>搜索</p></a>
 		</div>
 	</div>
-	<include file="Public:bottom_nav"/>	
+	<include file="Public:bottom_nav"/>
 	<script type="text/javascript" src="__PUBLIC__/m/js/touch-0.2.14.min.js"></script>
 	<script type="text/javascript" src="__PUBLIC__/m/js/clipboard.min.js?1.0.14"></script>
 	<script type="text/javascript" src="__PUBLIC__/m/js/common.min.js?1.0.24"></script>
@@ -167,7 +182,7 @@ $(function(){
 	    var bp = document.createElement('script');
 	    var curProtocol = window.location.protocol.split(':')[0];
 	    if (curProtocol === 'https') {
-	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
 	    }
 	    else {
 	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
@@ -175,6 +190,8 @@ $(function(){
 	    var s = document.getElementsByTagName("script")[0];
 	    s.parentNode.insertBefore(bp, s);
 	})();
+
+
 	</script>
 <p style="display:none">
 {$Think.CONFIG.footer}

@@ -1,1 +1,13 @@
 @charset "utf-8";*{margin:0;padding:0;-webkit-tap-highlight-color:rgba(0,0,0,0);tap-highlight-color:rgba(0,0,0,0);}a,button{cursor:pointer}html{font-size:62.5%}body{background:#fff;font-family:"微软雅黑",Arial;color:#505050}a{outline:0;color:inherit;text-decoration:none;}input,textarea{border:none;outline:0;resize:none;-webkit-appearance: none;}p{margin:0;word-wrap:break-word}h1,h2,h3,h4,h5{font-weight:400}li,ul{list-style:none}dd,dl,dt,li{margin:0}fieldset{border:none}em{font-style:normal}button,input[type=button],input[type=password],input[type=tel],input[type=text],select,textarea{outline:0;vertical-align:middle;appearance:none;resize:none}input[type=radio],input[type=radio]:focus{vertical-align:middle;height:16px!important;width:16px!important}input[type=checkbox]{vertical-align:middle;height:14px!important;width:14px!important}table{border-collapse:collapse;border-spacing:0}img{border:0;vertical-align:middle;display:inline-block}input:- webkit-autofill{-webkit-box-shadow:0 0 0 1000px #fff inset}.clear{zoom:1;clear:both}.clear:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;overflow:hidden}.fl{float:left}.fr{float:right}
+
+.chaxun input#addrname{
+    width:80%;
+
+}.chaxun input#chaxunbtn{
+     color:white;
+     background-color: #0a6ea7;
+     padding:7px 10px;
+     text-align: center;
+
+
+ }

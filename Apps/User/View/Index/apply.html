@@ -33,7 +33,7 @@
 <!--<![endif]-->
 <!-- 页面header钩子，一般用于加载插件CSS文件和代码 -->
 
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AToSHkqDux5yahvMzgXLq97P422dk1ge">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=<?= BMAP_AK?>">
         //百度地图jsapi
     </script>
 </head>
@@ -307,7 +307,7 @@
             upload1();
             upload2();
             upload3();
-            upload4();
+            upload4();//堆图
 
             //输入框字数赋值
             $("#title").keyup(function () {

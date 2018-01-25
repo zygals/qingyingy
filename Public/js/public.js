@@ -283,7 +283,7 @@ function upload3() {
         //$( '#'+file.id ).find('.progress').fadeOut();
     });
 }
-
+//堆图
 function upload4() {
     var len = $(".file-img").length;
     var limit = 5;

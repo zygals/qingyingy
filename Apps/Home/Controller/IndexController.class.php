@@ -77,13 +77,12 @@ class IndexController extends ComController
 		$this->assign('flink',$flink);
         //附近小程序
         $city = (new \User\Controller\IndexController)->getPoint()['content']['address_detail']['city']; //取user模块下的index控制器中的方法
-dump($city);exit;
         $fujin=array();  //所有附近的小程序限定最多20个吧
         if($city){
-            $fujin=M('app')->where("weizhi like '%$city%'")->limit(20)->field('aid,title,thumbnail,qrcode,open_qrcode,uid')->order('aid desc')->select();
+            $fujin=M('app')->cache('fujinpc',3600*24)->where("weizhi like '%$city%'")->limit(20)->field('aid,title,thumbnail,qrcode,open_qrcode,uid')->order('aid desc')->select();
         }
         $this->assign('fujin',$fujin);
-//dump($fujin);exit;
+
 
         $this->display();
     }

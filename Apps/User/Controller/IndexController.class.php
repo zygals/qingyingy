@@ -70,10 +70,11 @@ class IndexController extends Controller
 	public function getPoint(){
         //百度地图：根据ip定位城市坐标
         $user_ip =  $_SERVER['REMOTE_ADDR'];
-        if($user_ip=='127.0.0.1' || !$user_ip){
-            $user_ip='124.202.184.186';
+        if($user_ip=='127.0.0.1' || !$user_ip || $user_ip=='192.168.0.107'){
+            $user_ip='124.202.184.186'; //北京市昌平区腾讯众创空间
         }//请求接口
-        $ret= httpGet("http://api.map.baidu.com/location/ip?ip=$user_ip&ak=i5FHCLVvOE9AiquzKFTUNP1MFufetFGw&coor=bd09ll");
+        $ret= httpGet("http://api.map.baidu.com/location/ip?ip=$user_ip&ak=".BMAP_FWQ_AK."&coor=bd09ll");
+     //   dump(json_decode($ret,true));exit;
         //发布者当前城市
         return json_decode($ret,true);
     }
@@ -134,13 +135,15 @@ class IndexController extends Controller
         $cates_child= M('appcate')->where("pid={$cid['pid']}")->select();
         $this->assign('cates',$cates);
         $this->assign('cates_child',$cates_child);
-        $this->assign('row_app',$row_app);
+
         if($row_app['screen']){
             $imgs =  explode('|',$row_app['screen']);
-            dump($row_app['screen']);
-            $this->assign('imgs',$imgs);
-        }
+//            $imgs = implode(',',$imgs);
 
+            $this->assign('imgs',$imgs);
+            $row_app['screen'] =  implode(',',$imgs);
+        }
+        $this->assign('row_app',$row_app);
 
         $this->display();
 	}

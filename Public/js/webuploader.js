@@ -2996,7 +2996,7 @@
                 var me = this;
                 file = file.id ? file : me.queue.getFile( file );
 
-                 console.log(file);
+                
 
                 this.request( 'cancel-file', file );
 

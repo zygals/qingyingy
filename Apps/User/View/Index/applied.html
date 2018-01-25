@@ -32,7 +32,7 @@
 
 <!--<![endif]-->
 <!-- 页面header钩子，一般用于加载插件CSS文件和代码 -->
-        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AToSHkqDux5yahvMzgXLq97P422dk1ge">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=<?= BMAP_AK?>">
         //百度地图jsapi
     </script>
 </head>
@@ -69,7 +69,10 @@
         <include file="Public:left" />
 
         <div class="right-ucenter fr">
-            <div class="title-ucenter">修改小程序</div>
+            <div class="title-ucenter">
+                修改小程序
+                <!--<button type="button" class="delApp" id="delApp">删除</button>-->
+            </div>
             <div class="releasebox">
                 <div class="release-content">
                     <div class="lite_name">
@@ -147,17 +150,17 @@
                         <input class="am-g" type="text" name="tags" id="tags" value="{$row_app.tags}" placeholder="请输入小程序标签"/>
                     </div>
                     <div class="upload2 clear">
-                        <h2>小程序 &nbsp;&nbsp;截图<span>建议尺寸：750x1334px（最多不超过五张)</span></h2>
+                        <h2 title="截图修改请全部删除重新上传！">小程序 &nbsp;&nbsp;截图<span>建议尺寸：750x1334px（最多不超过五张)</span></h2>
                         <div class="files4" id="filelist4">
 <?php foreach($imgs as $key => $img) {?>
-                            <span id="WU_FILE_<?= $key;?>" class="file-img" data-img="{$img}">
-                                <label class="delete">删除</label>
-                                <img class="img4" onload="setImgWH(this)" alt="..." style="width: 100%;" src="{$img}">
+                            <span id="jietu_<?= $key;?>" class="file-img" data-img="{$img}">
+                                <label class="delete"  title="截图修改请全部删除重新上传！">删除</label>
+                                <img class="img4" title="截图修改请全部删除重新上传！" onload="setImgWH(this)" alt="..." style="width: 100%;" src="{$img}">
                             </span>
 <?php }?>
-                            <span id="filePicker4" class="file-btn3 webuploader-container">
+                            <span id="filePicker4" class="file-btn3 webuploader-container"  title="截图修改请全部删除重新上传！">
                                 <div class="webuploader-pick">
-                                    <img id="img4" onload="setImgWH(this)" src="/Public/images/file2.png" style="width: 100%;">
+                                    <img id="img4" onload="setImgWH(this)" src="/Public/images/file2.png"  style="width: 100%;">
                                  </div>
                                 <div id="rt_rt_1c3hjgadb401t4j1sr3u0m1h00a" style="position: absolute; top: 0px; left: 0px; width: 150px; height: 266px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" multiple="multiple" accept="image/jpg,image/gif,image/png,image/jpeg"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div>
                             </span>
@@ -226,11 +229,10 @@
             var geoc = new BMap.Geocoder();
             map.addEventListener("click", function(e){
                 var pt = e.point;
-                console.log(pt)
+
                 $('#zuobiao').val(pt.lng+','+pt.lat);
                 geoc.getLocation(pt, function(rs){
                     var addComp = rs.addressComponents;
-                   // alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
                     $('#weizhi').val(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber)
                 });
             });
@@ -367,8 +369,9 @@
                     if (msg.status == 1) {
                         layer.msg('修改成功，请等待管理员审核！');
                         setTimeout(function () {
-                            window.location.href = "{:U('/user/index/apply')}";
-                        }, 1000);
+                         //   window.location.href = "{:U('/user/index/apply')}";
+                            window.location.reload()
+                        }, 500);
                     } else {
                         layer.msg(msg.info);
                     }
@@ -412,6 +415,17 @@
 
             return params;
         }
+
+        //删除已加的所有图片
+        function delimg(){
+                //alert('haah')
+
+        }
+        //修改截图时删除：
+        $('#filelist4 .delete').click(function (event) {
+            delimg();
+            //event.stopPropagation();
+        });
 
         $(function () {
             var verifyimg = $(".verifyimg").attr("src");

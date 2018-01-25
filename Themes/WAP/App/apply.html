@@ -14,6 +14,10 @@
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/swiper.min.css">
 	<script type="text/javascript" src="__PUBLIC__/m/js/adaptive-version.js"></script>
 	<script type="text/javascript" src="__PUBLIC__/m/js/jquery.min.js"></script>
+
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AToSHkqDux5yahvMzgXLq97P422dk1ge">
+        //百度地图jsapi
+    </script>
 </head>
 <body>
 
@@ -118,10 +122,26 @@
 
                     <div class="release-tag" style="margin-top: .1rem;"><span>联系QQ</span></div>
                     <div class="text">
-                        <input type="text" name="qq" id="qq" placeholder="输入联系QQ">
+                        <input type="text" name="qq" maxlength="30" id="qq" placeholder="输入联系QQ">
                     </div>
                     
                     <p class="release-contact">联系QQ：{$Think.CONFIG.wap_qq}，加快审核进度，获得独家曝光机会</p>
+                    <div class="release-tag" style="margin-top: .1rem;"><span>位置</span></div>
+                    <div class="">
+                        <input type="text" id="weizhi" name="weizhi" readonly value="" placeholder="请点击地图确认位置，用户将在附近的小程序发现你的作品" style="width:500px;"/>
+                        <input type="text" readonly  name="zuobiao" id="zuobiao"  value="" placeholder="" style="width:300px;" />
+                    </div>
+
+                    <!--百度地图定位一下发布者位置-->
+
+                    <div class="chaxun" style="margin:20px 0 15px;">
+                        <input type="text" name="addrname" id="addrname"  value="" placeholder="还可输入地址模糊查询">
+                        <input type="button" id="chaxunbtn" onclick="searchMap()" value="查询">
+                    </div>
+                    <div id="container_bmap" style="height:280px;">
+                        <!--百度地图容器-->
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -136,6 +156,33 @@
         </div>
     </form>
 </div>
+<script type="text/javascript">//zyg 百度地图
+    var map = new BMap.Map("container_bmap");
+    var point = new BMap.Point('{$point.x}','{$point.y}');
+    map.centerAndZoom(point,15);
+    map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+    var local = new BMap.LocalSearch(map, {
+        renderOptions:{map: map}
+    });
+    //点击查询模糊位置
+    function searchMap() {
+        local.search($('#addrname').val());
+    }
+    //鼠标点击地图获取地址
+    var geoc = new BMap.Geocoder();
+    map.addEventListener("click", function(e){
+        var pt = e.point;
+
+        $('#zuobiao').val(pt.lng+','+pt.lat);
+        geoc.getLocation(pt, function(rs){
+            var addComp = rs.addressComponents;
+            // alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+            $('#weizhi').val(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber)
+        });
+    });
+
+
+</script>
 	<script type="text/javascript" src="__PUBLIC__/m/js/touch-0.2.14.min.js"></script>
 	<script type="text/javascript" src="__PUBLIC__/m/js/clipboard.min.js?1.0.14"></script>
 	<script type="text/javascript" src="__PUBLIC__/m/js/common.min.js?1.0.24"></script>
@@ -218,7 +265,9 @@
                 cid = $('#cid').val(),
                 attr_imgs = $('#attr_imgs').val(),
                 tags = $('#tags').val(),
-                qq = $('#qq').val()
+                qq = $('#qq').val(),
+            weizhi = $('#weizhi').val(),
+            zuobiao = $('#zuobiao').val();
         var params = {
             title: title,
             author: author,
@@ -230,7 +279,9 @@
             cid: cid,
             attr_imgs: attr_imgs,
             tags: tags,
-            qq: qq
+            qq: qq,
+            weizhi:weizhi,
+            zuobiao:zuobiao,
         };
 
         return params;

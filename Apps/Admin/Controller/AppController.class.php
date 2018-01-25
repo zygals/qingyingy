@@ -7,7 +7,9 @@ use Vendor\Tree;
 
 class AppController extends ComController
 {
-
+    /*
+     * 后台添加
+     * */
     public function add()
     {
 
@@ -16,6 +18,11 @@ class AppController extends ComController
         $str = "<option value=\$id \$selected>\$spacer\$name</option>"; //生成的形式
         $appcate = $tree->get_tree(0, $str, 0);
         $this->assign('appcate', $appcate);//导航
+        $this->assign('map_ak',BMAP_AK);//百度地图账号的 ak
+        //取地图位置
+        $point=(new \User\Controller\IndexController())->getPoint();
+        $this->assign('point',$point['content']['point']);
+
         $this->display('form');
     }
 
@@ -106,10 +113,21 @@ class AppController extends ComController
             $appcate = $tree->get_tree(0, $str, $app['sid']);
             $this->assign('appcate', $appcate);//导航
 
+
+            if($app['zuobiao']){
+                $arr = explode(',',$app['zuobiao']);
+                $app['zuobiaox']= $arr[0];
+                $app['zuobiaoy']= $arr[1];
+            }else{
+                $point=(new \User\Controller\IndexController())->getPoint()['content']['point'];
+                $app['zuobiaox']= $point['x'];
+                $app['zuobiaoy']= $point['y'];
+            }
             $this->assign('app', $app);
         } else {
             $this->error('参数错误！');
         }
+        $this->assign('map_ak',BMAP_AK);
         $this->display('form');
     }
 
@@ -123,6 +141,9 @@ class AppController extends ComController
 				$this->error('警告！顶级分类不能添加内容。');				
 			}
 		}
+
+        $data['uid'] = 0;  //后台管理员添加的
+         $data['pid'] =$cr['pid'];
         $data['title'] = isset($_POST['title']) ? $_POST['title'] : false;
         $data['tags'] = isset($_POST['tags']) ? $_POST['tags'] : '';
         $data['qrcode'] = isset($_POST['qrcode']) ? $_POST['qrcode'] : '';
@@ -136,9 +157,11 @@ class AppController extends ComController
         $data['status'] = isset($_POST['status']) ? $_POST['status'] : '';
         $data['yaoqiu'] = I('post.yaoqiu', '', 'strip_tags');
         $data['description'] = I('post.description', '', 'strip_tags');
-        //$data['content'] = isset($_POST['content']) ? $_POST['content'] : false;
         $data['thumbnail'] = I('post.thumbnail', '', 'strip_tags');
         $data['screen'] = I('post.screen', '', 'strip_tags');
+        $data['weizhi'] = I('post.weizhi', '', 'strip_tags');
+        $data['zuobiao'] = I('post.zuobiao', '', 'strip_tags');
+
         $data['t'] = time();
         if (!$data['sid'] or !$data['title']) {
             $this->error('警告！小程序分类、小程序标题为必填项目。');

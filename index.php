@@ -8,7 +8,7 @@ if(file_exists("./Public/install") && !file_exists("./Public/install/install.loc
     die;
 }
 // 开启调试模式 建议开发阶段开启 部署阶段注释或者设为false
-define('APP_DEBUG',false);
+define('APP_DEBUG',true);
 
 
 //不懂代码的 以下不要改动
@@ -23,6 +23,11 @@ if(is_array($other)){
 	define('ADMIN_DIR','admin'); 
 }
 
+
+//百度地图JS ak
+define('BMAP_AK', 'keGddAecUevnX67LB4gdY9VfCQGiMqIz');
+//百度地图php ak
+define('BMAP_FWQ_AK','infdGfuDvAQoDWad81shIrKtNG6BqUHt');
 
 define('APP_PATH','./Apps/');
 require './ThinkPHP/ThinkPHP.php';
