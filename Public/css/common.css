@@ -1762,6 +1762,10 @@ a:active{
 .nearby-slide .swiper-slide {
     position: relative;
 }
+.nearby-slide .swiper-slide img{
+    width:68px;
+    height:68px;
+}
 .swiper-slide .qrcode {
     position: absolute;
     left:5px;
