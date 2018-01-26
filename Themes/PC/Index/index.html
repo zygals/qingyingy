@@ -169,7 +169,7 @@
 				<div class="nearby-slide">
 					<div class="swiper-container">
 						<div class="swiper-wrapper">
-<?php foreach($fujin as $vo){?>
+							<volist name="fujin" id="vo">
 							<div class="swiper-slide">
 								<a class="jx-list" href="{:U('/app/'.$vo[aid])}">
 									<div class="fujin-img-wrap">
@@ -182,7 +182,7 @@
 									</div>
 								</a>
 							</div>
-<?php }?>
+							</volist>
 						</div>
 					</div>
 					<div class="left_btn"></div>
