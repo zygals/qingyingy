@@ -52,6 +52,7 @@ class IndexController extends ComController
         if($city){
                 $fujilist=M('app')->cache('fujinmobile',3600*24)->where("weizhi like '%$city%'  and status=1")->limit(20)->field('aid,title,thumbnail,qrcode,open_qrcode,uid')->order('aid desc')->select();
         }
+        echo 'fujin::->',count($fujilist);
         $this->assign('fujilist',$fujilist);
 
         $this->display();
