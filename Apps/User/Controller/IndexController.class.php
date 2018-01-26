@@ -73,9 +73,7 @@ class IndexController extends Controller
         if($user_ip=='127.0.0.1' || !$user_ip ){
             $user_ip='124.202.184.186'; //北京市昌平区腾讯众创空间
         }//请求接口
-        echo 'uip:->',$user_ip;
         $ret= httpGet("http://api.map.baidu.com/location/ip?ip=$user_ip&ak=".BMAP_FWQ_AK."&coor=bd09ll");
-     //   dump(json_decode($ret,true));exit;
         //发布者当前城市
         return json_decode($ret,true);
     }

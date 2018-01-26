@@ -48,12 +48,9 @@ class IndexController extends ComController
 		//附近的
         $city = (new \User\Controller\IndexController)->getPoint()['content']['address_detail']['city']; //取user模块下的index控制器中的方法
         $fujilist=array();  //所有附近的小程序限定最多20个吧
-        echo 'city::->',$city,'|';
         if($city){
                 $fujilist=M('app')->cache('fujinpc',3600*24)->where("weizhi like '%$city%'  and status=1")->limit(20)->field('aid,title,thumbnail,qrcode,open_qrcode,uid')->order('aid desc')->select();
-            echo 'fujin1::->',count($fujilist);
         }
-        echo 'fujin::->',count($fujilist);
         $this->assign('fujilist',$fujilist);
 
         $this->display();
