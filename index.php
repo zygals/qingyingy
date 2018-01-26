@@ -8,7 +8,7 @@ if(file_exists("./Public/install") && !file_exists("./Public/install/install.loc
     die;
 }
 // 开启调试模式 建议开发阶段开启 部署阶段注释或者设为false
-define('APP_DEBUG',true);
+define('APP_DEBUG',false);
 
 
 //不懂代码的 以下不要改动
@@ -32,5 +32,3 @@ define('BMAP_FWQ_AK','infdGfuDvAQoDWad81shIrKtNG6BqUHt');
 define('APP_PATH','./Apps/');
 require './ThinkPHP/ThinkPHP.php';
 
-
-grant all on `55jia`.* to tongji@'%' identified by '123456';

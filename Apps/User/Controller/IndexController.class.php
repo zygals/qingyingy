@@ -70,9 +70,10 @@ class IndexController extends Controller
 	public function getPoint(){
         //百度地图：根据ip定位城市坐标
         $user_ip =  $_SERVER['REMOTE_ADDR'];
-        if($user_ip=='127.0.0.1' || !$user_ip || $user_ip=='192.168.0.107'){
+        if($user_ip=='127.0.0.1' || !$user_ip ){
             $user_ip='124.202.184.186'; //北京市昌平区腾讯众创空间
         }//请求接口
+        echo 'uip:->',$user_ip;
         $ret= httpGet("http://api.map.baidu.com/location/ip?ip=$user_ip&ak=".BMAP_FWQ_AK."&coor=bd09ll");
      //   dump(json_decode($ret,true));exit;
         //发布者当前城市
